@@ -1,0 +1,3 @@
+João,Rua da,123456789,1500.00
+Maria,Avenida da,987654321,2000.50
+Luis,Praça,18851,0.0
