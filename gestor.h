@@ -4,9 +4,10 @@
 
 typedef struct gestor
 {
-char idGestor[SIZE];
+char userNameGestor[SIZE];
 char password[SIZE];
-struct registo* seguinte;
+struct Gestor* anterior;
+struct Gestor* seguinte;
 } Gestor;
 
 
@@ -15,6 +16,9 @@ Gestor* novoGestor(char nome[], char password[]);
 Gestor* inserirGestor(Gestor* gestores, char nome[], char password[]);
 Gestor* removerGestor(Gestor* gestores, char* idGestor);
 Gestor* alterarPasswordGestor(Gestor* gestores, char idGestor[], char novaPassword[]);
+bool importarGestores(Gestor** gestores, const char* fileName);
+bool guardarGestores(Gestor* gestores, const char* fileName);
+bool lerGestores(Gestor** gestores, const char* fileName);
 
 
 #endif

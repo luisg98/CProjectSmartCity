@@ -23,8 +23,11 @@ int main(){
     PtrCliente listaClientes = NULL;
     Meio * listaMeios = NULL;
     Aluguer * listaAlugueres = NULL;
+    Gestor * listaGestores = NULL;
 
 
+    listaGestores = importarGestores(listaGestores, "gestores.txt");
+    //INPUT
     listaClientes = lerClientes("clientes.bin");
 
     //listaClientes = importarClientes("clientes.txt");
