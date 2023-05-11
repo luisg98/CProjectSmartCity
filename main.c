@@ -36,7 +36,7 @@ int main(){
     listaGestores = guardarGestores("gestores.bin", listaGestores);
     */
 
-
+      
 
 
     return 0;
