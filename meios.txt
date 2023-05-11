@@ -1,0 +1,4 @@
+codigo,tipo,autonomia,localizacao
+1,bicicleta,50,Lisboa
+2,carro,200,Porto
+3,patinete,30,Lisboa

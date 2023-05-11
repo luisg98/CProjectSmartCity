@@ -24,7 +24,8 @@ int main(){
     Aluguer * listaAlugueres = NULL;
     Gestor * listaGestores = NULL;
     
-    /*INPUT*/
+    /*
+    //INPUT
     listaGestores = importarGestores("gestores.txt", listaGestores);
     listaClientes = lerClientes("clientes.bin");
     listaGestores = lerGestores("gestores.bin", listaGestores);
@@ -33,6 +34,10 @@ int main(){
     system("pause");
     bool v = guardarClientes(listaClientes, "clientes.bin");
     listaGestores = guardarGestores("gestores.bin", listaGestores);
+    */
+
+
+
 
     return 0;
     
