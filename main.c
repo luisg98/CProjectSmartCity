@@ -16,7 +16,6 @@
 #include "aluguer.h"
 
 
-
 int main(){
 
 
@@ -25,16 +24,12 @@ int main(){
     Aluguer * listaAlugueres = NULL;
     Gestor * listaGestores = NULL;
 
+    listaGestores = importarGestores("gestores.txt", listaGestores);
 
-    listaGestores = importarGestores(listaGestores, "gestores.txt");
-    //INPUT
-    listaClientes = lerClientes("clientes.bin");
-
-    //listaClientes = importarClientes("clientes.txt");
-
-    listarClientes(listaClientes);
-    
-    bool v = guardarClientes(listaClientes, "clientes.bin");
+    Gestor * gestor = novoGestor("luis", "123");
+    listaGestores = inserirGestor(listaGestores, gestor);
+    imprimirGestores(listaGestores);
+    system("pause");
 
     return 0;
     

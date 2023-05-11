@@ -19,7 +19,6 @@
 */
 
 
-//Cria uma nova estrutura do tipo CLIENTE e devolve o ponteiro para o cliente criado
 PtrCliente novoCliente(char nome[], char morada[], unsigned int nif, double saldo)
 {
     PtrCliente novoCliente = malloc(sizeof(Cliente)); //alocação da memoria

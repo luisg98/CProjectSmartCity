@@ -2,9 +2,9 @@
 #define GESTOR_H
 #define SIZE 50
 
-typedef struct gestor
+typedef struct Gestor
 {
-char userNameGestor[SIZE];
+char username[SIZE];
 char password[SIZE];
 struct Gestor* anterior;
 struct Gestor* seguinte;
@@ -12,13 +12,13 @@ struct Gestor* seguinte;
 
 
 //FUNÇÕES
-Gestor* novoGestor(char nome[], char password[]);
-Gestor* inserirGestor(Gestor* gestores, char nome[], char password[]);
+Gestor* novoGestor(char username[], char password[]);
+Gestor* inserirGestor(Gestor* inicioListaGestores, Gestor* gestor);
 Gestor* removerGestor(Gestor* gestores, char* idGestor);
 Gestor* alterarPasswordGestor(Gestor* gestores, char idGestor[], char novaPassword[]);
-bool importarGestores(Gestor** gestores, const char* fileName);
-bool guardarGestores(Gestor* gestores, const char* fileName);
-bool lerGestores(Gestor** gestores, const char* fileName);
-
+Gestor* importarGestores(const char* fileName, Gestor* listaGestores);
+Gestor* guardarGestores(const char* fileName, Gestor* inicioListaGestores);
+Gestor* lerGestores(const char* fileName, Gestor* listaGestores);
+void imprimirGestores(Gestor* listaGestores);
 
 #endif
