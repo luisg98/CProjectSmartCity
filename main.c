@@ -23,13 +23,16 @@ int main(){
     Meio * listaMeios = NULL;
     Aluguer * listaAlugueres = NULL;
     Gestor * listaGestores = NULL;
-
-    listaGestores = importarGestores("gestores.txt", listaGestores);
-
-    Gestor * gestor = novoGestor("luis", "123");
-    listaGestores = inserirGestor(listaGestores, gestor);
+    
+    /*INPUT*/
+    //listaGestores = importarGestores("gestores.txt", listaGestores);
+    listaClientes = lerClientes("clientes.bin");
+    listaGestores = lerGestores("gestores.bin", listaGestores);
     imprimirGestores(listaGestores);
+    listarClientes(listaClientes);
     system("pause");
+    bool v = guardarClientes(listaClientes, "clientes.bin");
+    listaGestores = guardarGestores("gestores.bin", listaGestores);
 
     return 0;
     
