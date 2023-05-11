@@ -47,7 +47,10 @@ Gestor* inserirGestor(Gestor* inicioListaGestores, Gestor* gestor) {
     if (atual == NULL) { // Verifica se a lista está vazia
         inicioListaGestores = gestor; // Se estiver vazia, define o novo gestor como início da lista
     } else {
-        while (atual -> seguinte != NULL) { // Percorre a lista até o final
+         if (strcmp(atual->username, gestor->username) == 0) { // Verifica se o username já existe
+            return inicioListaGestores; // Devolve o endereço da cabeça da lista sem inserir o gestor
+        }
+        while (atual -> seguinte != NULL) { // Percorre a lista até ao fim
             atual = atual -> seguinte;
         }
         atual -> seguinte = gestor; // Define o próximo gestor como o novo gestor inserido

@@ -25,7 +25,7 @@ int main(){
     Gestor * listaGestores = NULL;
     
     /*INPUT*/
-    //listaGestores = importarGestores("gestores.txt", listaGestores);
+    listaGestores = importarGestores("gestores.txt", listaGestores);
     listaClientes = lerClientes("clientes.bin");
     listaGestores = lerGestores("gestores.bin", listaGestores);
     imprimirGestores(listaGestores);

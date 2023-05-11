@@ -1,3 +1,14 @@
+/**
+ * @file cliente.c
+ * @author lugon (a18851@alunos.ipca.pt)
+ * @brief Ficheiro responsável por tratar os dados relativos aos clientes
+ * @version 0.1
+ * @date 2023-05-11
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -7,18 +18,15 @@
 #include "gestor.h"
 #include "aluguer.h"
 
-/*
-    Author: Luís Gonçalves
-    Ficheiro .c e respetivo .h responsável por implementar o cliente que utilizará o sistema
-    Com este código será possível:
-    - criar, eliminar e alterar dados sobre os clientes
-    - importar dados de um ficheiro .txt
-    - guardar e ler dados num ficheiro binário
-    - alocar e libertar memória necessária para o programa
-
-*/
-
-
+/**
+ * @brief Função responsável por criar um novo cliente
+ * 
+ * @param nome 
+ * @param morada 
+ * @param nif 
+ * @param saldo 
+ * @return PtrCliente 
+ */
 PtrCliente novoCliente(char nome[], char morada[], unsigned int nif, double saldo)
 {
     PtrCliente novoCliente = malloc(sizeof(Cliente)); //alocação da memoria
@@ -30,25 +38,6 @@ PtrCliente novoCliente(char nome[], char morada[], unsigned int nif, double sald
     return novoCliente;
 }
 
-/*
-//Insere no fim de uma lista ligada simples uma nova estrutura que se encarregará de criar com outra função
-PtrCliente insereCliente(PtrCliente clientes, char nome[], char morada[], unsigned int nif, double saldo)
-{
-    PtrCliente novocliente = novoCliente(nome, morada, nif, saldo); // cria o novo cliente
-
-    if (clientes == NULL) // Se a lista estiver vazia, o novo cliente será o primeiro elemento da lista
-    { 
-        return novocliente;
-    }
-    else { // Caso contrário, adiciona o novo cliente ao fim da lista
-        Cliente *aux = clientes;
-        while (aux-> next != NULL) {
-            aux = aux-> next;
-        }
-        aux-> next = novocliente;
-        return clientes; // devolve a lista atualizada
-    }   
-}*/
 
 //Insere no início de uma lista ligada simples uma nova estrutura que se encarregará de criar com outra função
 PtrCliente insereCliente(PtrCliente clientes, char nome[], char morada[], unsigned int nif, double saldo)
