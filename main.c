@@ -24,9 +24,14 @@ int main(){
     Aluguer * listaAlugueres = NULL;
     Gestor * listaGestores = NULL;
     
+<<<<<<< HEAD
     /*
     //INPUT
     listaGestores = importarGestores("gestores.txt", listaGestores);
+=======
+    /*INPUT*/
+    //listaGestores = importarGestores("gestores.txt", listaGestores);
+>>>>>>> parent of 4de73ff (adicionada condição para n existirem gestores com o mm nome)
     listaClientes = lerClientes("clientes.bin");
     listaGestores = lerGestores("gestores.bin", listaGestores);
     imprimirGestores(listaGestores);
