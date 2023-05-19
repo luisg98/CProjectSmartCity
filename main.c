@@ -20,7 +20,7 @@ int main(){
 
 
     PtrCliente listaClientes = NULL;
-    Meio * listaMeios = NULL;
+    Grafo grafoMeios;
     Aluguer * listaAlugueres = NULL;
     Gestor * listaGestores = NULL;
     
@@ -35,9 +35,16 @@ int main(){
     bool v = guardarClientes(listaClientes, "clientes.bin");
     listaGestores = guardarGestores("gestores.bin", listaGestores);
     */
-
+   Meio* meio = novoMeio(1, "Carro", 100.0, "Rua Principal");
+   printf("cheguei aqui");
+   inserirMeio(&grafoMeios, meio, 5);
+   meio = novoMeio(2, "Trotinete", 100.0, "Rua do");
+   inserirMeio(&grafoMeios, meio, 10);
+   imprimirMeios(&grafoMeios);
+   printf("uhhhhh");
+   system("pause");
       
-
+   
 
     return 0;
     

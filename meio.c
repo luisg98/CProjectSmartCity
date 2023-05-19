@@ -26,23 +26,22 @@ Meio* novoMeio(int codigo, char tipo[], float autonomia, char localizacao[]) {
     return novo;
 }
 
-void inserirMeio(Grafo* grafo, Meio* meio) {
-    if (grafo->num_vertices == 0) { // Se o grafo estiver vazio, adiciona o meio como primeiro vértice
+void inserirMeio(Grafo* grafo, Meio* meio, float distancia) {
+    if (grafo->numVertices == 0) { // Se o grafo estiver vazio, adiciona o meio como primeiro vértice
         grafo->vertices = (Meio**) malloc(sizeof(Meio*)); // Aloca memória para o primeiro vértice
         grafo->vertices[0] = meio;
-        grafo->num_vertices++;
+        grafo->numVertices++;
         return;
     }
 
     // Adiciona o meio como um novo vértice
-    grafo->vertices = (Meio**) realloc(grafo->vertices, (grafo->num_vertices + 1) * sizeof(Meio*)); // Realoca memória para adicionar um novo vértice
-    grafo->vertices[grafo->num_vertices] = meio;
-    grafo->num_vertices++;
+    grafo->vertices = (Meio**) realloc(grafo->vertices, (grafo->numVertices + 1) * sizeof(Meio*)); // Realoca memória para adicionar um novo vértice
+    grafo->vertices[grafo->numVertices] = meio;
+    grafo->numVertices++;
 
     // Cria ligações entre o novo meio e os meios já existentes no grafo
-    for (int i = 0; i < grafo->num_vertices - 1; i++) {
+    for (int i = 0; i < grafo->numVertices - 1; i++) {
         Meio* vertice_atual = grafo->vertices[i];
-        float distancia = calcularDistancia(meio, vertice_atual); // Função para calcular a distância entre dois meios
         inserirLigacao(meio, vertice_atual, distancia);
         inserirLigacao(vertice_atual, meio, distancia);
     }
@@ -50,12 +49,13 @@ void inserirMeio(Grafo* grafo, Meio* meio) {
 
 // Remove um meio do grafo
 void removerMeio(Grafo* grafo, Meio* meio) {
+    
     int i;
     Ligacao* ligacao;
     Meio* vertice;
 
     // Encontra o vértice correspondente ao meio
-    for (i = 0; i < grafo->num_vertices; i++) {
+    for (i = 0; i < grafo->numVertices; i++) {
         vertice = grafo->vertices[i];
         if (vertice == meio) {
             break;
@@ -85,12 +85,12 @@ void removerMeio(Grafo* grafo, Meio* meio) {
     }
 
     // Remove o meio da lista de vértices do grafo
-    for (i = 0; i < grafo->num_vertices; i++) {
+    for (i = 0; i < grafo->numVertices; i++) {
         if (grafo->vertices[i] == meio) {
             Meio* temp = grafo->vertices[i];
-            grafo->vertices[i] = grafo->vertices[grafo->num_vertices - 1];
-            grafo->vertices[grafo->num_vertices - 1] = temp;
-            grafo->num_vertices--;
+            grafo->vertices[i] = grafo->vertices[grafo->numVertices - 1];
+            grafo->vertices[grafo->numVertices - 1] = temp;
+            grafo->numVertices--;
             free(meio);
             break;
         }
@@ -98,12 +98,12 @@ void removerMeio(Grafo* grafo, Meio* meio) {
 }
 
 void imprimirMeios(Grafo* grafo) {
-    if (grafo == NULL || grafo->num_vertices == 0) {
+    if (grafo == NULL || grafo->numVertices == 0) {
         printf("Grafo vazio.\n");
         return;
     }
 
-    for (int i = 0; i < grafo->num_vertices; i++) {
+    for (int i = 0; i < grafo->numVertices; i++) {
         Meio* meioAtual = grafo->vertices[i];
         printf("Código: %d\n", meioAtual->codigo);
         printf("Tipo: %s\n", meioAtual->tipo);
@@ -121,27 +121,48 @@ void imprimirMeios(Grafo* grafo) {
     }
 }
 
-void importarMeios(Grafo* grafo, char* filename) {
+bool importarMeios(Grafo* grafo, char* filename) {
     FILE* file = fopen(filename, "r"); // abre o arquivo para leitura
     if (file == NULL) {
-        return -1;
+        return false;
     }
 
     char linha[100];
     while (fgets(linha, 100, file)) { // lê cada linha do arquivo
-        char* codigo_str = strtok(linha, ",");
+        char* codigoStr = strtok(linha, ",");
         char* tipo = strtok(NULL, ",");
-        char* autonomia_str = strtok(NULL, ",");
+        char* autonomiaStr = strtok(NULL, ",");
         char* localizacao = strtok(NULL, "\n");
 
-        int codigo = atoi(codigo_str);
-        float autonomia = atof(autonomia_str);
+        int codigo = atoi(codigoStr);
+        float autonomia = atof(autonomiaStr);
+        float distancia;
 
         // cria um novo meio e o insere no grafo
         Meio* novo = novoMeio(codigo, tipo, autonomia, localizacao);
-        inserirMeio(grafo, novo);
+        inserirMeio(grafo, novo, distancia);
+        return true;
     }
 
     fclose(file); // fecha o arquivo
 }
 
+void inserirLigacao(Meio* meio1, Meio* meio2, float distancia) {
+    Ligacao* ligacao = (Ligacao*) malloc(sizeof(Ligacao)); // Aloca memória para a nova ligação
+    ligacao->destino = meio2;
+    ligacao->distancia = distancia;
+    ligacao->proximo = NULL;
+
+    // Verifica se o meio1 já possui ligações
+    if (meio1->ligacoes == NULL) {
+        meio1->ligacoes = ligacao;
+    } else {
+        // Encontra o último elemento da lista de ligações
+        Ligacao* ultimo = meio1->ligacoes;
+        while (ultimo->proximo != NULL) {
+            ultimo = ultimo->proximo;
+        }
+
+        ultimo->proximo = ligacao;
+    }
+}

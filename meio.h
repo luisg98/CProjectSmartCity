@@ -21,14 +21,15 @@ typedef struct Ligacao {
 
 typedef struct Grafo {
     Meio** vertices;
-    int num_vertices;
+    int numVertices;
 } Grafo;
 
 
 Meio* novoMeio(int codigo, char tipo[], float autonomia, char localizacao[]);
-void inserirMeio(Grafo* grafo, Meio* meio);
+void inserirMeio(Grafo* grafo, Meio* meio, float distancia);
 void removerMeio(Grafo* grafo, Meio* meio);
+bool importarMeios(Grafo* grafo, char* filename);
+void inserirLigacao(Meio* meio1, Meio* meio2, float distancia);
 void imprimirMeios(Grafo* grafo);
-void importarMeios(Grafo* grafo, char* filename);
 
 #endif
