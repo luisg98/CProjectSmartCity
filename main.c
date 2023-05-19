@@ -14,6 +14,7 @@
 #include "Meios/meio.h"
 #include "Gestores/gestor.h"
 #include "Alugueres/aluguer.h"
+#include "pontos.h"
 
 
 int main(){
@@ -24,14 +25,19 @@ int main(){
     Meio* listaMeios = carregarMeios("Meios/meios.bin");
     PtrCliente listaClientes = carregarClientes("Clientes/clientes.bin");
     Gestor* listaGestores = carregarGestores("gestores.bin");
+    Grafo* grafo = importarGrafo("pontos.txt");
 
     imprimirMeios(listaMeios);
     imprimirClientes(listaClientes);
     imprimirGestores(listaGestores);
-   
+    imprimirGrafo(grafo);
+    imprimirMatrizAdjacencias(grafo);
+
+
     bool v = guardarMeios("Meios/meios.bin", listaMeios);
     v = guardarClientes("Clientes/clientes.bin", listaClientes);
     v = guardarGestores("Gestores/gestores.bin", listaGestores);
+
     return 0;
     
 }

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-
+#define SIZE 50
 #include "pontos.h"
 
 // Função para criar um novo ponto de recolha
@@ -34,7 +34,7 @@ void adicionarPontoRecolha(Grafo* grafo, char geocodigo[]) {
 }
 
 // Função para criar uma nova aresta
-Aresta* criarAresta(PontoRecolha* inicio, PontoRecolha* fim, double distancia) {
+Aresta* criarAresta(PontoRecolha* inicio, PontoRecolha* fim, int distancia) {
     Aresta* novaAresta = (Aresta*)malloc(sizeof(Aresta));
     novaAresta->origem = inicio;
     novaAresta->destino = fim;
@@ -44,23 +44,26 @@ Aresta* criarAresta(PontoRecolha* inicio, PontoRecolha* fim, double distancia) {
 }
 
 // Função para adicionar uma aresta ao grafo
-void adicionarAresta(Grafo* grafo, PontoRecolha* inicio, PontoRecolha* fim, double distancia) {
+void adicionarAresta(Grafo* grafo, PontoRecolha* inicio, PontoRecolha* fim, int distancia) {
     Aresta* novaAresta = criarAresta(inicio, fim, distancia);
 
-    // Adiciona a nova aresta ao final da lista de adjacência do ponto de recolha de partida
-    Aresta* arestaAtual = inicio->adjacencia;
-    if (arestaAtual == NULL) {
+    // Verifica se a lista de adjacência do ponto de recolha de partida está vazia
+    if (inicio->adjacencia == NULL) {
         inicio->adjacencia = novaAresta;
     } else {
+        // Percorre a lista de adjacência até encontrar o último elemento
+        Aresta* arestaAtual = inicio->adjacencia;
         while (arestaAtual->proximo != NULL) {
             arestaAtual = arestaAtual->proximo;
         }
+        // Adiciona a nova aresta ao final da lista de adjacência
         arestaAtual->proximo = novaAresta;
     }
 }
 
+
 // Função para liberar a memória alocada para o grafo
-void freeGrafo(Grafo* grafo) {
+bool freeGrafo(Grafo* grafo) {
     PontoRecolha* pontoAtual = grafo->pontosRecolha;
     while (pontoAtual != NULL) {
         PontoRecolha* pontoTemp = pontoAtual;
@@ -74,25 +77,158 @@ void freeGrafo(Grafo* grafo) {
         free(pontoTemp);
     }
     free(grafo);
+    return true;
 }
 
-/*
-int main() {
-    // Criação do grafo
+Grafo* criarGrafo() {
     Grafo* grafo = (Grafo*)malloc(sizeof(Grafo));
+    if (grafo == NULL) {
+        return NULL;
+    }
+    
     grafo->pontosRecolha = NULL;
     grafo->numPontosRecolha = 0;
+    
+    return grafo;
+}
+Grafo* importarGrafo(const char* filename) {
+    FILE* file = fopen(filename, "r");
+    if (file == NULL) {
+        return NULL;
+    }
+    
+    Grafo* grafo = criarGrafo();
+    
+    char linha[SIZE];
+    while (fgets(linha, sizeof(linha), file)) {
+        // Remover o caractere de quebra de linha ('\n')
+        linha[strcspn(linha, "\n")] = '\0';
 
-    // Adiciona pontos de recolha de exemplo ao grafo
-    adicionarPontoRecolha(grafo, "pointA");
-    adicionarPontoRecolha(grafo, "pointB");
-    adicionarPontoRecolha(grafo, "pointC");
+        char* token = strtok(linha, ",");
+        
+        if (strcmp(token, "P") == 0) {
+            token = strtok(NULL, ",");
+            adicionarPontoRecolha(grafo, token);
+        } else if (strcmp(token, "A") == 0) {
+            token = strtok(NULL, ",");
+            PontoRecolha* origem = NULL;
+            PontoRecolha* destino = NULL;
+            int distancia;
+            
+            // Procura o ponto de recolha de origem
+            PontoRecolha* atual = grafo->pontosRecolha;
+            while (atual != NULL) {
+                if (strcmp(atual->geocodigo, token) == 0) {
+                    origem = atual;
+                    break;
+                }
+                atual = atual->proximo;
+            }
+            
+            token = strtok(NULL, ",");
+            
+            // Procura o ponto de recolha de destino
+            atual = grafo->pontosRecolha;
+            while (atual != NULL) {
+                if (strcmp(atual->geocodigo, token) == 0) {
+                    destino = atual;
+                    break;
+                }
+                atual = atual->proximo;
+            }
+            
+            token = strtok(NULL, ",");
+            distancia = atoi(token);
+            
+            if (origem != NULL && destino != NULL) {
+                adicionarAresta(grafo, origem, destino, distancia);
+            }
+        }
+    }
+    
+    fclose(file);
+    
+    return grafo;
+}
 
-    // Adiciona arestas de exemplo ao grafo
-    PontoRecolha* pontoRecolha1 = grafo->pontosRecolha;
-    PontoRecolha* pontoRecolha2 = pontoRecolha1->proximo;
-    PontoRecolha* pontoRecolha3 = pontoRecolha2->proximo;
-    adicionarAresta(grafo, pontoRecolha1, pontoRecolha2, 10.0);
-    adicionarAresta(grafo, pontoRecolha1, pontoRecolha3, 15.0);
 
-    */
+
+void imprimirGrafo(Grafo* grafo) {
+    PontoRecolha* pontoAtual = grafo->pontosRecolha;
+
+    printf("Grafo:\n");
+    printf("------\n");
+
+    while (pontoAtual != NULL) {
+        printf("Ponto de Recolha: %s\n", pontoAtual->geocodigo);
+
+        Aresta* arestaAtual = pontoAtual->adjacencia;
+        if (arestaAtual != NULL) {
+            printf("Adjacências:\n");
+
+            while (arestaAtual != NULL) {
+                printf("%s --(%d km)--> %s\n", pontoAtual->geocodigo, arestaAtual->distancia, arestaAtual->destino->geocodigo);
+                arestaAtual = arestaAtual->proximo;
+            }
+        } else {
+            printf("Sem adjacências\n");
+        }
+
+        printf("\n");
+        pontoAtual = pontoAtual->proximo;
+    }
+}
+
+void imprimirMatrizAdjacencias(Grafo* grafo) {
+    PontoRecolha* pontoAtual = grafo->pontosRecolha;
+
+    printf("Matriz de Adjacências:\n");
+    printf("---------------------------------------------------------------------------------\n\n");
+
+    // Imprimir rótulos das colunas
+    printf("%-12s", ""); // Espaço vazio para alinhar os rótulos das colunas
+
+    while (pontoAtual != NULL) {
+        printf("%-12s", pontoAtual->geocodigo);
+        pontoAtual = pontoAtual->proximo;
+    }
+
+    printf("\n");
+    pontoAtual = grafo->pontosRecolha;
+
+    // Imprimir restante da matriz
+    while (pontoAtual != NULL) {
+        printf("%-12s", pontoAtual->geocodigo);
+
+        PontoRecolha* pontoTemp = grafo->pontosRecolha;
+
+        while (pontoTemp != NULL) {
+            int distancia = 0;
+            Aresta* arestaAtual = pontoAtual->adjacencia;
+
+            while (arestaAtual != NULL) {
+                if (arestaAtual->destino == pontoTemp) {
+                    distancia = arestaAtual->distancia;
+                    break;
+                }
+                arestaAtual = arestaAtual->proximo;
+            }
+
+            if (pontoTemp == pontoAtual) {
+                printf("%-12s", " ");
+            } else {
+                if (distancia > 0) {
+                    printf("%-12d", distancia);
+                } else {
+                    printf("%-12s", " - ");
+                }
+            }
+
+            pontoTemp = pontoTemp->proximo;
+        }
+
+        printf("\n");
+        pontoAtual = pontoAtual->proximo;
+    }
+        printf("\n---------------------------------------------------------------------------------");
+}

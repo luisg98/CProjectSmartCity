@@ -19,7 +19,7 @@ typedef struct PontoRecolha {
 typedef struct Aresta {
     struct PontoRecolha* origem;    // Ponteiro para o ponto de recolha de partida da aresta
     struct PontoRecolha* destino;   // Ponteiro para o ponto de recolha de destino da aresta
-    double distancia;               // Distância entre os pontos de recolha de partida e destino
+    int distancia;               // Distância entre os pontos de recolha de partida e destino
     struct Aresta* proximo;         // Ponteiro para a próxima aresta na lista de adjacência
 } Aresta;
 
@@ -31,9 +31,14 @@ typedef struct Grafo {
 
 PontoRecolha* criarPontoRecolha(char geocodigo[]);
 void adicionarPontoRecolha(Grafo* grafo, char geocodigo[]);
-Aresta* criarAresta(PontoRecolha* inicio, PontoRecolha* fim, double distancia);
-void adicionarAresta(Grafo* grafo, PontoRecolha* inicio, PontoRecolha* fim, double distancia);
-void freeGrafo(Grafo* grafo);
+Aresta* criarAresta(PontoRecolha* inicio, PontoRecolha* fim, int distancia);
+void adicionarAresta(Grafo* grafo, PontoRecolha* inicio, PontoRecolha* fim, int distancia);
+bool freeGrafo(Grafo* grafo);
+Grafo* importarGrafo(const char* filename);
+Grafo* criarGrafo();
+void imprimirGrafo(Grafo* grafo);
+void imprimirMatrizAdjacencias(Grafo* grafo);
+
 
 
 #endif
