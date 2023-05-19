@@ -18,42 +18,9 @@
 
 int main(){
 
+    Meio* listaMeios = importarMeios("meios.txt");
 
-    PtrCliente listaClientes = NULL;
-    Grafo grafoMeios;
-    Aluguer * listaAlugueres = NULL;
-    Gestor * listaGestores = NULL;
-    
-<<<<<<< HEAD
-<<<<<<< HEAD
-    /*
-    //INPUT
-    listaGestores = importarGestores("gestores.txt", listaGestores);
-=======
-    /*INPUT*/
-    //listaGestores = importarGestores("gestores.txt", listaGestores);
->>>>>>> parent of 4de73ff (adicionada condição para n existirem gestores com o mm nome)
-=======
-    /*INPUT*/
-    //listaGestores = importarGestores("gestores.txt", listaGestores);
->>>>>>> parent of 4de73ff (adicionada condição para n existirem gestores com o mm nome)
-    listaClientes = lerClientes("clientes.bin");
-    listaGestores = lerGestores("gestores.bin", listaGestores);
-    imprimirGestores(listaGestores);
-    listarClientes(listaClientes);
-    system("pause");
-    bool v = guardarClientes(listaClientes, "clientes.bin");
-    listaGestores = guardarGestores("gestores.bin", listaGestores);
-    */
-   Meio* meio = novoMeio(1, "Carro", 100.0, "Rua Principal");
-   printf("cheguei aqui");
-   inserirMeio(&grafoMeios, meio, 5);
-   meio = novoMeio(2, "Trotinete", 100.0, "Rua do");
-   inserirMeio(&grafoMeios, meio, 10);
-   imprimirMeios(&grafoMeios);
-   printf("uhhhhh");
-   system("pause");
-      
+    imprimirLista(listaMeios);
    
 
     return 0;
