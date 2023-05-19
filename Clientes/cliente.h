@@ -22,9 +22,9 @@ PtrCliente alterarMoradaCliente(PtrCliente clientes, unsigned int nif, char nova
 PtrCliente imprimirClientes(PtrCliente clientes);
 void libertarClientes(PtrCliente clientes);
 PtrCliente carregarSaldoCliente(PtrCliente clientes, unsigned int nif, double carregamento);
-PtrCliente importarClientes(char *nomeArquivo);
-bool guardarClientes(PtrCliente clientes, char* nomeArquivo);
-PtrCliente carregarClientes(char* nomeArquivo);
+PtrCliente importarClientes(char *filename);
+bool guardarClientes(char* filename, PtrCliente clientes);
+PtrCliente carregarClientes(char* filename);
 
 
 #endif

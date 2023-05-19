@@ -3,17 +3,15 @@
 #include <stdbool.h>
 #include <string.h> 
 #include "cliente.h"
-#include "meio.h"
-#include "gestor.h"
-#include "aluguer.h"
+
 
 /*
     Author: Luís Gonçalves
-    Ficheiro .c e respetivo .h responsável por implementar o cliente que utilizará o sistema
+    file .c e respetivo .h responsável por implementar o cliente que utilizará o sistema
     Com este código será possível:
     - criar, eliminar e alterar dados sobre os clientes
-    - importar dados de um ficheiro .txt
-    - guardar e ler dados num ficheiro binário
+    - importar dados de um file .txt
+    - guardar e ler dados num file binário
     - alocar e libertar memória necessária para o programa
 
 */
@@ -134,28 +132,28 @@ PtrCliente carregarSaldoCliente(PtrCliente clientes, unsigned int nif, double ca
 
 }
 
-//Importa de um ficheiro .txt dados de clientes, será este o input para testes 
-PtrCliente importarClientes(char *nomeFicheiro) {
+//Importa de um file .txt dados de clientes, será este o input para testes 
+PtrCliente importarClientes(char *filename) {
     
     PtrCliente listaClientes = NULL;
-    FILE *ficheiro = fopen(nomeFicheiro, "r"); //leitura do ficheiro
+    FILE *file = fopen(filename, "r"); //leitura do file
             char nome[SIZE], morada[SIZE];
         unsigned int nif;
         double saldo;
 
-    //Verifica a leitura do ficheiro
-    if (ficheiro == NULL) {
+    //Verifica a leitura do file
+    if (file == NULL) {
         return NULL;
     }
 
     char linha[3*SIZE]; // definir um buffer grande para armazenar a linha completa
-    while (fgets(linha, sizeof(linha), ficheiro)) {
+    while (fgets(linha, sizeof(linha), file)) {
         sscanf(linha, "%[^,],%[^,],%u,%lf", nome, morada, &nif, &saldo);
         
         listaClientes = insereCliente(listaClientes, nome, morada, nif, saldo);
     }
 
-    fclose(ficheiro);
+    fclose(file);
     return listaClientes;
 }
 
@@ -170,39 +168,39 @@ void libertarClientes(PtrCliente clientes) {
     }
 }
 
-//guarda num ficheiro binário a lista de clientes
-bool guardarClientes(PtrCliente clientes, char* nomeFicheiro) {
-    FILE* Ficheiro = fopen(nomeFicheiro, "wb");
-    if (Ficheiro == NULL) {
-        return false; // não consegur abrir ficheiro
+//guarda num file binário a lista de clientes
+bool guardarClientes(char* filename, PtrCliente clientes) {
+    FILE* file = fopen(filename, "wb");
+    if (file == NULL) {
+        return false; // não consegur abrir file
     }
     Cliente* aux = clientes;
     while (aux != NULL) {
-        if (fwrite(aux, sizeof(Cliente), 1, Ficheiro) != 1) {
-            fclose(Ficheiro);
+        if (fwrite(aux, sizeof(Cliente), 1, file) != 1) {
+            fclose(file);
             return false; 
         }
         aux = aux->next;
     }
-    fclose(Ficheiro);
+    fclose(file);
     return true;
 }
 
-//lê de um ficheiro binár
-PtrCliente carregarClientes(char* nomeFicheiro) {
-    FILE* ficheiro = fopen(nomeFicheiro, "rb");
-    if (ficheiro == NULL) {
-        return NULL; // não conseguiu abrir Ficheiro
+//lê de um file binár
+PtrCliente carregarClientes(char* filename) {
+    FILE* file = fopen(filename, "rb");
+    if (file == NULL) {
+        return NULL; // não conseguiu abrir file
     }
 
     PtrCliente clientes = NULL;
     Cliente cliente;
 
-    while (fread(&cliente, sizeof(Cliente), 1, ficheiro) == 1) {
+    while (fread(&cliente, sizeof(Cliente), 1, file) == 1) {
         clientes = insereCliente(clientes, cliente.nome, cliente.morada, cliente.nif, cliente.saldo);
     }
 
-    fclose(ficheiro);
+    fclose(file);
     return clientes;
 }
 

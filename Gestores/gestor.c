@@ -13,10 +13,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h> 
-#include "cliente.h"
-#include "meio.h"
 #include "gestor.h"
-#include "aluguer.h"
+
 
 
 // Cria um novo gestor com o nome e a password fornecidos

@@ -3,10 +3,8 @@
 #include <stdbool.h>
 #include <string.h>
 #include <math.h>
-#include "cliente.h"
 #include "meio.h"
-#include "gestor.h"
-#include "aluguer.h"
+
 
 Meio* criarMeio(int codigo, const char tipo[], float autonomia, const char geocodigo[]) {
     Meio* meio = (Meio*)malloc(sizeof(Meio));
