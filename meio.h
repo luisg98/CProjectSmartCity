@@ -10,6 +10,7 @@ typedef struct localizacao{
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 typedef struct Meio {
     int codigo;
     char tipo[SIZE];
@@ -17,6 +18,8 @@ typedef struct Meio {
     char localizacao[SIZE];
     struct Ligacao* ligacoes;
 =======
+=======
+>>>>>>> parent of 4de73ff (adicionada condição para n existirem gestores com o mm nome)
 typedef struct meio
 {int codigo; // código do meio de mobilidade elétrica
  char tipo[SIZE];
@@ -45,6 +48,12 @@ void removerMeio(Grafo* grafo, Meio* meio);
 bool importarMeios(Grafo* grafo, char* filename);
 void inserirLigacao(Meio* meio1, Meio* meio2, float distancia);
 void imprimirMeios(Grafo* grafo);
+
+int existeMeio(Meio **inicio, int cod);
+bool inserirMeio(Meio ** meios, int cod, char tipo[], float bat, float aut);
+bool removerMeio(Meio** inicio, int cod);
+void listarMeios(Meio * inicio);
+
 
 int existeMeio(Meio **inicio, int cod);
 bool inserirMeio(Meio ** meios, int cod, char tipo[], float bat, float aut);

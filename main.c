@@ -25,9 +25,14 @@ int main(){
     Gestor * listaGestores = NULL;
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     /*
     //INPUT
     listaGestores = importarGestores("gestores.txt", listaGestores);
+=======
+    /*INPUT*/
+    //listaGestores = importarGestores("gestores.txt", listaGestores);
+>>>>>>> parent of 4de73ff (adicionada condição para n existirem gestores com o mm nome)
 =======
     /*INPUT*/
     //listaGestores = importarGestores("gestores.txt", listaGestores);

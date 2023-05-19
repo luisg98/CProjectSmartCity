@@ -10,6 +10,7 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Meio* novoMeio(int codigo, char tipo[], float autonomia, char localizacao[]) {
     Meio* novo = (Meio*) malloc(sizeof(Meio)); // Aloca memória para o novo meio
 
@@ -168,6 +169,8 @@ void inserirLigacao(Meio* meio1, Meio* meio2, float distancia) {
     }
 }
 =======
+=======
+>>>>>>> parent of 4de73ff (adicionada condição para n existirem gestores com o mm nome)
 #define PI 3.14159265358979323846
 #define raioTerra 6371000 // em metros
 
@@ -349,4 +352,7 @@ void procurarMeiosNoRaio(Meio *inicio, Local referencia, float raioMaximo) {
     }
 }
 
+<<<<<<< HEAD
+>>>>>>> parent of 4de73ff (adicionada condição para n existirem gestores com o mm nome)
+=======
 >>>>>>> parent of 4de73ff (adicionada condição para n existirem gestores com o mm nome)
