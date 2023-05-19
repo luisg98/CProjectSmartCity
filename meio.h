@@ -15,6 +15,9 @@ typedef struct Meio {
 Meio* criarMeio(int codigo, const char tipo[], float autonomia, const char geocodigo[]);
 Meio* inserirMeio(Meio** lista, Meio* novoMeio);
 Meio* importarMeios(const char* filename);
-void imprimirLista(Meio* lista);
+void imprimirMeios(Meio* lista);
+bool guardarMeios(const char* filename, Meio* lista);
+Meio* carregarMeios(const char* filename);
+
 
 #endif

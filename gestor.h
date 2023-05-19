@@ -16,9 +16,9 @@ Gestor* novoGestor(char username[], char password[]);
 Gestor* inserirGestor(Gestor* inicioListaGestores, Gestor* gestor);
 Gestor* removerGestor(Gestor* gestores, char* idGestor);
 Gestor* alterarPasswordGestor(Gestor* gestores, char idGestor[], char novaPassword[]);
-Gestor* importarGestores(const char* fileName, Gestor* listaGestores);
+Gestor* importarGestores(const char* fileName);
 Gestor* guardarGestores(const char* fileName, Gestor* inicioListaGestores);
-Gestor* lerGestores(const char* fileName, Gestor* listaGestores);
+Gestor* carregarGestores(const char* fileName);
 void imprimirGestores(Gestor* listaGestores);
 
 #endif

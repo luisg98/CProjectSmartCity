@@ -99,12 +99,13 @@ Gestor* alterarPasswordGestor(Gestor* listaGestores, char userName[], char novaP
 }
 
 // Lê um arquivo de texto com os dados dos gestores e insere na lista
-Gestor* importarGestores(const char* fileName, Gestor *listaGestores) {
+Gestor* importarGestores(const char* fileName) {
     FILE* file = fopen(fileName, "r");
     if (file == NULL) {
         return NULL;
     }
 
+    Gestor* listaGestores = NULL;
     char nome[50];
     char password[50];
     while (fscanf(file, "%s %s", nome, password) == 2) {
@@ -115,7 +116,6 @@ Gestor* importarGestores(const char* fileName, Gestor *listaGestores) {
     fclose(file);
     return listaGestores;
 }
-
 
 // Escreve os dados dos gestores em um arquivo binário
 Gestor* guardarGestores(const char* fileName, Gestor* listaGestores) {
@@ -137,12 +137,13 @@ Gestor* guardarGestores(const char* fileName, Gestor* listaGestores) {
 
 
 // Lê os dados dos gestores de um arquivo binário e insere na lista
-Gestor* lerGestores(const char* fileName, Gestor* listaGestores) {
+Gestor* carregarGestores(const char* fileName) {
     FILE* file = fopen(fileName, "rb");
     if (file == NULL) {
-        return listaGestores;
+        return NULL;
     }
 
+    Gestor* listaGestores = NULL;
     Gestor gestor;
     while (fread(&gestor, sizeof(Gestor), 1, file) == 1) {
         Gestor* novo = novoGestor(gestor.username, gestor.password);
@@ -153,11 +154,12 @@ Gestor* lerGestores(const char* fileName, Gestor* listaGestores) {
     return listaGestores;
 }
 
+
 //imprimeGestores
 void imprimirGestores(Gestor* listaGestores) {
     Gestor* gestor = listaGestores;
     while (gestor != NULL) {
-        printf("Nome: %s\n", gestor->username);
+        printf("Username: %s\n", gestor->username);
         printf("Senha: %s\n\n", gestor->password);
         gestor = gestor->seguinte;
     }

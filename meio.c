@@ -65,7 +65,7 @@ Meio* importarMeios(const char* filename) {
 }
 
 
-void imprimirLista(Meio* lista) {
+void imprimirMeios(Meio* lista) {
     Meio* atual = lista;
     while (atual != NULL) {
         printf("Código: %d\n", atual->codigo);
@@ -74,4 +74,55 @@ void imprimirLista(Meio* lista) {
         printf("Geocódigo: %s\n\n", atual->geocodigo);
         atual = atual->proximo;
     }
+}
+
+
+
+bool guardarMeios(const char* filename, Meio* lista) {
+    FILE* file = fopen(filename, "wb");
+    if (file == NULL) {
+        return false;
+    }
+    
+    Meio* atual = lista;
+    while (atual != NULL) {
+        fwrite(&(atual->codigo), sizeof(int), 1, file);
+        fwrite(atual->tipo, sizeof(char), SIZE, file);
+        fwrite(&(atual->autonomia), sizeof(float), 1, file);
+        fwrite(atual->geocodigo, sizeof(char), SIZE, file);
+        
+        atual = atual->proximo;
+    }
+
+    return true;
+    fclose(file);
+}
+
+Meio* carregarMeios(const char* filename) {
+    FILE* file = fopen(filename, "rb");
+    if (file == NULL) {
+        return NULL;
+    }
+    
+    Meio* lista = NULL;
+    int codigo;
+    char tipo[SIZE];
+    float autonomia;
+    char geocodigo[SIZE];
+    
+    while (fread(&codigo, sizeof(int), 1, file) == 1) {
+        fread(tipo, sizeof(char), SIZE, file);
+        fread(&autonomia, sizeof(float), 1, file);
+        fread(geocodigo, sizeof(char), SIZE, file);
+        
+        Meio* novoMeio = criarMeio(codigo, tipo, autonomia, geocodigo);
+        if (novoMeio != NULL) {
+            lista = inserirMeio(&lista, novoMeio);
+        } else {
+            break;
+        }
+    }
+    
+    fclose(file);
+    return lista;
 }

@@ -18,11 +18,20 @@
 
 int main(){
 
-    Meio* listaMeios = importarMeios("meios.txt");
+    //Meio* listaMeios = importarMeios("meios.txt");
+    //PtrCliente listaClientes = importarClientes("clientes".txt");
+    Gestor * listaGestores = importarGestores("gestores.txt");
+    Meio* listaMeios = carregarMeios("meios.bin");
+    PtrCliente listaClientes = carregarClientes("clientes.bin");
+    //Gestor* listaGestores = carregarGestores("gestores.bin");
 
-    imprimirLista(listaMeios);
+    imprimirMeios(listaMeios);
+    imprimirClientes(listaClientes);
+    imprimirGestores(listaGestores);
    
-
+    bool v = guardarMeios("meios.bin", listaMeios);
+    v = guardarClientes(listaClientes, "clientes.bin");
+    v = guardarGestores("gestores.bin", listaGestores);
     return 0;
     
 }

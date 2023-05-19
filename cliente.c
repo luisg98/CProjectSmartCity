@@ -30,25 +30,6 @@ PtrCliente novoCliente(char nome[], char morada[], unsigned int nif, double sald
     return novoCliente;
 }
 
-/*
-//Insere no fim de uma lista ligada simples uma nova estrutura que se encarregará de criar com outra função
-PtrCliente insereCliente(PtrCliente clientes, char nome[], char morada[], unsigned int nif, double saldo)
-{
-    PtrCliente novocliente = novoCliente(nome, morada, nif, saldo); // cria o novo cliente
-
-    if (clientes == NULL) // Se a lista estiver vazia, o novo cliente será o primeiro elemento da lista
-    { 
-        return novocliente;
-    }
-    else { // Caso contrário, adiciona o novo cliente ao fim da lista
-        Cliente *aux = clientes;
-        while (aux-> next != NULL) {
-            aux = aux-> next;
-        }
-        aux-> next = novocliente;
-        return clientes; // devolve a lista atualizada
-    }   
-}*/
 
 //Insere no início de uma lista ligada simples uma nova estrutura que se encarregará de criar com outra função
 PtrCliente insereCliente(PtrCliente clientes, char nome[], char morada[], unsigned int nif, double saldo)
@@ -118,7 +99,7 @@ PtrCliente alterarMoradaCliente(PtrCliente clientes, unsigned int nif, char nova
 }
 
 //Escreve no terminal a lista dos clientes
-PtrCliente listarClientes(PtrCliente clientes) {
+PtrCliente imprimirClientes(PtrCliente clientes) {
     Cliente *aux = clientes;
     while (aux != NULL) {
         printf("\n");
@@ -208,7 +189,7 @@ bool guardarClientes(PtrCliente clientes, char* nomeFicheiro) {
 }
 
 //lê de um ficheiro binár
-PtrCliente lerClientes(char* nomeFicheiro) {
+PtrCliente carregarClientes(char* nomeFicheiro) {
     FILE* ficheiro = fopen(nomeFicheiro, "rb");
     if (ficheiro == NULL) {
         return NULL; // não conseguiu abrir Ficheiro
