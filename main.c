@@ -10,12 +10,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h> 
-#include <time.h>
 #include "Clientes/cliente.h"
 #include "Meios/meio.h"
 #include "Gestores/gestor.h"
 #include "Alugueres/aluguer.h"
-#include "pontos.h"
+#include "Pontos/pontos.h"
 
 
 int main(){
@@ -25,17 +24,14 @@ int main(){
     //Gestor * listaGestores = importarGestores("Gestores/gestores.txt");
     Meio* listaMeios = carregarMeios("Meios/meios.bin");
     PtrCliente listaClientes = carregarClientes("Clientes/clientes.bin");
-    Gestor* listaGestores = carregarGestores("gestores.bin");
-    Grafo* grafo = importarGrafo("pontos.txt");
+    Gestor* listaGestores = carregarGestores("Gestores/gestores.bin");
+    Grafo* grafo = importarGrafo("Pontos/pontos.txt");
 
     imprimirMeios(listaMeios);
     imprimirClientes(listaClientes);
     imprimirGestores(listaGestores);
     imprimirGrafo(grafo);
     imprimirMatrizAdjacencias(grafo);
-
-    Data data = getDate();
-    printf("%d-%d-%d", data.dia, data.mes, data.ano);
 
 
     bool v = guardarMeios("Meios/meios.bin", listaMeios);

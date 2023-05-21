@@ -1,29 +1,27 @@
-
 #ifndef ALUGUER_H
 #define ALUGUER_H
-#define TAMANHO 50
+#define SIZE 50
 
-typedef struct Data{
+
+typedef struct data{
     int ano;
     short mes;
     short dia;
 } Data;
 
 
-typedef struct Aluguer {
-    int idCliente;
-    int idMeio;
-    Data data;
-    struct Aluguer *proximo;
-    struct Aluguer *anterior;
+typedef struct aluguer
+{
+int idCliente;
+int idMeio; 
+Data data;
+struct aluguer * next;
+
 } Aluguer;
 
-typedef struct Fila {
-    Aluguer *inicio;
-    Aluguer *fim;
-} Fila;
 
-Data getDate();
+bool novoAluguer(Aluguer ** alugueres, Meio * meios, int idCliente, int idMeio, int ano, short mes, short dia);
+void listarAlugueres(Aluguer *alugueres);
 
 
 #endif
