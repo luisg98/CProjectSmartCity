@@ -1,16 +1,14 @@
 #ifndef PONTOS_H
 #define PONTOS_H
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-
-#define SIZE 50
+#define TAMANHO 50
 
 // Estrutura de um ponto de recolha
 typedef struct PontoRecolha {
-    char geocodigo[SIZE];
+    char geocodigo[TAMANHO];
     struct Aresta* adjacencia;   // Ponteiro para a lista de adjacência do ponto de recolha
     struct PontoRecolha* proximo;   // Ponteiro para o próximo ponto de recolha na lista de pontos de recolha
 } PontoRecolha;

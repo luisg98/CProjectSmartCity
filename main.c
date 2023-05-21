@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h> 
+#include <time.h>
 #include "Clientes/cliente.h"
 #include "Meios/meio.h"
 #include "Gestores/gestor.h"
@@ -32,6 +33,9 @@ int main(){
     imprimirGestores(listaGestores);
     imprimirGrafo(grafo);
     imprimirMatrizAdjacencias(grafo);
+
+    Data data = getDate();
+    printf("%d-%d-%d", data.dia, data.mes, data.ano);
 
 
     bool v = guardarMeios("Meios/meios.bin", listaMeios);

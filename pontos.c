@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#define SIZE 50
 #include "pontos.h"
 
 // Função para criar um novo ponto de recolha
@@ -99,7 +98,7 @@ Grafo* importarGrafo(const char* filename) {
     
     Grafo* grafo = criarGrafo();
     
-    char linha[SIZE];
+    char linha[TAMANHO];
     while (fgets(linha, sizeof(linha), file)) {
         // Remover o caractere de quebra de linha ('\n')
         linha[strcspn(linha, "\n")] = '\0';
