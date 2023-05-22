@@ -2,20 +2,18 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include <math.h>
 #include "meio.h"
 
-
-Meio* criarMeio(int codigo, const char tipo[], float autonomia, const char geocodigo[]) {
+Meio* criarMeio(int codigo, const char tipo[], int autonomia, const char geocodigo[]) {
     Meio* meio = (Meio*)malloc(sizeof(Meio));
     if (meio == NULL) {
-        printf("Erro de alocação de memória.\n");
         return NULL;
     }
     meio->codigo = codigo;
-    strncpy(meio->tipo, tipo, SIZE);
+    strncpy(meio->tipo, tipo, TAMANHO);
     meio->autonomia = autonomia;
-    strncpy(meio->geocodigo, geocodigo, SIZE);
+    strncpy(meio->geocodigo, geocodigo, TAMANHO);
+    meio->disponibilidade = (autonomia > 50) ? true : false;
     meio->proximo = NULL;
     return meio;
 }
@@ -36,7 +34,6 @@ Meio* inserirMeio(Meio** lista, Meio* novoMeio) {
     return *lista;
 }
 
-
 Meio* importarMeios(const char* filename) {
     FILE* file = fopen(filename, "r");
     if (file == NULL) {
@@ -45,11 +42,11 @@ Meio* importarMeios(const char* filename) {
     
     Meio* lista = NULL;
     int codigo;
-    char tipo[SIZE];
-    float autonomia;
-    char geocodigo[SIZE];
+    char tipo[TAMANHO];
+    int autonomia;
+    char geocodigo[TAMANHO];
     
-    while (fscanf(file, "%d,%[^,],%f,%[^,\n]", &codigo, tipo, &autonomia, geocodigo) == 4) {
+    while (fscanf(file, "%d,%[^,],%d,%[^,\n]", &codigo, tipo, &autonomia, geocodigo) == 4) {
         Meio* novoMeio = criarMeio(codigo, tipo, autonomia, geocodigo);
         if (novoMeio != NULL) {
             lista = inserirMeio(&lista, novoMeio);
@@ -63,18 +60,27 @@ Meio* importarMeios(const char* filename) {
 }
 
 
+void libertarLista(Meio* lista) {
+    Meio* atual = lista;
+    while (atual != NULL) {
+        Meio* proximo = atual->proximo;
+        free(atual);
+        atual = proximo;
+    }
+}
+
+
 void imprimirMeios(Meio* lista) {
     Meio* atual = lista;
     while (atual != NULL) {
         printf("Código: %d\n", atual->codigo);
         printf("Tipo: %s\n", atual->tipo);
-        printf("Autonomia: %.2f\n", atual->autonomia);
-        printf("Geocódigo: %s\n\n", atual->geocodigo);
+        printf("Autonomia: %d\n", atual->autonomia);
+        printf("Geocódigo: %s\n", atual->geocodigo);
+        printf("Disponibilidade: %s\n\n", atual->disponibilidade ? "Disponivel" : "Indisponivel");
         atual = atual->proximo;
     }
 }
-
-
 
 bool guardarMeios(const char* filename, Meio* lista) {
     FILE* file = fopen(filename, "wb");
@@ -85,15 +91,15 @@ bool guardarMeios(const char* filename, Meio* lista) {
     Meio* atual = lista;
     while (atual != NULL) {
         fwrite(&(atual->codigo), sizeof(int), 1, file);
-        fwrite(atual->tipo, sizeof(char), SIZE, file);
-        fwrite(&(atual->autonomia), sizeof(float), 1, file);
-        fwrite(atual->geocodigo, sizeof(char), SIZE, file);
+        fwrite(atual->tipo, sizeof(char), TAMANHO, file);
+        fwrite(&(atual->autonomia), sizeof(int), 1, file);
+        fwrite(atual->geocodigo, sizeof(char), TAMANHO, file);
         
         atual = atual->proximo;
     }
-
-    return true;
+    
     fclose(file);
+    return true;
 }
 
 Meio* carregarMeios(const char* filename) {
@@ -104,14 +110,14 @@ Meio* carregarMeios(const char* filename) {
     
     Meio* lista = NULL;
     int codigo;
-    char tipo[SIZE];
-    float autonomia;
-    char geocodigo[SIZE];
+    char tipo[TAMANHO];
+    int autonomia;
+    char geocodigo[TAMANHO];
     
     while (fread(&codigo, sizeof(int), 1, file) == 1) {
-        fread(tipo, sizeof(char), SIZE, file);
-        fread(&autonomia, sizeof(float), 1, file);
-        fread(geocodigo, sizeof(char), SIZE, file);
+        fread(tipo, sizeof(char), TAMANHO, file);
+        fread(&autonomia, sizeof(int), 1, file);
+        fread(geocodigo, sizeof(char), TAMANHO, file);
         
         Meio* novoMeio = criarMeio(codigo, tipo, autonomia, geocodigo);
         if (novoMeio != NULL) {

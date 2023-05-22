@@ -19,14 +19,17 @@
 
 int main(){
 
-    //Meio* listaMeios = importarMeios("meios.txt");
-    //PtrCliente listaClientes = importarClientes("clientes".txt");
+
+    Meio* listaMeios = importarMeios("Meios/meios.txt");
+    //PtrCliente listaClientes = importarClientes("clientes.txt");
     //Gestor * listaGestores = importarGestores("Gestores/gestores.txt");
-    Meio* listaMeios = carregarMeios("Meios/meios.bin");
+    //Meio* listaMeios = carregarMeios("Meios/meios.bin");
     PtrCliente listaClientes = carregarClientes("Clientes/clientes.bin");
     Gestor* listaGestores = carregarGestores("Gestores/gestores.bin");
     Grafo* grafo = importarGrafo("Pontos/pontos.txt");
+    
 
+   
     imprimirMeios(listaMeios);
     imprimirClientes(listaClientes);
     imprimirGestores(listaGestores);

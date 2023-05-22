@@ -1,18 +1,19 @@
 #ifndef MEIO_H
 #define MEIO_H
-#define SIZE 50
+#define TAMANHO 50
 
 
 typedef struct Meio {
     int codigo;
-    char tipo[SIZE];
-    float autonomia;
-    char geocodigo[SIZE];
+    char tipo[TAMANHO];
+    int autonomia;
+    char geocodigo[TAMANHO];
+    bool disponibilidade;
     struct Meio * proximo;
 }Meio;
 
 
-Meio* criarMeio(int codigo, const char tipo[], float autonomia, const char geocodigo[]);
+Meio* criarMeio(int codigo, const char tipo[], int autonomia, const char geocodigo[]);
 Meio* inserirMeio(Meio** lista, Meio* novoMeio);
 Meio* importarMeios(const char* filename);
 void imprimirMeios(Meio* lista);
