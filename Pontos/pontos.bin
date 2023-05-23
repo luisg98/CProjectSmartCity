@@ -9,11 +9,11 @@ A,polo.de.braga,polo.de.guimaraes,25
 A,polo.de.barcelos,polo.de.esposende,10
 A,polo.de.barcelos,polo.de.famalicao,20
 A,polo.de.barcelos,polo.de.braga,20
+A,polo.de.esposende,polo.de.famalicao,35
+A,polo.de.esposende,polo.de.barcelos,10
 A,polo.de.famalicao,polo.de.guimaraes,25
 A,polo.de.famalicao,polo.de.barcelos,30
 A,polo.de.famalicao,polo.de.braga,30
 A,polo.de.famalicao,polo.de.esposende,35
-A,polo.de.esposende,polo.de.famalicao,35
-A,polo.de.esposende,polo.de.barcelos,10
 A,polo.de.guimaraes,polo.de.braga,25
 A,polo.de.guimaraes,polo.de.famalicao,25

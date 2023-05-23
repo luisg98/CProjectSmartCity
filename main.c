@@ -20,13 +20,15 @@
 int main(){
 
 
-    Meio* listaMeios = importarMeios("Meios/meios.txt");
+    //Meio* listaMeios = importarMeios("Meios/meios.txt");
     //PtrCliente listaClientes = importarClientes("clientes.txt");
     //Gestor * listaGestores = importarGestores("Gestores/gestores.txt");
-    //Meio* listaMeios = carregarMeios("Meios/meios.bin");
+    //Grafo* grafo = importarGrafo("Pontos/pontos.txt");
+    Meio* listaMeios = carregarMeios("Meios/meios.bin");
     PtrCliente listaClientes = carregarClientes("Clientes/clientes.bin");
     Gestor* listaGestores = carregarGestores("Gestores/gestores.bin");
-    Grafo* grafo = importarGrafo("Pontos/pontos.txt");
+    Grafo* grafo = carregarGrafo("Pontos/pontos.bin");
+    Fila* filaAlugueres = importarAlugueres("Alugueres/aluguer.txt", listaMeios);
     
 
    
@@ -35,11 +37,13 @@ int main(){
     imprimirGestores(listaGestores);
     imprimirGrafo(grafo);
     imprimirMatrizAdjacencias(grafo);
+    imprimirAlugueres(filaAlugueres);
 
 
     bool v = guardarMeios("Meios/meios.bin", listaMeios);
     v = guardarClientes("Clientes/clientes.bin", listaClientes);
     v = guardarGestores("Gestores/gestores.bin", listaGestores);
+    v = guardarGrafo("Pontos/pontos.bin", grafo);
 
     return 0;
     

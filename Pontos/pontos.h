@@ -38,6 +38,8 @@ Grafo* importarGrafo(const char* filename);
 Grafo* criarGrafo();
 void imprimirGrafo(Grafo* grafo);
 void imprimirMatrizAdjacencias(Grafo* grafo);
+bool guardarGrafo(const char* filename, Grafo* grafo);
+Grafo* carregarGrafo(const char* filename);
 
 
 
