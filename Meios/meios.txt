@@ -7,9 +7,9 @@
 7,bicicletas,100,polo.de.esposende
 8,trotinetes,100,polo.de.famalicao
 9,bicicletas,100,polo.de.braga
-10,trotinetes,100,polo.de.guimaraes
-11,bicicletas,100,polo.de.esposende
-12,trotinetes,100,polo.de.famalicao
-13,bicicletas,100,polo.de.braga
-14,trotinetes,100,polo.de.guimaraes
-15,bicicletas,100,polo.de.esposende
+10,trotinetes,49,polo.de.guimaraes
+11,bicicletas,49,polo.de.esposende
+12,trotinetes,49,polo.de.famalicao
+13,bicicletas,49,polo.de.braga
+14,trotinetes,49,polo.de.guimaraes
+15,bicicletas,49,polo.de.esposende

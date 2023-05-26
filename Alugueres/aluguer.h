@@ -1,9 +1,15 @@
+/**
+ * @file aluguer.h
+ * @author lugon (a18851@alunos.ipca.pt)
+ * @brief 
+ * @version 0.1
+ * @date 2023-05-24
+ * @copyright Copyright (c) 2023
+ */
 
 #ifndef ALUGUER_H
 #define ALUGUER_H
 #define TAMANHO 50
-
-
 #include "../Meios/meio.h"
 
 typedef struct Data{
@@ -11,7 +17,6 @@ typedef struct Data{
     short mes;
     short dia;
 } Data;
-
 
 typedef struct Aluguer {
     int idCliente;
@@ -28,9 +33,11 @@ typedef struct Fila {
 } Fila;
 
 Data getDate();
-
-Fila* importarAlugueres(const char* nomeArquivo, Meio* listaMeios);
+Aluguer* criarAluguer(int idCliente, char geocodigoRecolha[TAMANHO]);
+void inserirAluguer(Fila* filaAlugueres, Aluguer* aluguer, Meio* listaMeios);
+Fila* importarAlugueres(const char* filename, Meio* listaMeios);
 void imprimirAlugueres(Fila* filaAlugueres);
-
+bool guardarAlugueres(const char* filename, Fila* filaAlugueres);
+Fila* carregarAlugueres(const char* nomeArquivo, Meio* listaMeios); 
 
 #endif

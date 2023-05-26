@@ -1,22 +1,30 @@
+/**
+ * @file cliente.c
+ * @author lugon (a18851@alunos.ipca.pt)
+ * @brief Funções para tudo relacionado com os clientes. Com este código será possível:
+    - criar, eliminar e alterar dados sobre os clientes
+    - importar dados de um file .txt
+    - guardar e ler dados num file binário
+    - alocar e libertar memória necessária para o programa
+ * @version 0.1
+ * @date 2023-05-24
+ * @copyright Copyright (c) 2023 
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h> 
 #include "cliente.h"
 
-
-/*
-    Author: Luís Gonçalves
-    file .c e respetivo .h responsável por implementar o cliente que utilizará o sistema
-    Com este código será possível:
-    - criar, eliminar e alterar dados sobre os clientes
-    - importar dados de um file .txt
-    - guardar e ler dados num file binário
-    - alocar e libertar memória necessária para o programa
-
-*/
-
-
+/**
+ * @brief Função para criar um novo cliente
+ * @param nome 
+ * @param morada 
+ * @param nif 
+ * @param saldo 
+ * @return PtrCliente 
+ */
 PtrCliente novoCliente(char nome[], char morada[], unsigned int nif, double saldo)
 {
     PtrCliente novoCliente = malloc(sizeof(Cliente)); //alocação da memoria
@@ -29,7 +37,15 @@ PtrCliente novoCliente(char nome[], char morada[], unsigned int nif, double sald
 }
 
 
-//Insere no início de uma lista ligada simples uma nova estrutura que se encarregará de criar com outra função
+/**
+ * @brief Insere no início de uma lista ligada simples uma nova estrutura que se encarregará de criar com outra função
+ * @param clientes 
+ * @param nome 
+ * @param morada 
+ * @param nif 
+ * @param saldo 
+ * @return PtrCliente 
+ */
 PtrCliente insereCliente(PtrCliente clientes, char nome[], char morada[], unsigned int nif, double saldo)
 {
     PtrCliente novocliente = novoCliente(nome, morada, nif, saldo); // cria o novo cliente
@@ -45,7 +61,14 @@ PtrCliente insereCliente(PtrCliente clientes, char nome[], char morada[], unsign
 }
 
 
-//Remove um cliente de uma lista e liberta a respetiva memória alocada
+/**
+ * @brief Remove um cliente de uma lista e liberta a respetiva memória alocada
+ * 
+ * @param clientes 
+ * @param nif 
+ * @param res 
+ * @return PtrCliente 
+ */
 PtrCliente removerCliente(PtrCliente clientes, unsigned int nif, bool *res) {
     
     Cliente *aux = clientes;
@@ -75,7 +98,13 @@ PtrCliente removerCliente(PtrCliente clientes, unsigned int nif, bool *res) {
 }
 
 
-//Altera a morada de um cliente cujo nif será inserido como parâmetro e devolve a lista atualizada
+/**
+ * @brief Altera a morada de um cliente cujo nif será inserido como parâmetro e devolve a lista atualizada
+ * @param clientes 
+ * @param nif 
+ * @param novaMorada 
+ * @return PtrCliente 
+ */
 PtrCliente alterarMoradaCliente(PtrCliente clientes, unsigned int nif, char novaMorada[]) {
     
     Cliente *aux = clientes;

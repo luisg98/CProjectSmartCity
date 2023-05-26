@@ -11,6 +11,7 @@
 // Estrutura de um ponto de recolha
 typedef struct PontoRecolha {
     char geocodigo[SIZE];
+    bool visitado; // Adicionado campo "visitado" para controlar se o ponto foi visitado ou não
     struct Aresta* adjacencia;   // Ponteiro para a lista de adjacência do ponto de recolha
     struct PontoRecolha* proximo;   // Ponteiro para o próximo ponto de recolha na lista de pontos de recolha
 } PontoRecolha;
