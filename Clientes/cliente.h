@@ -3,24 +3,24 @@
 #define SIZE 50
 
 
-typedef struct cliente
+typedef struct Cliente
 {
         char nome[SIZE];
         char morada[SIZE];
         unsigned int nif;
         double saldo;
-        struct cliente * next;
+        struct cliente * proximo;
     
 }Cliente, *PtrCliente;
 
 
 //Funções
-PtrCliente novoCliente(char nome[], char morada[], unsigned int nif, double saldo);
+PtrCliente criarCliente(char nome[], char morada[], unsigned int nif, double saldo);
 PtrCliente insereCliente(PtrCliente clientes, char nome[], char morada[], unsigned int nif, double saldo);
 PtrCliente removerCliente(PtrCliente clientes, unsigned int nif, bool *res);
-PtrCliente alterarMoradaCliente(PtrCliente clientes, unsigned int nif, char novaMorada[]);
-PtrCliente imprimirClientes(PtrCliente clientes);
-void libertarClientes(PtrCliente clientes);
+PtrCliente alterarMoradaCliente(PtrCliente clientes, unsigned int nif, char novaMorada[], bool *res);
+void imprimirClientes(PtrCliente clientes);
+bool libertarClientes(PtrCliente clientes);
 PtrCliente carregarSaldoCliente(PtrCliente clientes, unsigned int nif, double carregamento);
 PtrCliente importarClientes(char *filename);
 bool guardarClientes(char* filename, PtrCliente clientes);

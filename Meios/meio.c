@@ -34,7 +34,7 @@ Meio* criarMeio(int codigo, const char tipo[], int autonomia, const char geocodi
     strncpy(meio->tipo, tipo, TAMANHO);
     meio->autonomia = autonomia;
     strncpy(meio->geocodigo, geocodigo, TAMANHO);
-    meio->disponibilidade = (autonomia > 50) ? true : false;
+    meio->alugado = false;
     meio->proximo = NULL;
     return meio;
 }
@@ -81,7 +81,7 @@ Meio* importarMeios(const char* filename) {
 }
 
 
-void libertarLista(Meio* lista) {
+void libertarMeios(Meio* lista) {
     Meio* atual = lista;
     while (atual != NULL) {
         Meio* proximo = atual->proximo;
@@ -98,7 +98,7 @@ void imprimirMeios(Meio* lista) {
         printf("Tipo: %s\n", atual->tipo);
         printf("Autonomia: %d\n", atual->autonomia);
         printf("Geocódigo: %s\n", atual->geocodigo);
-        printf("Disponibilidade: %s\n\n", atual->disponibilidade ? "Disponivel" : "Indisponivel");
+        printf("Disponibilidade: %s\n\n", atual->alugado ? "Alugado" : "Disponivel");
         atual = atual->proximo;
     }
 }

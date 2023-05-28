@@ -8,7 +8,7 @@ typedef struct Meio {
     char tipo[TAMANHO];
     int autonomia;
     char geocodigo[TAMANHO];
-    bool disponibilidade;
+    bool alugado;
     struct Meio * proximo;
 }Meio;
 
@@ -19,6 +19,7 @@ Meio* importarMeios(const char* filename);
 void imprimirMeios(Meio* lista);
 bool guardarMeios(const char* filename, Meio* lista);
 Meio* carregarMeios(const char* filename);
+void libertarMeios(Meio* lista);
 
 
 #endif

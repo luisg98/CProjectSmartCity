@@ -25,7 +25,7 @@ typedef struct Aluguer {
     char geocodigoRecolha[TAMANHO];
     struct Aluguer *proximo;
     struct Aluguer *anterior;
-} Aluguer;
+} Aluguer, *PtrAluguer;
 
 typedef struct Fila {
     Aluguer *inicio;

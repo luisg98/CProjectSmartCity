@@ -142,7 +142,7 @@ Aresta** encontrarMelhorTrajeto(Grafo* grafo, Meio* meios, const char* pontoPart
             pontoAtual = pontoAtual->proximo;
         }
 
-        Aresta** trajeto = (Aresta**)malloc((grafo->numPontosRecolha) * sizeof(Aresta*));
+        Aresta** trajeto = (Aresta**)malloc((grafo->numPontosRecolha - 1) * sizeof(Aresta*));
         int posicaoTrajeto = 0;
         pontoAtual = pontoInicial;
         pontoAtual->visitado = true;
@@ -187,7 +187,6 @@ Aresta** encontrarMelhorTrajeto(Grafo* grafo, Meio* meios, const char* pontoPart
 
     return melhorTrajeto;
 }
-
 
 
 void imprimirMelhorTrajeto(Aresta** trajeto, int tamanhoTrajeto, Grafo* grafo) {

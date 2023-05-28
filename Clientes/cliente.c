@@ -25,14 +25,14 @@
  * @param saldo 
  * @return PtrCliente 
  */
-PtrCliente novoCliente(char nome[], char morada[], unsigned int nif, double saldo)
+PtrCliente criarCliente(char nome[], char morada[], unsigned int nif, double saldo)
 {
-    PtrCliente novoCliente = malloc(sizeof(Cliente)); //alocação da memoria
+    PtrCliente novoCliente = malloc(sizeof(Cliente));
     strcpy(novoCliente->nome, nome); 
     strcpy(novoCliente->morada, morada);
     novoCliente->nif = nif;
     novoCliente->saldo = saldo;
-    novoCliente->next = NULL;
+    novoCliente->proximo = NULL;
     return novoCliente;
 }
 
@@ -48,15 +48,15 @@ PtrCliente novoCliente(char nome[], char morada[], unsigned int nif, double sald
  */
 PtrCliente insereCliente(PtrCliente clientes, char nome[], char morada[], unsigned int nif, double saldo)
 {
-    PtrCliente novocliente = novoCliente(nome, morada, nif, saldo); // cria o novo cliente
+    PtrCliente novoCliente = criarCliente(nome, morada, nif, saldo); // cria o novo cliente
 
     if (clientes == NULL) // Se a lista estiver vazia, o novo cliente será o primeiro elemento da lista
     { 
-        return novocliente;
+        return novoCliente;
     }
     else { // Caso contrário, adiciona o novo cliente ao início da lista
-        novocliente->next = clientes;
-        return novocliente; // devolve o novo cliente como o primeiro elemento da lista
+        novoCliente-> proximo = clientes;
+        return novoCliente; // devolve o novo cliente como o primeiro elemento da lista
     }   
 }
 
@@ -69,33 +69,32 @@ PtrCliente insereCliente(PtrCliente clientes, char nome[], char morada[], unsign
  * @param res 
  * @return PtrCliente 
  */
-PtrCliente removerCliente(PtrCliente clientes, unsigned int nif, bool *res) {
-    
-    Cliente *aux = clientes;
-    Cliente *anterior = NULL;
-    
+PtrCliente removerCliente(PtrCliente clientes, unsigned int nif, bool* res) {
+    Cliente* aux = clientes;
+    Cliente* anterior = NULL;
+
     while (aux != NULL) {
-
         if (aux->nif == nif) {
-            if (anterior == NULL)  // se o cliente a remover for o primeiro elemento da lista
-            { 
-                clientes = aux-> next; // atualiza o ponteiro do início da lista para o próximo elemento
-            } 
-            else
-            {
-                anterior->next = aux-> next; // liga o nó anterior ao próximo nó após o que está a ser removido
+            if (anterior == NULL) {
+                // O cliente a remover é o primeiro da lista
+                clientes = aux->proximo;
+            } else {
+                anterior->proximo = aux->proximo;
             }
-            free(aux); 
+            free(aux);
 
+            *res = true;
+            return clientes;
         }
 
         anterior = aux;
-        aux = aux->next;
+        aux = aux->proximo;
     }
-    
-    *res=true;
-    return clientes; 
+
+    *res = false;
+    return clientes;
 }
+
 
 
 /**
@@ -105,7 +104,7 @@ PtrCliente removerCliente(PtrCliente clientes, unsigned int nif, bool *res) {
  * @param novaMorada 
  * @return PtrCliente 
  */
-PtrCliente alterarMoradaCliente(PtrCliente clientes, unsigned int nif, char novaMorada[]) {
+PtrCliente alterarMoradaCliente(PtrCliente clientes, unsigned int nif, char novaMorada[], bool *res) {
     
     Cliente *aux = clientes;
     
@@ -114,19 +113,24 @@ PtrCliente alterarMoradaCliente(PtrCliente clientes, unsigned int nif, char nova
         if (aux->nif == nif) {
             
             strcpy(aux->morada, novaMorada);
-            //strcpy(aux-> nome, novoNome se quiser alterar nome (usar a mesma lógica para alterar qq variavel da estrutura)
+            *res = true;
 
             return clientes;
         }
 
-        aux = aux->next;
+        aux = aux->proximo;
     }
     
     return clientes; 
 }
 
-//Escreve no terminal a lista dos clientes
-PtrCliente imprimirClientes(PtrCliente clientes) {
+/**
+ * @brief Imprime no terminal a lista de clientes
+ * 
+ * @param clientes 
+ * @return PtrCliente 
+ */
+void imprimirClientes(PtrCliente clientes) {
     Cliente *aux = clientes;
     while (aux != NULL) {
         printf("\n");
@@ -135,14 +139,19 @@ PtrCliente imprimirClientes(PtrCliente clientes) {
         printf("NIF: %u\n", aux->nif);
         printf("Saldo: %.2f\n", aux->saldo);
         printf("\n");
-        aux = aux->next;
+        aux = aux->proximo;
     }
-
-    return clientes;
 }
 
 
-//Recebe um determinado nif como parâmetro e um determinado valor e soma o valor ao saldo que o cliente relativo ao nif 
+/**
+ * @brief Soma o valor do parâmetro carregamento ao saldo de um determinado cliente
+ * 
+ * @param clientes 
+ * @param nif 
+ * @param carregamento 
+ * @return PtrCliente 
+ */
 PtrCliente carregarSaldoCliente(PtrCliente clientes, unsigned int nif, double carregamento){
 
         Cliente *aux = clientes;
@@ -154,23 +163,27 @@ PtrCliente carregarSaldoCliente(PtrCliente clientes, unsigned int nif, double ca
             return clientes;
         }
 
-        aux = aux->next;
+        aux = aux->proximo;
     }
     
     return clientes;
 
 }
 
-//Importa de um file .txt dados de clientes, será este o input para testes 
+/**
+ * @brief Importa de um file .txt dados de clientes, será este o input para testes
+ * 
+ * @param filename 
+ * @return PtrCliente 
+ */
 PtrCliente importarClientes(char *filename) {
     
     PtrCliente listaClientes = NULL;
-    FILE *file = fopen(filename, "r"); //leitura do file
+    FILE *file = fopen(filename, "r");
             char nome[SIZE], morada[SIZE];
         unsigned int nif;
         double saldo;
 
-    //Verifica a leitura do file
     if (file == NULL) {
         return NULL;
     }
@@ -186,18 +199,31 @@ PtrCliente importarClientes(char *filename) {
     return listaClientes;
 }
 
-//liberta a memória alocada para a vertente clientes
-void libertarClientes(PtrCliente clientes) {
+/**
+ * @brief Liberta a memória alocada para a vertente clientes
+ * 
+ * @param clientes 
+ */
+bool libertarClientes(PtrCliente clientes) {
+    
     Cliente *aux;
 
     while (clientes != NULL) {
         aux = clientes;
-        clientes = clientes->next;
+        clientes = clientes->proximo;
         free(aux);
+        return true;
     }
 }
 
-//guarda num file binário a lista de clientes
+/**
+ * @brief Guarda num file binário a lista de clientes
+ * 
+ * @param filename 
+ * @param clientes 
+ * @return true 
+ * @return false 
+ */
 bool guardarClientes(char* filename, PtrCliente clientes) {
     FILE* file = fopen(filename, "wb");
     if (file == NULL) {
@@ -209,17 +235,22 @@ bool guardarClientes(char* filename, PtrCliente clientes) {
             fclose(file);
             return false; 
         }
-        aux = aux->next;
+        aux = aux->proximo;
     }
     fclose(file);
     return true;
 }
 
-//lê de um file binár
-PtrCliente carregarClientes(char* filename) {
+/**
+ * @brief Lê de um file binário
+ * 
+ * @param filename 
+ * @return PtrCliente 
+ */
+PtrCliente carregarClientes(char* filename, bool *res) {
     FILE* file = fopen(filename, "rb");
     if (file == NULL) {
-        return NULL; // não conseguiu abrir file
+        *res = false; 
     }
 
     PtrCliente clientes = NULL;
@@ -232,6 +263,5 @@ PtrCliente carregarClientes(char* filename) {
     fclose(file);
     return clientes;
 }
-
 
 

@@ -14,6 +14,8 @@
 #include <time.h>
 #include "aluguer.h"
 #include "../Meios/meio.h"
+#include "../Clientes/cliente.h"
+
 
 /**
  * @brief Get the Date object
@@ -37,11 +39,11 @@ Data getDate() {
  * @param geocodigoRecolha 
  * @return Aluguer* 
  */
-Aluguer* criarAluguer(int idCliente, char geocodigoRecolha[TAMANHO]) {
+Aluguer* criarAluguer(int nifCliente, char geocodigoRecolha[TAMANHO]) {
     
     Data dataAtual = getDate();
     Aluguer* novoAluguer = (Aluguer*)malloc(sizeof(Aluguer));
-    novoAluguer->idCliente = idCliente;
+    novoAluguer->idCliente = nifCliente;
     novoAluguer->idMeio = -1;  // Valor inicial indicando que o meio não foi encontrado
     novoAluguer->data = dataAtual;
     strncpy(novoAluguer->geocodigoRecolha, geocodigoRecolha, TAMANHO);
@@ -57,60 +59,73 @@ Aluguer* criarAluguer(int idCliente, char geocodigoRecolha[TAMANHO]) {
  * @param aluguer 
  * @param listaMeios 
  */
-void inserirAluguer(Fila* filaAlugueres, Aluguer* aluguer, Meio* listaMeios) {
-    
-    // Procura um meio disponível com o geocódigo correspondente
-    Meio* meio = listaMeios;
-    bool meioEncontrado = false; 
-    while (meio != NULL) {
-        if (strcmp(meio->geocodigo, aluguer->geocodigoRecolha) == 0 && meio->disponibilidade) {
-            aluguer->idMeio = meio->codigo;
-            meio->disponibilidade = false;  
-            meioEncontrado = true;
-            break;
+PtrAluguer inserirAluguer(PtrAluguer listaAlugueres, Aluguer* aluguer, Meio* listaMeios, PtrCliente listaClientes, bool* inserido) {
+    PtrCliente cliente = listaClientes;
+    while (cliente != NULL) {
+        if (cliente->nif == aluguer->idCliente) {
+            Meio* meio = listaMeios;
+            while (meio != NULL) {
+                if (strcmp(meio->geocodigo, aluguer->geocodigoRecolha) == 0 && !(meio->alugado) && meio->autonomia >= 50) {
+                    aluguer->idMeio = meio->codigo;
+                    meio->alugado = true;
+
+                    if (listaAlugueres == NULL) {
+                        listaAlugueres = criarNoAluguer(aluguer);
+                    } else {
+                        PtrAluguer novoAluguer = criarNoAluguer(aluguer);
+                        PtrAluguer ultimoAluguer = listaAlugueres;
+                        while (ultimoAluguer->proximo != NULL) {
+                            ultimoAluguer = ultimoAluguer->proximo;
+                        }
+                        ultimoAluguer->proximo = novoAluguer;
+                    }
+
+                    *inserido = true;
+                    return listaAlugueres;
+                }
+                meio = meio->proximo;
+            }
         }
-        meio = meio->proximo;
+        cliente = cliente->proximo;
     }
 
-    if (meioEncontrado) {
-        // Insere o aluguer na fila de alugueres se encontrar o meio
-        if (filaAlugueres->inicio == NULL) {
-            filaAlugueres->inicio = aluguer;
-            filaAlugueres->fim = aluguer;
-        } else {
-            aluguer->anterior = filaAlugueres->fim;
-            filaAlugueres->fim->proximo = aluguer;
-            filaAlugueres->fim = aluguer;
-        }
-    } else {
-        free(aluguer);
-    }
+    *inserido = false;
+    free(aluguer);
+    return listaAlugueres;
 }
-Fila* importarAlugueres(const char* nomeArquivo, Meio* listaMeios) {
+
+Fila* importarAlugueres(const char* filename, Meio* listaMeios, Cliente* listaClientes) {
     Fila* filaAlugueres = (Fila*)malloc(sizeof(Fila));
     filaAlugueres->inicio = NULL;
     filaAlugueres->fim = NULL;
 
-    FILE* arquivo = fopen(nomeArquivo, "r");
-    if (arquivo == NULL) {
+    FILE* file = fopen(filename, "r");
+    if (file == NULL) {
         return filaAlugueres;
     }
 
     char linha[100];
-    while (fgets(linha, sizeof(linha), arquivo) != NULL) {
+    while (fgets(linha, sizeof(linha), file) != NULL) {
         int idCliente;
         char geocodigoRecolha[TAMANHO];
-
         sscanf(linha, "%d %s", &idCliente, geocodigoRecolha);
 
-        Aluguer* aluguer = criarAluguer(idCliente, geocodigoRecolha);
-
-        inserirAluguer(filaAlugueres, aluguer, listaMeios);
+        Cliente* cliente = listaClientes;
+        while (cliente != NULL) {
+            if (cliente->id == idCliente) {
+                Aluguer* aluguer = criarAluguer(cliente, geocodigoRecolha);
+                bool inserido;
+                filaAlugueres = inserirAluguer(filaAlugueres, aluguer, listaMeios, &inserido);
+                break;
+            }
+            cliente = cliente->proximo;
+        }
     }
 
-    fclose(arquivo);
+    fclose(file);
     return filaAlugueres;
 }
+
 
 void imprimirAlugueres(Fila* filaAlugueres) {
     Aluguer* aluguer = filaAlugueres->inicio;
@@ -126,18 +141,18 @@ void imprimirAlugueres(Fila* filaAlugueres) {
 }
 
 
-Fila* carregarAlugueres(const char* nomeArquivo, Meio* listaMeios) {
+Fila* carregarAlugueres(const char* filename, Meio* listaMeios) {
     Fila* filaAlugueres = (Fila*)malloc(sizeof(Fila));
     filaAlugueres->inicio = NULL;
     filaAlugueres->fim = NULL;
 
-    FILE* arquivo = fopen(nomeArquivo, "rb");
-    if (arquivo == NULL) {
+    FILE* file = fopen(filename, "rb");
+    if (file == NULL) {
         return filaAlugueres;
     }
 
     Aluguer aluguer;
-    while (fread(&aluguer, sizeof(Aluguer), 1, arquivo) == 1) {
+    while (fread(&aluguer, sizeof(Aluguer), 1, file) == 1) {
         Aluguer* novoAluguer = (Aluguer*)malloc(sizeof(Aluguer));
         memcpy(novoAluguer, &aluguer, sizeof(Aluguer));
 
@@ -159,21 +174,21 @@ Fila* carregarAlugueres(const char* nomeArquivo, Meio* listaMeios) {
         }
     }
 
-    fclose(arquivo);
+    fclose(file);
     return filaAlugueres;
 }
-bool guardarAlugueres(const char* nomeArquivo, Fila* filaAlugueres) {
-    FILE* arquivo = fopen(nomeArquivo, "wb");
-    if (arquivo == NULL) {
+bool guardarAlugueres(const char* filename, Fila* filaAlugueres) {
+    FILE* file = fopen(filename, "wb");
+    if (file == NULL) {
         return false;
     }
 
     Aluguer* aluguer = filaAlugueres->inicio;
     while (aluguer != NULL) {
-        fwrite(aluguer, sizeof(Aluguer), 1, arquivo);
+        fwrite(aluguer, sizeof(Aluguer), 1, file);
         aluguer = aluguer->proximo;
     }
 
-    fclose(arquivo);
+    fclose(file);
     return true;
 }

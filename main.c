@@ -25,29 +25,29 @@
 int main(){
 
 
-    //Meio* listaMeios = importarMeios("Meios/meios.txt");
+    Meio* listaMeios = importarMeios("Meios/meios.txt");
     //PtrCliente listaClientes = importarClientes("clientes.txt");
     //Gestor * listaGestores = importarGestores("Gestores/gestores.txt");
     //Grafo* grafo = importarGrafo("Pontos/pontos.txt");
-    Meio* listaMeios = carregarMeios("Meios/meios.bin");
+    //Meio* listaMeios = carregarMeios("Meios/meios.bin");
     PtrCliente listaClientes = carregarClientes("Clientes/clientes.bin");
     Gestor* listaGestores = carregarGestores("Gestores/gestores.bin");
     Grafo* grafo = carregarGrafo("Pontos/pontos.bin");
-    //Fila* filaAlugueres = importarAlugueres("Alugueres/aluguer.txt", listaMeios);
-    Fila* filaAlugueres = carregarAlugueres("Alugueres/aluguer.bin", listaMeios);
+    Fila* filaAlugueres = importarAlugueres("Alugueres/aluguer.txt", listaMeios);
+    //Fila* filaAlugueres = carregarAlugueres("Alugueres/aluguer.bin", listaMeios);
 
     
    
-    imprimirMeios(listaMeios);
-    imprimirClientes(listaClientes);
-    imprimirGestores(listaGestores);
-    imprimirGrafo(grafo);
-    imprimirMatrizAdjacencias(grafo);
-    imprimirAlugueres(filaAlugueres);
+    //imprimirMeios(listaMeios);
+    //imprimirClientes(listaClientes);
+    //imprimirGestores(listaGestores);
+    //imprimirGrafo(grafo);
+    //imprimirMatrizAdjacencias(grafo);
+    //imprimirAlugueres(filaAlugueres);
 
-    int tamanhoTrajeto = 0;
-    Aresta** melhorTrajeto = encontrarMelhorTrajeto(grafo, listaMeios, "polo.de.barcelos", &tamanhoTrajeto);
-    imprimirMelhorTrajeto(melhorTrajeto, tamanhoTrajeto, grafo);
+    //int tamanhoTrajeto = 0;
+    //Aresta** melhorTrajeto = encontrarMelhorTrajeto(grafo, listaMeios, "polo.de.barcelos", &tamanhoTrajeto);
+    //imprimirMelhorTrajeto(melhorTrajeto, tamanhoTrajeto, grafo);
 
     bool v;
     v = guardarMeios("Meios/meios.bin", listaMeios);
