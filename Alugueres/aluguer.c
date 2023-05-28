@@ -52,15 +52,19 @@ Aluguer* criarAluguer(int nifCliente, char geocodigoRecolha[TAMANHO]) {
     return novoAluguer;
 }
 
+
 /**
  * @brief Insere um aluguer numa fila de alugueres
  * 
  * @param filaAlugueres 
  * @param aluguer 
  * @param listaMeios 
+ * @param listaClientes 
+ * @param inserido 
+ * @return Fila 
  */
-PtrAluguer inserirAluguer(PtrAluguer listaAlugueres, Aluguer* aluguer, Meio* listaMeios, PtrCliente listaClientes, bool* inserido) {
-    PtrCliente cliente = listaClientes;
+Fila* inserirAluguer(Fila* filaAlugueres, Aluguer* aluguer, Meio* listaMeios, Cliente* listaClientes, bool* inserido) {
+    Cliente* cliente = listaClientes;
     while (cliente != NULL) {
         if (cliente->nif == aluguer->idCliente) {
             Meio* meio = listaMeios;
@@ -69,19 +73,17 @@ PtrAluguer inserirAluguer(PtrAluguer listaAlugueres, Aluguer* aluguer, Meio* lis
                     aluguer->idMeio = meio->codigo;
                     meio->alugado = true;
 
-                    if (listaAlugueres == NULL) {
-                        listaAlugueres = criarNoAluguer(aluguer);
+                    if (filaAlugueres->inicio == NULL) {
+                        filaAlugueres->inicio = aluguer;
+                        filaAlugueres->fim = aluguer;
                     } else {
-                        PtrAluguer novoAluguer = criarNoAluguer(aluguer);
-                        PtrAluguer ultimoAluguer = listaAlugueres;
-                        while (ultimoAluguer->proximo != NULL) {
-                            ultimoAluguer = ultimoAluguer->proximo;
-                        }
-                        ultimoAluguer->proximo = novoAluguer;
+                        filaAlugueres->fim->proximo = aluguer;
+                        aluguer->anterior = filaAlugueres->fim;
+                        filaAlugueres->fim = aluguer;
                     }
 
                     *inserido = true;
-                    return listaAlugueres;
+                    return filaAlugueres;
                 }
                 meio = meio->proximo;
             }
@@ -90,9 +92,11 @@ PtrAluguer inserirAluguer(PtrAluguer listaAlugueres, Aluguer* aluguer, Meio* lis
     }
 
     *inserido = false;
-    free(aluguer);
-    return listaAlugueres;
+    return filaAlugueres;
 }
+
+
+
 
 Fila* importarAlugueres(const char* filename, Meio* listaMeios, Cliente* listaClientes) {
     Fila* filaAlugueres = (Fila*)malloc(sizeof(Fila));
@@ -112,10 +116,10 @@ Fila* importarAlugueres(const char* filename, Meio* listaMeios, Cliente* listaCl
 
         Cliente* cliente = listaClientes;
         while (cliente != NULL) {
-            if (cliente->id == idCliente) {
-                Aluguer* aluguer = criarAluguer(cliente, geocodigoRecolha);
+            if (cliente->nif == idCliente) {
+                Aluguer* aluguer = criarAluguer(cliente->nif, geocodigoRecolha);
                 bool inserido;
-                filaAlugueres = inserirAluguer(filaAlugueres, aluguer, listaMeios, &inserido);
+                filaAlugueres = inserirAluguer(filaAlugueres, aluguer, listaMeios, listaClientes, &inserido);
                 break;
             }
             cliente = cliente->proximo;
@@ -141,7 +145,7 @@ void imprimirAlugueres(Fila* filaAlugueres) {
 }
 
 
-Fila* carregarAlugueres(const char* filename, Meio* listaMeios) {
+Fila* carregarAlugueres(const char* filename, Meio* listaMeios, Cliente* listaClientes) {
     Fila* filaAlugueres = (Fila*)malloc(sizeof(Fila));
     filaAlugueres->inicio = NULL;
     filaAlugueres->fim = NULL;
@@ -153,30 +157,35 @@ Fila* carregarAlugueres(const char* filename, Meio* listaMeios) {
 
     Aluguer aluguer;
     while (fread(&aluguer, sizeof(Aluguer), 1, file) == 1) {
-        Aluguer* novoAluguer = (Aluguer*)malloc(sizeof(Aluguer));
-        memcpy(novoAluguer, &aluguer, sizeof(Aluguer));
-
-        // Procura o meio correspondente pelo código
+        // Encontra o meio correspondente pelo código
         Meio* meio = listaMeios;
         while (meio != NULL) {
-            if (meio->codigo == novoAluguer->idMeio) {
-                novoAluguer->anterior = filaAlugueres->fim;
-                if (filaAlugueres->inicio == NULL) {
-                    filaAlugueres->inicio = novoAluguer;
-                    filaAlugueres->fim = novoAluguer;
-                } else {
-                    filaAlugueres->fim->proximo = novoAluguer;
-                    filaAlugueres->fim = novoAluguer;
-                }
+            if (meio->codigo == aluguer.idMeio) {
                 break;
             }
             meio = meio->proximo;
         }
+
+        // Encontra o cliente correspondente pelo NIF
+        Cliente* cliente = listaClientes;
+        while (cliente != NULL) {
+            if (cliente->nif == aluguer.idCliente) {
+                break;
+            }
+            cliente = cliente->proximo;
+        }
+
+        Aluguer* novoAluguer = criarAluguer(aluguer.idCliente, aluguer.geocodigoRecolha);
+        bool inserido;
+        filaAlugueres = inserirAluguer(filaAlugueres, novoAluguer, meio, cliente, &inserido);
     }
 
     fclose(file);
     return filaAlugueres;
 }
+
+
+
 bool guardarAlugueres(const char* filename, Fila* filaAlugueres) {
     FILE* file = fopen(filename, "wb");
     if (file == NULL) {

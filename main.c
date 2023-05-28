@@ -24,25 +24,26 @@
 
 int main(){
 
+    bool result;
 
-    Meio* listaMeios = importarMeios("Meios/meios.txt");
-    //PtrCliente listaClientes = importarClientes("clientes.txt");
+    //Meio* listaMeios = importarMeios("Meios/meios.txt");
+    //PtrCliente listaClientes = importarClientes("Clientes/clientes.txt");
     //Gestor * listaGestores = importarGestores("Gestores/gestores.txt");
     //Grafo* grafo = importarGrafo("Pontos/pontos.txt");
-    //Meio* listaMeios = carregarMeios("Meios/meios.bin");
-    PtrCliente listaClientes = carregarClientes("Clientes/clientes.bin");
+    Meio* listaMeios = carregarMeios("Meios/meios.bin");
+    PtrCliente listaClientes = carregarClientes("Clientes/clientes.bin", &result);
     Gestor* listaGestores = carregarGestores("Gestores/gestores.bin");
     Grafo* grafo = carregarGrafo("Pontos/pontos.bin");
-    Fila* filaAlugueres = importarAlugueres("Alugueres/aluguer.txt", listaMeios);
-    //Fila* filaAlugueres = carregarAlugueres("Alugueres/aluguer.bin", listaMeios);
+    //Fila* filaAlugueres = importarAlugueres("Alugueres/aluguer.txt", listaMeios, listaClientes);
+    Fila* filaAlugueres = carregarAlugueres("Alugueres/aluguer.bin", listaMeios, listaClientes);
 
     
    
     //imprimirMeios(listaMeios);
     //imprimirClientes(listaClientes);
     //imprimirGestores(listaGestores);
-    //imprimirGrafo(grafo);
-    //imprimirMatrizAdjacencias(grafo);
+    imprimirGrafo(grafo);
+    imprimirMatrizAdjacencias(grafo);
     //imprimirAlugueres(filaAlugueres);
 
     //int tamanhoTrajeto = 0;

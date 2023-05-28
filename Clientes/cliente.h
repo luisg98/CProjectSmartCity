@@ -9,7 +9,7 @@ typedef struct Cliente
         char morada[SIZE];
         unsigned int nif;
         double saldo;
-        struct cliente * proximo;
+        struct Cliente * proximo;
     
 }Cliente, *PtrCliente;
 
@@ -23,8 +23,8 @@ void imprimirClientes(PtrCliente clientes);
 bool libertarClientes(PtrCliente clientes);
 PtrCliente carregarSaldoCliente(PtrCliente clientes, unsigned int nif, double carregamento);
 PtrCliente importarClientes(char *filename);
-bool guardarClientes(char* filename, PtrCliente clientes);
-PtrCliente carregarClientes(char* filename);
+bool guardarClientes(const char* filename, PtrCliente clientes);
+PtrCliente carregarClientes(const char* filename, bool* res);
 
 
 #endif

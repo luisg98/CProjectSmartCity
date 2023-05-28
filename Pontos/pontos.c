@@ -101,6 +101,7 @@ Grafo* criarGrafo() {
     
     return grafo;
 }
+
 Grafo* importarGrafo(const char* filename) {
     FILE* file = fopen(filename, "r");
     if (file == NULL) {
@@ -270,95 +271,3 @@ void imprimirMatrizAdjacencias(Grafo* grafo) {
 
     printf("------------------------------------------\n");
 }
-
-
-bool guardarGrafo(const char* filename, Grafo* grafo) {
-    FILE* file = fopen(filename, "w");
-    if (file == NULL) {
-        return false;
-    }
-
-    PontoRecolha* pontoRecolha = grafo->pontosRecolha;
-    Aresta* aresta = NULL;
-
-    // Escreve os pontos de recolha no arquivo
-    while (pontoRecolha != NULL) {
-        fprintf(file, "P,%s\n", pontoRecolha->geocodigo);
-        pontoRecolha = pontoRecolha->proximo;
-    }
-
-    // Escreve as arestas no arquivo
-    pontoRecolha = grafo->pontosRecolha;
-    while (pontoRecolha != NULL) {
-        aresta = pontoRecolha->adjacencia;
-        while (aresta != NULL) {
-            fprintf(file, "A,%s,%s,%d\n", pontoRecolha->geocodigo, aresta->destino->geocodigo, aresta->distancia);
-            aresta = aresta->proximo;
-        }
-        pontoRecolha = pontoRecolha->proximo;
-    }
-
-    fclose(file);
-    return true;
-}
-
-Grafo* carregarGrafo(const char* filename) {
-    FILE* file = fopen(filename, "r");
-    if (file == NULL) {
-        return NULL;
-    }
-
-    Grafo* grafo = criarGrafo();
-
-    char linha[SIZE];
-    while (fgets(linha, sizeof(linha), file)) {
-        // Remover o caractere de quebra de linha ('\n')
-        linha[strcspn(linha, "\n")] = '\0';
-
-        char* token = strtok(linha, ",");
-
-        if (strcmp(token, "P") == 0) {
-            token = strtok(NULL, ",");
-            adicionarPontoRecolha(grafo, token);
-        } else if (strcmp(token, "A") == 0) {
-            token = strtok(NULL, ",");
-            PontoRecolha* origem = NULL;
-            PontoRecolha* destino = NULL;
-            int distancia;
-
-            // Procura o ponto de recolha de origem
-            PontoRecolha* atual = grafo->pontosRecolha;
-            while (atual != NULL) {
-                if (strcmp(atual->geocodigo, token) == 0) {
-                    origem = atual;
-                    break;
-                }
-                atual = atual->proximo;
-            }
-
-            token = strtok(NULL, ",");
-
-            // Procura o ponto de recolha de destino
-            atual = grafo->pontosRecolha;
-            while (atual != NULL) {
-                if (strcmp(atual->geocodigo, token) == 0) {
-                    destino = atual;
-                    break;
-                }
-                atual = atual->proximo;
-            }
-
-            token = strtok(NULL, ",");
-            distancia = atoi(token);
-
-            if (origem != NULL && destino != NULL) {
-                adicionarAresta(grafo, origem, destino, distancia);
-            }
-        }
-    }
-
-    fclose(file);
-
-    return grafo;
-}
-

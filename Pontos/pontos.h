@@ -43,5 +43,4 @@ bool guardarGrafo(const char* filename, Grafo* grafo);
 Grafo* carregarGrafo(const char* filename);
 
 
-
 #endif

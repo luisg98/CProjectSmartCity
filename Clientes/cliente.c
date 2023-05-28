@@ -224,33 +224,34 @@ bool libertarClientes(PtrCliente clientes) {
  * @return true 
  * @return false 
  */
-bool guardarClientes(char* filename, PtrCliente clientes) {
+bool guardarClientes(const char* filename, PtrCliente clientes) {
     FILE* file = fopen(filename, "wb");
     if (file == NULL) {
-        return false; // não consegur abrir file
+        return false;
     }
-    Cliente* aux = clientes;
-    while (aux != NULL) {
-        if (fwrite(aux, sizeof(Cliente), 1, file) != 1) {
-            fclose(file);
-            return false; 
-        }
-        aux = aux->proximo;
+
+    PtrCliente cliente = clientes;
+    while (cliente != NULL) {
+        fwrite(cliente, sizeof(Cliente), 1, file);
+        cliente = cliente->proximo;
     }
+
     fclose(file);
     return true;
 }
 
 /**
- * @brief Lê de um file binário
+ * @brief 
  * 
  * @param filename 
+ * @param res 
  * @return PtrCliente 
  */
-PtrCliente carregarClientes(char* filename, bool *res) {
+PtrCliente carregarClientes(const char* filename, bool* res) {
     FILE* file = fopen(filename, "rb");
     if (file == NULL) {
-        *res = false; 
+        *res = false;
+        return NULL; // Retorna NULL em caso de erro
     }
 
     PtrCliente clientes = NULL;
@@ -261,7 +262,9 @@ PtrCliente carregarClientes(char* filename, bool *res) {
     }
 
     fclose(file);
+    *res = true; // Define res como true para indicar que a leitura foi bem-sucedida
     return clientes;
 }
+
 
 
