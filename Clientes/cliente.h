@@ -2,7 +2,6 @@
 #define CLIENTE_H
 #define SIZE 50
 
-
 typedef struct Cliente
 {
         char nome[SIZE];
@@ -14,7 +13,6 @@ typedef struct Cliente
 }Cliente, *PtrCliente;
 
 
-//Funções
 PtrCliente criarCliente(char nome[], char morada[], unsigned int nif, double saldo);
 PtrCliente insereCliente(PtrCliente clientes, char nome[], char morada[], unsigned int nif, double saldo);
 PtrCliente removerCliente(PtrCliente clientes, unsigned int nif, bool *res);

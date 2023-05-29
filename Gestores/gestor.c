@@ -26,19 +26,17 @@
  */
 Gestor* novoGestor(char username[], char password[])
 {
-    Gestor* novo = (Gestor*) malloc(sizeof(Gestor)); // Aloca memória para o novo gestor
+    Gestor* novo = (Gestor*) malloc(sizeof(Gestor));
 
-    if (novo == NULL) { // Verifica alocação
+    if (novo == NULL) { 
         return NULL;
     }
 
-    // Define o nome de usuário e a password do novo gestor
     strcpy(novo->username, username);
     strcpy(novo->password, password);
 
-    //lista duplamente ligada
-    novo->anterior = NULL; // Define o ponteiro anterior como NULL
-    novo->seguinte = NULL; // Define o ponteiro seguinte como NULL
+    novo->anterior = NULL; 
+    novo->seguinte = NULL; 
 
     return novo;
 }
@@ -52,18 +50,18 @@ Gestor* novoGestor(char username[], char password[])
  * @return Gestor* 
  */
 Gestor* inserirGestor(Gestor* inicioListaGestores, Gestor* gestor) {
-    Gestor* atual = inicioListaGestores; // Define o ponteiro atual para o início da lista
+    Gestor* atual = inicioListaGestores; 
 
     if (atual == NULL) { // Verifica se a lista está vazia
         inicioListaGestores = gestor; // Se estiver vazia, define o novo gestor como início da lista
     } else {
-        while (atual -> seguinte != NULL) { // Percorre a lista até o final
+        while (atual -> seguinte != NULL) { // Percorre a lista
             atual = atual -> seguinte;
         }
         atual -> seguinte = gestor; // Define o próximo gestor como o novo gestor inserido
         gestor -> anterior = atual; // Define o gestor atual como o gestor anterior do novo gestor
     }
-    return inicioListaGestores; // Devolve o endereço da cabeça da lista
+    return inicioListaGestores; 
 }
 
 
@@ -89,12 +87,11 @@ Gestor* removerGestor(Gestor* listaGestores, char* userNameGestor) {
             free(atual);
             return listaGestores;
         }
-        // Se ainda não encontramos o gestor com o nome de usuário correspondente, avança para o próximo
+        
         anterior = atual;
         atual = atual->seguinte;
     }
 
-    // Se chegamos ao final da lista e não encontramos o gestor com o nome de usuário correspondente, retorna a lista sem alterações
     return listaGestores;
 }
 

@@ -15,7 +15,12 @@
 #define SIZE 50
 #include "pontos.h"
 
-// Função para criar um novo ponto de recolha
+/**
+ * @brief 
+ * 
+ * @param geocodigo 
+ * @return PontoRecolha* 
+ */
 PontoRecolha* criarPontoRecolha(char geocodigo[]) {
     PontoRecolha* novoPontoRecolha = (PontoRecolha*)malloc(sizeof(PontoRecolha));
     strcpy(novoPontoRecolha->geocodigo, geocodigo);
@@ -24,7 +29,12 @@ PontoRecolha* criarPontoRecolha(char geocodigo[]) {
     return novoPontoRecolha;
 }
 
-// Função para adicionar um ponto de recolha ao grafo
+/**
+ * @brief Função para adicionar um ponto de recolha ao grafo
+ * 
+ * @param grafo 
+ * @param geocodigo 
+ */
 void adicionarPontoRecolha(Grafo* grafo, char geocodigo[]) {
     PontoRecolha* novoPontoRecolha = criarPontoRecolha(geocodigo);
 
@@ -43,7 +53,14 @@ void adicionarPontoRecolha(Grafo* grafo, char geocodigo[]) {
     grafo->numPontosRecolha++;
 }
 
-// Função para criar uma nova aresta
+/**
+ * @brief Função para criar uma nova aresta
+ * 
+ * @param inicio 
+ * @param fim 
+ * @param distancia 
+ * @return Aresta* 
+ */
 Aresta* criarAresta(PontoRecolha* inicio, PontoRecolha* fim, int distancia) {
     Aresta* novaAresta = (Aresta*)malloc(sizeof(Aresta));
     novaAresta->origem = inicio;
@@ -53,7 +70,14 @@ Aresta* criarAresta(PontoRecolha* inicio, PontoRecolha* fim, int distancia) {
     return novaAresta;
 }
 
-// Função para adicionar uma aresta ao grafo
+/**
+ * @brief Função para adicionar uma aresta ao grafo
+ * 
+ * @param grafo 
+ * @param inicio 
+ * @param fim 
+ * @param distancia 
+ */
 void adicionarAresta(Grafo* grafo, PontoRecolha* inicio, PontoRecolha* fim, int distancia) {
     Aresta* novaAresta = criarAresta(inicio, fim, distancia);
 
@@ -72,7 +96,13 @@ void adicionarAresta(Grafo* grafo, PontoRecolha* inicio, PontoRecolha* fim, int 
 }
 
 
-// Função para liberar a memória alocada para o grafo
+/**
+ * @brief  Função para libertar a memória alocada para o grafo
+ * 
+ * @param grafo 
+ * @return true 
+ * @return false 
+ */
 bool freeGrafo(Grafo* grafo) {
     PontoRecolha* pontoAtual = grafo->pontosRecolha;
     while (pontoAtual != NULL) {
@@ -90,6 +120,11 @@ bool freeGrafo(Grafo* grafo) {
     return true;
 }
 
+/**
+ * @brief Cria um grafo
+ * 
+ * @return Grafo* 
+ */
 Grafo* criarGrafo() {
     Grafo* grafo = (Grafo*)malloc(sizeof(Grafo));
     if (grafo == NULL) {
@@ -102,6 +137,12 @@ Grafo* criarGrafo() {
     return grafo;
 }
 
+/**
+ * @brief Importa um grafo de um ficheiro txt
+ * 
+ * @param filename 
+ * @return Grafo* 
+ */
 Grafo* importarGrafo(const char* filename) {
     FILE* file = fopen(filename, "r");
     if (file == NULL) {

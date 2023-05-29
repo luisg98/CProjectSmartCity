@@ -29,11 +29,11 @@ int main(){
     Meio* listaMeios = importarMeios("Meios/meios.txt");
     //PtrCliente listaClientes = importarClientes("Clientes/clientes.txt");
     //Gestor * listaGestores = importarGestores("Gestores/gestores.txt");
-    //Grafo* grafo = importarGrafo("Pontos/pontos.txt");
+    Grafo* grafo = importarGrafo("Pontos/pontos.txt");
     //Meio* listaMeios = carregarMeios("Meios/meios.bin");
     PtrCliente listaClientes = carregarClientes("Clientes/clientes.bin", &result);
     Gestor* listaGestores = carregarGestores("Gestores/gestores.bin");
-    Grafo* grafo = carregarGrafo("Pontos/pontos.bin");
+    //Grafo* grafo = carregarGrafo("Pontos/pontos.bin");
     //Fila* filaAlugueres = importarAlugueres("Alugueres/aluguer.txt", listaMeios, listaClientes);
     Fila* filaAlugueres = carregarAlugueres("Alugueres/aluguer.bin", listaMeios, listaClientes);
 
@@ -56,8 +56,8 @@ int main(){
     printf("Clientes guardados com sucesso: %d\n", v);
     v = guardarGestores("Gestores/gestores.bin", listaGestores);
     printf("Gestores guardados com sucesso: %d\n", v);
-    v = guardarGrafo("Pontos/pontos.bin", grafo);
-    printf("Grafo guardado com sucesso: %d\n", v);
+    //v = guardarGrafo("Pontos/pontos.bin", grafo);
+    //printf("Grafo guardado com sucesso: %d\n", v);
     v = guardarAlugueres("Alugueres/aluguer.bin", filaAlugueres);
     printf("Alugueres guardados com sucesso: %d\n", v);
     

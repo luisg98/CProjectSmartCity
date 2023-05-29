@@ -251,7 +251,7 @@ PtrCliente carregarClientes(const char* filename, bool* res) {
     FILE* file = fopen(filename, "rb");
     if (file == NULL) {
         *res = false;
-        return NULL; // Retorna NULL em caso de erro
+        return NULL;
     }
 
     PtrCliente clientes = NULL;

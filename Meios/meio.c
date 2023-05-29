@@ -39,6 +39,13 @@ Meio* criarMeio(int codigo, const char tipo[], int autonomia, const char geocodi
     return meio;
 }
 
+/**
+ * @brief Insere um meio na lista de meios
+ * 
+ * @param lista 
+ * @param novoMeio 
+ * @return Meio* 
+ */
 Meio* inserirMeio(Meio** lista, Meio* novoMeio) {
     if (*lista == NULL) {
         *lista = novoMeio;
@@ -55,6 +62,12 @@ Meio* inserirMeio(Meio** lista, Meio* novoMeio) {
     return *lista;
 }
 
+/**
+ * @brief Importa de um ficheiro txt os meios
+ * 
+ * @param filename 
+ * @return Meio* 
+ */
 Meio* importarMeios(const char* filename) {
     FILE* file = fopen(filename, "r");
     if (file == NULL) {
@@ -80,7 +93,11 @@ Meio* importarMeios(const char* filename) {
     return lista;
 }
 
-
+/**
+ * @brief liberta a memória dos meios
+ * 
+ * @param lista 
+ */
 void libertarMeios(Meio* lista) {
     Meio* atual = lista;
     while (atual != NULL) {
@@ -90,7 +107,11 @@ void libertarMeios(Meio* lista) {
     }
 }
 
-
+/**
+ * @brief Imprime os meios guardados na consola
+ * 
+ * @param lista 
+ */
 void imprimirMeios(Meio* lista) {
     Meio* atual = lista;
     while (atual != NULL) {
@@ -103,6 +124,14 @@ void imprimirMeios(Meio* lista) {
     }
 }
 
+/**
+ * @brief Guarda os meios num ficheiro binário
+ * 
+ * @param filename 
+ * @param lista 
+ * @return true 
+ * @return false 
+ */
 bool guardarMeios(const char* filename, Meio* lista) {
     FILE* file = fopen(filename, "wb");
     if (file == NULL) {
@@ -123,6 +152,13 @@ bool guardarMeios(const char* filename, Meio* lista) {
     return true;
 }
 
+
+/**
+ * @brief Carrega os meios de um ficheiro binário
+ * 
+ * @param filename 
+ * @return Meio* 
+ */
 Meio* carregarMeios(const char* filename) {
     FILE* file = fopen(filename, "rb");
     if (file == NULL) {

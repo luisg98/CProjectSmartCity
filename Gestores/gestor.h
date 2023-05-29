@@ -2,8 +2,7 @@
 #define GESTOR_H
 #define SIZE 50
 
-typedef struct Gestor
-{
+typedef struct Gestor{
 char username[SIZE];
 char password[SIZE];
 struct Gestor* anterior;
@@ -11,7 +10,6 @@ struct Gestor* seguinte;
 } Gestor;
 
 
-//FUNÇÕES
 Gestor* novoGestor(char username[], char password[]);
 Gestor* inserirGestor(Gestor* inicioListaGestores, Gestor* gestor);
 Gestor* removerGestor(Gestor* gestores, char* idGestor);
