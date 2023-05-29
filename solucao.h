@@ -11,17 +11,20 @@
 
 #ifndef SOLUCAO_H
 #define SOLUCAO_H
-#define CAPACIDADE_CAMIAO 10
+#define CAPACIDADE_CARRINHA 30
+#define MAX 99999
+#define SIZE 50
 
-int calcularDistanciaTotal(Aresta** trajeto, int numPontosRecolha);
-PontoRecolha* encontrarProximoPonto(PontoRecolha* pontoAtual, Grafo* grafo);
-bool todosVisitados(Grafo* grafo);
-Aresta* encontrarArestaPorOrigemEDestino(Grafo* grafo, const char* geocodigoOrigem, const char* geocodigoDestino);
-PontoRecolha* encontrarPontoRecolhaPorGeocodigo(Grafo* grafo, const char* geocodigo);
-Meio* encontrarProximoMeio(Meio* meios, Grafo* grafo, const char* geocodigoDestino);
-int obterDistanciaEntreMeioEDestino(Grafo* grafo, const char* geocodigoMeio, const char* geocodigoDestino);
-Aresta** encontrarMelhorTrajeto(Grafo* grafo, Meio* meios, const char* pontoPartida, int* tamanhoTrajeto);
-void imprimirMelhorTrajeto(Aresta** trajeto, int tamanhoTrajeto, Grafo* grafo);
+
+typedef struct aRecolher{
+    char geocodigo[SIZE];
+    int bicicletas;
+    int trotinetes;
+    struct aRecolher* proximo;
+}aRecolher;
+
+aRecolher* procurarMeiosRecolher(Meio* listaMeios);
+void imprimirListaMeios(aRecolher* listaMeios);
 
 
 #endif

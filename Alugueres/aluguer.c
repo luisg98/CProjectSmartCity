@@ -19,7 +19,7 @@
 
 /**
  * @brief Get the Date object
- * @return Data 
+ * @return dataRecolha 
  */
 Data getDate() {
     
@@ -45,7 +45,7 @@ Aluguer* criarAluguer(int nifCliente, char geocodigoRecolha[TAMANHO]) {
     Aluguer* novoAluguer = (Aluguer*)malloc(sizeof(Aluguer));
     novoAluguer->idCliente = nifCliente;
     novoAluguer->idMeio = -1;  // Valor inicial indicando que o meio não foi encontrado
-    novoAluguer->data = dataAtual;
+    novoAluguer->dataRecolha = dataAtual;
     strncpy(novoAluguer->geocodigoRecolha, geocodigoRecolha, TAMANHO);
     novoAluguer->proximo = NULL;
     novoAluguer->anterior = NULL;
@@ -137,7 +137,8 @@ void imprimirAlugueres(Fila* filaAlugueres) {
     while (aluguer != NULL) {
         printf("ID Cliente: %d\n", aluguer->idCliente);
         printf("ID Meio: %d\n", aluguer->idMeio);
-        printf("Data: %d-%d-%d\n", aluguer->data.dia, aluguer->data.mes, aluguer->data.ano);
+        printf("dataRecolha: %d-%d-%d\n", aluguer->dataRecolha.dia, aluguer->dataRecolha.mes, aluguer->dataRecolha.ano);
+        printf("dataEntrega: %d-%d-%d\n", aluguer->dataEntrega.dia, aluguer->dataEntrega.mes, aluguer->dataEntrega.ano);
         printf("Geocódigo de Recolha: %s\n", aluguer->geocodigoRecolha);
 
         aluguer = aluguer->proximo;
@@ -200,4 +201,29 @@ bool guardarAlugueres(const char* filename, Fila* filaAlugueres) {
 
     fclose(file);
     return true;
+}
+
+Meio* devolverMeio(int idCliente, Fila* filaAlugueres, Meio* listaMeios) {
+    Aluguer* aluguer = filaAlugueres->inicio;
+    
+    while (aluguer != NULL) {
+        if (aluguer->idCliente == idCliente) {
+            aluguer->dataEntrega = getDate();
+            
+            Meio* meio = listaMeios;
+            while (meio != NULL) {
+                if (meio->codigo == aluguer->idMeio) {
+                    meio->alugado = false;
+                    meio->autonomia = 100;
+                    break;
+                }
+                meio = meio->proximo;
+            }
+            
+            break;
+        }
+        aluguer = aluguer->proximo;
+    }
+    
+    return listaMeios;
 }

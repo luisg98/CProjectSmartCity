@@ -22,7 +22,8 @@ typedef struct Data{
 typedef struct Aluguer {
     int idCliente;
     int idMeio;
-    Data data;
+    Data dataRecolha;
+    Data dataEntrega;
     char geocodigoRecolha[TAMANHO];
     struct Aluguer *proximo;
     struct Aluguer *anterior;
@@ -40,4 +41,5 @@ Fila* importarAlugueres(const char* filename, Meio* listaMeios, Cliente* listaCl
 void imprimirAlugueres(Fila* filaAlugueres);
 bool guardarAlugueres(const char* filename, Fila* filaAlugueres);
 Fila* carregarAlugueres(const char* filename, Meio* listaMeios, Cliente* listaClientes);
+Meio* devolverMeio(int idCliente, Fila* filaAlugueres, Meio* listaMeios);
 #endif

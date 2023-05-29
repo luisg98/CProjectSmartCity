@@ -26,11 +26,11 @@ int main(){
 
     bool result;
 
-    //Meio* listaMeios = importarMeios("Meios/meios.txt");
+    Meio* listaMeios = importarMeios("Meios/meios.txt");
     //PtrCliente listaClientes = importarClientes("Clientes/clientes.txt");
     //Gestor * listaGestores = importarGestores("Gestores/gestores.txt");
     //Grafo* grafo = importarGrafo("Pontos/pontos.txt");
-    Meio* listaMeios = carregarMeios("Meios/meios.bin");
+    //Meio* listaMeios = carregarMeios("Meios/meios.bin");
     PtrCliente listaClientes = carregarClientes("Clientes/clientes.bin", &result);
     Gestor* listaGestores = carregarGestores("Gestores/gestores.bin");
     Grafo* grafo = carregarGrafo("Pontos/pontos.bin");
@@ -46,9 +46,8 @@ int main(){
     imprimirMatrizAdjacencias(grafo);
     //imprimirAlugueres(filaAlugueres);
 
-    //int tamanhoTrajeto = 0;
-    //Aresta** melhorTrajeto = encontrarMelhorTrajeto(grafo, listaMeios, "polo.de.barcelos", &tamanhoTrajeto);
-    //imprimirMelhorTrajeto(melhorTrajeto, tamanhoTrajeto, grafo);
+    //aRecolher* listaMeiosRecolher = procurarMeiosRecolher(listaMeios);
+    //imprimirListaMeios(listaMeiosRecolher);
 
     bool v;
     v = guardarMeios("Meios/meios.bin", listaMeios);
