@@ -8,7 +8,6 @@
 
 #define SIZE 50
 
-
 typedef struct PontoRecolha {
     char geocodigo[SIZE];
     bool visitado; 
@@ -31,9 +30,9 @@ typedef struct Grafo {
 } Grafo;
 
 PontoRecolha* criarPontoRecolha(char geocodigo[]);
-void adicionarPontoRecolha(Grafo* grafo, char geocodigo[]);
+bool adicionarPontoRecolha(Grafo* grafo, char geocodigo[]);
 Aresta* criarAresta(PontoRecolha* inicio, PontoRecolha* fim, int distancia);
-void adicionarAresta(Grafo* grafo, PontoRecolha* inicio, PontoRecolha* fim, int distancia);
+bool adicionarAresta(Grafo* grafo, PontoRecolha* inicio, PontoRecolha* fim, int distancia);
 bool freeGrafo(Grafo* grafo);
 Grafo* importarGrafo(const char* filename);
 Grafo* criarGrafo();

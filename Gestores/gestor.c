@@ -16,7 +16,6 @@
 #include "gestor.h"
 
 
-
 /**
  * @brief Criar um novo gestor
  * 

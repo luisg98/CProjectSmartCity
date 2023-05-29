@@ -1,3 +1,14 @@
+/**
+ * @file cliente.h
+ * @author lugon (a18851@alunos.ipca.pt)
+ * @brief 
+ * @version 0.1
+ * @date 2023-05-29
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #ifndef CLIENTE_H
 #define CLIENTE_H
 #define SIZE 50
@@ -11,7 +22,6 @@ typedef struct Cliente
         struct Cliente * proximo;
     
 }Cliente, *PtrCliente;
-
 
 PtrCliente criarCliente(char nome[], char morada[], unsigned int nif, double saldo);
 PtrCliente insereCliente(PtrCliente clientes, char nome[], char morada[], unsigned int nif, double saldo);

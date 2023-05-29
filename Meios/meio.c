@@ -114,6 +114,7 @@ void libertarMeios(Meio* lista) {
  */
 void imprimirMeios(Meio* lista) {
     Meio* atual = lista;
+    
     while (atual != NULL) {
         printf("Código: %d\n", atual->codigo);
         printf("Tipo: %s\n", atual->tipo);

@@ -84,6 +84,7 @@ void imprimirListaMeios(aRecolher* listaMeios) {
         printf("Trotinetes: %d\n", atual->trotinetes);
         printf("----------------------\n");
 
+
         atual = atual->proximo;
     }
 }

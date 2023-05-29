@@ -42,8 +42,8 @@ int main(){
     //imprimirMeios(listaMeios);
     //imprimirClientes(listaClientes);
     //imprimirGestores(listaGestores);
-    imprimirGrafo(grafo);
-    imprimirMatrizAdjacencias(grafo);
+    //imprimirGrafo(grafo);
+    //imprimirMatrizAdjacencias(grafo);
     //imprimirAlugueres(filaAlugueres);
 
     //aRecolher* listaMeiosRecolher = procurarMeiosRecolher(listaMeios);

@@ -29,13 +29,8 @@ PontoRecolha* criarPontoRecolha(char geocodigo[]) {
     return novoPontoRecolha;
 }
 
-/**
- * @brief Função para adicionar um ponto de recolha ao grafo
- * 
- * @param grafo 
- * @param geocodigo 
- */
-void adicionarPontoRecolha(Grafo* grafo, char geocodigo[]) {
+
+bool adicionarPontoRecolha(Grafo* grafo, char geocodigo[]) {
     PontoRecolha* novoPontoRecolha = criarPontoRecolha(geocodigo);
 
     // Verifica se o grafo está vazio
@@ -51,7 +46,9 @@ void adicionarPontoRecolha(Grafo* grafo, char geocodigo[]) {
     }
 
     grafo->numPontosRecolha++;
+    return true;
 }
+
 
 /**
  * @brief Função para criar uma nova aresta
@@ -78,7 +75,7 @@ Aresta* criarAresta(PontoRecolha* inicio, PontoRecolha* fim, int distancia) {
  * @param fim 
  * @param distancia 
  */
-void adicionarAresta(Grafo* grafo, PontoRecolha* inicio, PontoRecolha* fim, int distancia) {
+bool adicionarAresta(Grafo* grafo, PontoRecolha* inicio, PontoRecolha* fim, int distancia) {
     Aresta* novaAresta = criarAresta(inicio, fim, distancia);
 
     // Verifica se a lista de adjacência do ponto de recolha de partida está vazia
@@ -93,7 +90,10 @@ void adicionarAresta(Grafo* grafo, PontoRecolha* inicio, PontoRecolha* fim, int 
         // Adiciona a nova aresta ao final da lista de adjacência
         arestaAtual->proximo = novaAresta;
     }
+
+    return true;
 }
+
 
 
 /**
