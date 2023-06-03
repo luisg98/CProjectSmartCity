@@ -33,13 +33,18 @@ PontoRecolha* criarPontoRecolha(char geocodigo[]);
 bool adicionarPontoRecolha(Grafo* grafo, char geocodigo[]);
 Aresta* criarAresta(PontoRecolha* inicio, PontoRecolha* fim, int distancia);
 bool adicionarAresta(Grafo* grafo, PontoRecolha* inicio, PontoRecolha* fim, int distancia);
-bool freeGrafo(Grafo* grafo);
+bool libertarGrafo(Grafo* grafo);
 Grafo* importarGrafo(const char* filename);
 Grafo* criarGrafo();
 void imprimirGrafo(Grafo* grafo);
 void imprimirMatrizAdjacencias(Grafo* grafo);
 bool guardarGrafo(const char* filename, Grafo* grafo);
 Grafo* carregarGrafo(const char* filename);
+PontoRecolha* carregarPontosRecolha(const char* filename);
+bool guardarPontosRecolha(const char* filename, PontoRecolha* pontosRecolha);
+PontoRecolha* converteGeocodigoPontoRecolha(Grafo* grafo, const char* geocodigo);
+PontoRecolha* carregarPontosRecolha(const char* filename);
+
 
 
 #endif
