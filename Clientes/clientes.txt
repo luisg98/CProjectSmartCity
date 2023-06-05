@@ -1,3 +1,10 @@
-João,Rua da,123456789,1500.00
-Maria,Avenida da,987654321,2000.50
-Luis,Praça,18851,0.0
+João Silva,Rua A,123456789
+Maria Santos,Rua B,987654321
+Pedro Oliveira,Rua C,567891234
+Ana Rodrigues,Rua D,432156789
+Carlos Sousa,Rua E,876543210
+Marta Ferreira,Rua F,345678912
+Rui Almeida,Rua G,219876543
+Sofia Costa,Rua H,789123456
+Luís Pereira,Rua I,654321987
+Inês Mendes,Rua J,918273645

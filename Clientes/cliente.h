@@ -1,7 +1,7 @@
 /**
  * @file cliente.h
  * @author lugon (a18851@alunos.ipca.pt)
- * @brief 
+ * @brief Ficheiro de cabeçalho do ficheiro .c correspondente
  * @version 0.1
  * @date 2023-05-29
  * 
@@ -23,16 +23,15 @@ typedef struct Cliente
     
 }Cliente, *PtrCliente;
 
-PtrCliente criarCliente(char nome[], char morada[], unsigned int nif, double saldo);
-PtrCliente insereCliente(PtrCliente clientes, char nome[], char morada[], unsigned int nif, double saldo);
 PtrCliente removerCliente(PtrCliente clientes, unsigned int nif, bool *res);
 PtrCliente alterarMoradaCliente(PtrCliente clientes, unsigned int nif, char novaMorada[], bool *res);
 void imprimirClientes(PtrCliente clientes);
 bool libertarClientes(PtrCliente clientes);
 PtrCliente carregarSaldoCliente(PtrCliente clientes, unsigned int nif, double carregamento);
 PtrCliente importarClientes(char *filename);
-bool guardarClientes(const char* filename, PtrCliente clientes);
-PtrCliente carregarClientes(const char* filename, bool* res);
+PtrCliente carregarClientes(char *filename);
+bool guardarClientes(char *filename, PtrCliente clientes);
+
 
 
 #endif

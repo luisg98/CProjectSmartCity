@@ -1,3 +1,15 @@
+/**
+ * @file pontos.h
+ * @author lugon (a18851@alunos.ipca.pt)
+ * @brief Ficheiro de cabeçalho do ficheiro .c correspondente
+ * @version 0.1
+ * @date 2023-06-05
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
+
 #ifndef PONTOS_H
 #define PONTOS_H
 
@@ -10,7 +22,6 @@
 
 typedef struct PontoRecolha {
     char geocodigo[SIZE];
-    bool visitado; 
     struct Aresta* adjacencia;   // Ponteiro para a lista de adjacência do ponto de recolha
     struct PontoRecolha* proximo;   
 } PontoRecolha;
@@ -44,6 +55,7 @@ PontoRecolha* carregarPontosRecolha(const char* filename);
 bool guardarPontosRecolha(const char* filename, PontoRecolha* pontosRecolha);
 PontoRecolha* converteGeocodigoPontoRecolha(Grafo* grafo, const char* geocodigo);
 PontoRecolha* carregarPontosRecolha(const char* filename);
+int calcularDistancia(Grafo* grafo, char geocodigo1[], char geocodigo2[]);
 
 
 

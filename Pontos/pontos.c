@@ -1,7 +1,7 @@
 /**
  * @file pontos.c
  * @author lugon (a18851@alunos.ipca.pt)
- * @brief 
+ * @brief Ficheiro para tudo relacionado com os pontos de recolha
  * @version 0.1
  * @date 2023-05-24
  * 
@@ -314,25 +314,77 @@ void imprimirMatrizAdjacencias(Grafo* grafo) {
 }
 
 
-// Função para guardar o grafo em binário
+
+PontoRecolha* converteGeocodigoPontoRecolha(Grafo* grafo, const char* geocodigo) {
+    PontoRecolha* pontoAtual = grafo->pontosRecolha;
+
+    while (pontoAtual != NULL) {
+        if (strcmp(pontoAtual->geocodigo, geocodigo) == 0) {
+            return pontoAtual;
+        }
+        pontoAtual = pontoAtual->proximo;
+    }
+
+    return NULL;
+}
+
+
+// Função para calcular a distância entre dois geocódigos
+int calcularDistancia(Grafo* grafo, char geocodigo1[], char geocodigo2[]) {
+    PontoRecolha* ponto1 = NULL;
+    PontoRecolha* ponto2 = NULL;
+
+    // Procura os pontos de recolha com os geocódigos fornecidos
+    PontoRecolha* atual = grafo->pontosRecolha;
+    while (atual != NULL) {
+        if (strcmp(atual->geocodigo, geocodigo1) == 0) {
+            ponto1 = atual;
+        }
+        if (strcmp(atual->geocodigo, geocodigo2) == 0) {
+            ponto2 = atual;
+        }
+
+        // Se os dois pontos de recolha foram encontrados, interrompe o loop
+        if (ponto1 != NULL && ponto2 != NULL) {
+            break;
+        }
+
+        atual = atual->proximo;
+    }
+
+    // Verifica se os pontos de recolha foram encontrados
+    if (ponto1 == NULL || ponto2 == NULL) {
+        return -1; // Retorna -1 para indicar que os geocódigos não foram encontrados
+    }
+
+    // Verifica se os pontos de recolha são adjacentes
+    Aresta* arestaAtual = ponto1->adjacencia;
+    while (arestaAtual != NULL) {
+        if (arestaAtual->destino == ponto2) {
+            return arestaAtual->distancia; // Retorna a distância entre os pontos de recolha
+        }
+        arestaAtual = arestaAtual->proximo;
+    }
+
+    return -1; // Retorna -1 para indicar que os pontos de recolha não são adjacentes
+}
+
+
+
 bool guardarGrafo(const char* filename, Grafo* grafo) {
     FILE* file = fopen(filename, "wb");
     if (file == NULL) {
         return false;
     }
 
-    // Escrever o número de pontos de recolha no ficheiro
     fwrite(&(grafo->numPontosRecolha), sizeof(int), 1, file);
 
-    // Percorrer a lista de pontos de recolha e escrever cada ponto no ficheiro
     PontoRecolha* pontoAtual = grafo->pontosRecolha;
     while (pontoAtual != NULL) {
-        // Escrever o tamanho do código geográfico e o código geográfico no ficheiro
         int tamanhoGeocodigo = strlen(pontoAtual->geocodigo);
         fwrite(&tamanhoGeocodigo, sizeof(int), 1, file);
         fwrite(pontoAtual->geocodigo, sizeof(char), tamanhoGeocodigo, file);
 
-        // Escrever o número de adjacências no ficheiro
         int numAdjacencias = 0;
         Aresta* arestaAtual = pontoAtual->adjacencia;
         while (arestaAtual != NULL) {
@@ -341,15 +393,12 @@ bool guardarGrafo(const char* filename, Grafo* grafo) {
         }
         fwrite(&numAdjacencias, sizeof(int), 1, file);
 
-        // Percorrer a lista de adjacências e escrever cada aresta no ficheiro
         arestaAtual = pontoAtual->adjacencia;
         while (arestaAtual != NULL) {
-            // Escrever o tamanho do código geográfico de destino e o código geográfico de destino no ficheiro
             int tamanhoGeocodigoDestino = strlen(arestaAtual->destino->geocodigo);
             fwrite(&tamanhoGeocodigoDestino, sizeof(int), 1, file);
             fwrite(arestaAtual->destino->geocodigo, sizeof(char), tamanhoGeocodigoDestino, file);
 
-            // Escrever a distância no ficheiro
             fwrite(&(arestaAtual->distancia), sizeof(int), 1, file);
 
             arestaAtual = arestaAtual->proximo;
@@ -362,143 +411,3 @@ bool guardarGrafo(const char* filename, Grafo* grafo) {
     return true;
 }
 
-// Função para carregar o grafo a partir de um ficheiro binário
-Grafo* carregarGrafo(const char* filename) {
-    FILE* file = fopen(filename, "rb");
-    if (file == NULL) {
-        return NULL;
-    }
-
-    // Criar o grafo
-    Grafo* grafo = criarGrafo();
-    if (grafo == NULL) {
-        fclose(file);
-        return NULL;
-    }
-
-    // Ler o número de pontos de recolha do ficheiro
-    fread(&(grafo->numPontosRecolha), sizeof(int), 1, file);
-
-        // Percorrer o ficheiro e ler cada ponto de recolha
-    for (int i = 0; i < grafo->numPontosRecolha; i++) {
-        // Ler o tamanho do código geográfico e o código geográfico do ponto de recolha
-        int tamanhoGeocodigo;
-        fread(&tamanhoGeocodigo, sizeof(int), 1, file);
-        char* geocodigo = (char*)malloc((tamanhoGeocodigo + 1) * sizeof(char));
-        fread(geocodigo, sizeof(char), tamanhoGeocodigo, file);
-        geocodigo[tamanhoGeocodigo] = '\0';
-
-        // Adicionar o ponto de recolha ao grafo
-        adicionarPontoRecolha(grafo, geocodigo);
-
-        // Ler o número de adjacências do ponto de recolha
-        int numAdjacencias;
-        fread(&numAdjacencias, sizeof(int), 1, file);
-
-        // Percorrer o ficheiro e ler cada adjacência
-        for (int j = 0; j < numAdjacencias; j++) {
-            // Ler o tamanho do código geográfico de destino e o código geográfico de destino
-            int tamanhoGeocodigoDestino;
-            fread(&tamanhoGeocodigoDestino, sizeof(int), 1, file);
-            char* geocodigoDestino = (char*)malloc((tamanhoGeocodigoDestino + 1) * sizeof(char));
-            fread(geocodigoDestino, sizeof(char), tamanhoGeocodigoDestino, file);
-            geocodigoDestino[tamanhoGeocodigoDestino] = '\0';
-
-            // Ler a distância da adjacência
-            int distancia;
-            fread(&distancia, sizeof(int), 1, file);
-
-            // Encontrar os pontos de recolha correspondentes aos códigos geográficos
-            PontoRecolha* pontoOrigem = converteGeocodigoPontoRecolha(grafo, geocodigo);
-            PontoRecolha* pontoDestino = converteGeocodigoPontoRecolha(grafo, geocodigoDestino);
-
-            // Adicionar a adjacência ao grafo
-            adicionarAresta(grafo, pontoOrigem, pontoDestino, distancia);
-
-            free(geocodigoDestino);
-        }
-
-        free(geocodigo);
-    }
-
-    fclose(file);
-    return grafo;
-}
-
-// Função para guardar os pontos de recolha em binário
-bool guardarPontosRecolha(const char* filename, PontoRecolha* pontosRecolha) {
-    FILE* file = fopen(filename, "wb");
-    if (file == NULL) {
-        return false;
-    }
-
-    // Escrever cada ponto de recolha no ficheiro
-    PontoRecolha* pontoAtual = pontosRecolha;
-    while (pontoAtual != NULL) {
-        // Escrever o tamanho do código geográfico e o código geográfico no ficheiro
-        int tamanhoGeocodigo = strlen(pontoAtual->geocodigo);
-        fwrite(&tamanhoGeocodigo, sizeof(int), 1, file);
-        fwrite(pontoAtual->geocodigo, sizeof(char), tamanhoGeocodigo, file);
-
-        pontoAtual = pontoAtual->proximo;
-    }
-
-    fclose(file);
-    return true;
-}
-
-// Função para carregar os pontos de recolha a partir de um ficheiro binário
-PontoRecolha* carregarPontosRecolha(const char* filename) {
-    FILE* file = fopen(filename, "rb");
-    if (file == NULL) {
-        return NULL;
-    }
-
-    PontoRecolha* listaPontos = NULL;
-
-    // Percorrer o ficheiro e ler cada ponto de recolha
-    while (true) {
-        // Ler o tamanho do código geográfico
-        int tamanhoGeocodigo;
-        if (fread(&tamanhoGeocodigo, sizeof(int), 1, file) != 1) {
-            break;
-        }
-
-        // Ler o código geográfico do ponto de recolha
-        char* geocodigo = (char*)malloc((tamanhoGeocodigo + 1) * sizeof(char));
-        fread(geocodigo, sizeof(char), tamanhoGeocodigo, file);
-        geocodigo[tamanhoGeocodigo] = '\0';
-
-        // Criar um novo ponto de recolha com o código geográfico lido
-        PontoRecolha* novoPonto = criarPontoRecolha(geocodigo);
-
-        // Adicionar o ponto de recolha à lista
-        if (listaPontos == NULL) {
-            listaPontos = novoPonto;
-        } else {
-            PontoRecolha* pontoAtual = listaPontos;
-            while (pontoAtual->proximo != NULL) {
-                pontoAtual = pontoAtual->proximo;
-            }
-            pontoAtual->proximo = novoPonto;
-        }
-    }
-
-    fclose(file);
-    return listaPontos;
-}
-
-PontoRecolha* converteGeocodigoPontoRecolha(Grafo* grafo, const char* geocodigo) {
-    PontoRecolha* pontoAtual = grafo->pontosRecolha;
-
-    while (pontoAtual != NULL) {
-        if (strcmp(pontoAtual->geocodigo, geocodigo) == 0) {
-            // O ponto de recolha foi encontrado
-            return pontoAtual;
-        }
-        pontoAtual = pontoAtual->proximo;
-    }
-
-    // O ponto de recolha não foi encontrado
-    return NULL;
-}

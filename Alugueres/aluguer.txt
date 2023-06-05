@@ -1,10 +1,2 @@
-18851 polo.de.braga
-2 polo.de.guimaraes
-3 polo.de.famalicao
-4 polo.de.barcelos
-5 polo.de.esposende
-6 polo.de.braga
-7 polo.de.guimaraes
-8 polo.de.famalicao
-9 polo.de.barcelos
-10 polo.de.esposende
+987654321 polo.de.barcelos Trotinete
+123456789 polo.de.braga Bicicleta

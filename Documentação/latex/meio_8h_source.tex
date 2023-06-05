@@ -1,0 +1,31 @@
+\hypertarget{meio_8h_source}{}\doxysection{meio.\+h}
+\label{meio_8h_source}\index{C:/Users/luisg/Desktop/IPCA/1º Ano/2º Semestre/Estruturas de Dados Avançados/2023/Projeto/Meios/meio.h@{C:/Users/luisg/Desktop/IPCA/1º Ano/2º Semestre/Estruturas de Dados Avançados/2023/Projeto/Meios/meio.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MEIO\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MEIO\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ TAMANHO\ 50}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_meio}{Meio}}\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keywordtype}{int}\ codigo;}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{char}\ tipo[TAMANHO];}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordtype}{int}\ autonomia;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{char}\ geocodigo[TAMANHO];}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{bool}\ alugado;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_meio}{Meio}}\ *\ proximo;}
+\DoxyCodeLine{00013\ \}\mbox{\hyperlink{struct_meio}{Meio}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \mbox{\hyperlink{struct_meio}{Meio}}*\ \mbox{\hyperlink{meio_8c_a7187533e5c0443e6104dedb63f1dfdb0}{criarMeio}}(\textcolor{keywordtype}{int}\ codigo,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ tipo[],\ \textcolor{keywordtype}{int}\ autonomia,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ geocodigo[]);}
+\DoxyCodeLine{00017\ \mbox{\hyperlink{struct_meio}{Meio}}*\ \mbox{\hyperlink{meio_8c_aeaa3ad6165e2c541a33d23478a11729d}{inserirMeio}}(\mbox{\hyperlink{struct_meio}{Meio}}**\ lista,\ \mbox{\hyperlink{struct_meio}{Meio}}*\ novoMeio);}
+\DoxyCodeLine{00018\ \mbox{\hyperlink{struct_meio}{Meio}}*\ \mbox{\hyperlink{meio_8c_a20d0809dae547f7b1680783699b81b5d}{importarMeios}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename);}
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{meio_8c_a9f05b92efde9e26dfb6feb7b226a1116}{imprimirMeios}}(\mbox{\hyperlink{struct_meio}{Meio}}*\ lista);}
+\DoxyCodeLine{00020\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{meio_8c_a4f8efb04431092097a1d3471fc53f6a3}{guardarMeios}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename,\ \mbox{\hyperlink{struct_meio}{Meio}}*\ lista);}
+\DoxyCodeLine{00021\ \mbox{\hyperlink{struct_meio}{Meio}}*\ \mbox{\hyperlink{meio_8c_a108be950bf33ce0654d64aab9d5639c9}{carregarMeios}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename);}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{meio_8c_a1cda37d7429f157f7c7e10c9de81141c}{libertarMeios}}(\mbox{\hyperlink{struct_meio}{Meio}}*\ lista);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

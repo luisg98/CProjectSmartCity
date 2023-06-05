@@ -1,8 +1,8 @@
 /**
  * @file aluguer.c
  * @author lugon (a18851@alunos.ipca.pt)
- * @brief Funções para tudo relacionado com os alugueres.
- * @version 0.1
+ * @brief Ficheiro para tudo relacionado com os alugueres.
+ * @version 1.0
  * @date 2023-05-21 
  * @copyright Copyright (c) 2023
  */
@@ -15,7 +15,7 @@
 #include "aluguer.h"
 #include "../Meios/meio.h"
 #include "../Clientes/cliente.h"
-
+#include "../Pontos/pontos.h"
 
 /**
  * @brief Get the Date object
@@ -39,13 +39,14 @@ Data getDate() {
  * @param geocodigoRecolha 
  * @return Aluguer* 
  */
-Aluguer* criarAluguer(int nifCliente, char geocodigoRecolha[TAMANHO]) {
+Aluguer* criarAluguer(int nifCliente, const char geocodigoRecolha[], const char tipo[]) {
     
     Data dataAtual = getDate();
     Aluguer* novoAluguer = (Aluguer*)malloc(sizeof(Aluguer));
     novoAluguer->idCliente = nifCliente;
     novoAluguer->idMeio = -1;  // Valor inicial indicando que o meio não foi encontrado
     novoAluguer->dataRecolha = dataAtual;
+    strncpy(novoAluguer->tipoMeio, tipo, TAMANHO);
     strncpy(novoAluguer->geocodigoRecolha, geocodigoRecolha, TAMANHO);
     novoAluguer->proximo = NULL;
     novoAluguer->anterior = NULL;
@@ -66,10 +67,10 @@ Aluguer* criarAluguer(int nifCliente, char geocodigoRecolha[TAMANHO]) {
 Fila* inserirAluguer(Fila* filaAlugueres, Aluguer* aluguer, Meio* listaMeios, Cliente* listaClientes, bool* inserido) {
     Cliente* cliente = listaClientes;
     while (cliente != NULL) {
-        if (cliente->nif == aluguer->idCliente) {
+        if (cliente->nif == aluguer->idCliente){
             Meio* meio = listaMeios;
             while (meio != NULL) {
-                if (strcmp(meio->geocodigo, aluguer->geocodigoRecolha) == 0 && !(meio->alugado) && meio->autonomia >= 50) {
+                if (strcmp(meio->geocodigo, aluguer->geocodigoRecolha) == 0 && strcmp(meio->tipo, aluguer->tipoMeio) == 0 && !(meio->alugado) && meio->autonomia >= 50) {
                     aluguer->idMeio = meio->codigo;
                     meio->alugado = true;
 
@@ -97,6 +98,109 @@ Fila* inserirAluguer(Fila* filaAlugueres, Aluguer* aluguer, Meio* listaMeios, Cl
 
 
 
+/**
+ * @brief importa a fila de alugueres- input
+ * 
+ * @param filename 
+ * @param listaMeios 
+ * @param listaClientes 
+ * @return Fila* 
+
+
+/**
+ * @brief Imprime no terminal a fila de alugueres
+ * 
+ * @param filaAlugueres 
+ */
+void imprimirAlugueres(Fila* filaAlugueres) {
+    Aluguer* aluguer = filaAlugueres->inicio;
+
+    while (aluguer != NULL) {
+        printf("ID Cliente: %d\n", aluguer->idCliente);
+        printf("ID Meio: %d\n", aluguer->idMeio);
+        printf("dataRecolha: %d-%d-%d\n", aluguer->dataRecolha.dia, aluguer->dataRecolha.mes, aluguer->dataRecolha.ano);
+        printf("dataEntrega: %d-%d-%d\n", aluguer->dataEntrega.dia, aluguer->dataEntrega.mes, aluguer->dataEntrega.ano);
+        printf("Geocódigo de Recolha: %s\n", aluguer->geocodigoRecolha);
+        printf("Geocódigo de Entrega: %s\n", aluguer->geocodigoEntrega);
+        printf("A pagar: %.2f\n", aluguer->custo);
+
+        aluguer = aluguer->proximo;
+    }
+}
+
+
+/**
+ * @brief função que reprenta a devolução da trotinete no ponto de recolha e calcula o valor a pagar
+ * 
+ * @param idCliente 
+ * @param grafo 
+ * @param geocodigoEntrega 
+ * @param filaAlugueres 
+ * @param listaMeios 
+ * @return int 
+ */
+int devolverMeio(int idCliente, Grafo* grafo, char geocodigoEntrega[TAMANHO], Fila* filaAlugueres, Meio* listaMeios) {
+    Aluguer* aluguer = filaAlugueres->inicio;
+
+    while (aluguer != NULL) {
+        if (aluguer->idCliente == idCliente) {
+            aluguer->dataEntrega = getDate();
+            strncpy(aluguer->geocodigoEntrega, geocodigoEntrega, TAMANHO - 1);
+            aluguer->geocodigoEntrega[TAMANHO - 1] = '\0';
+            aluguer->custo = (diferencaEntreDatas(aluguer->dataEntrega, aluguer->dataRecolha)+ TAXA_DIARIA * 1 +
+                              calcularDistancia(grafo, geocodigoEntrega, aluguer->geocodigoRecolha) * TAXA_KM);
+
+            Meio* meio = listaMeios;
+            while (meio != NULL) {
+                if (meio->codigo == aluguer->idMeio) {
+                    meio->alugado = false;
+                    meio->autonomia = 100;
+                    break;
+                }
+                meio = meio->proximo;
+            }
+
+            return aluguer->custo;
+        }
+        aluguer = aluguer->proximo;
+    }
+
+    return 0;
+}
+
+/**
+ * @brief calcula os dias entre duas datas
+ * 
+ * @param data1 
+ * @param data2 
+ * @return int 
+ */
+int diferencaEntreDatas(Data data1, Data data2) {
+    struct tm tm1 = {0}; // Estrutura tm para data1
+    struct tm tm2 = {0}; // Estrutura tm para data2
+
+    // Preenche as informações da data1
+    tm1.tm_year = data1.ano - 1900; // Ano - 1900
+    tm1.tm_mon = data1.mes - 1;     // Mês (0 - 11, janeiro a dezembro)
+    tm1.tm_mday = data1.dia;         // Dia do mês (1 - 31)
+
+    // Preenche as informações da data2
+    tm2.tm_year = data2.ano - 1900; // Ano - 1900
+    tm2.tm_mon = data2.mes - 1;     // Mês (0 - 11, janeiro a dezembro)
+    tm2.tm_mday = data2.dia;         // Dia do mês (1 - 31)
+
+    // Converte as datas para o formato de tempo
+    time_t time1 = mktime(&tm1);
+    time_t time2 = mktime(&tm2);
+
+    // Calcula a diferença em segundos entre as duas datas
+    double diffSeconds = difftime(time2, time1);
+
+    // Converte a diferença em segundos para dias
+    int diffDays = diffSeconds / (60 * 60 * 24);
+
+    return diffDays;
+}
 
 Fila* importarAlugueres(const char* filename, Meio* listaMeios, Cliente* listaClientes) {
     Fila* filaAlugueres = (Fila*)malloc(sizeof(Fila));
@@ -112,13 +216,14 @@ Fila* importarAlugueres(const char* filename, Meio* listaMeios, Cliente* listaCl
     while (fgets(linha, sizeof(linha), file) != NULL) {
         int idCliente;
         char geocodigoRecolha[TAMANHO];
-        sscanf(linha, "%d %s", &idCliente, geocodigoRecolha);
+        char tipo[TAMANHO];
+        sscanf(linha, "%d %s %s", &idCliente, geocodigoRecolha, tipo);
 
         Cliente* cliente = listaClientes;
         while (cliente != NULL) {
             if (cliente->nif == idCliente) {
-                Aluguer* aluguer = criarAluguer(cliente->nif, geocodigoRecolha);
-                bool inserido;
+                Aluguer* aluguer = criarAluguer(idCliente, geocodigoRecolha, tipo);
+                bool inserido = false;
                 filaAlugueres = inserirAluguer(filaAlugueres, aluguer, listaMeios, listaClientes, &inserido);
                 break;
             }
@@ -131,99 +236,3 @@ Fila* importarAlugueres(const char* filename, Meio* listaMeios, Cliente* listaCl
 }
 
 
-void imprimirAlugueres(Fila* filaAlugueres) {
-    Aluguer* aluguer = filaAlugueres->inicio;
-
-    while (aluguer != NULL) {
-        printf("ID Cliente: %d\n", aluguer->idCliente);
-        printf("ID Meio: %d\n", aluguer->idMeio);
-        printf("dataRecolha: %d-%d-%d\n", aluguer->dataRecolha.dia, aluguer->dataRecolha.mes, aluguer->dataRecolha.ano);
-        printf("dataEntrega: %d-%d-%d\n", aluguer->dataEntrega.dia, aluguer->dataEntrega.mes, aluguer->dataEntrega.ano);
-        printf("Geocódigo de Recolha: %s\n", aluguer->geocodigoRecolha);
-
-        aluguer = aluguer->proximo;
-    }
-}
-
-
-Fila* carregarAlugueres(const char* filename, Meio* listaMeios, Cliente* listaClientes) {
-    Fila* filaAlugueres = (Fila*)malloc(sizeof(Fila));
-    filaAlugueres->inicio = NULL;
-    filaAlugueres->fim = NULL;
-
-    FILE* file = fopen(filename, "rb");
-    if (file == NULL) {
-        return filaAlugueres;
-    }
-
-    Aluguer aluguer;
-    while (fread(&aluguer, sizeof(Aluguer), 1, file) == 1) {
-        // Encontra o meio correspondente pelo código
-        Meio* meio = listaMeios;
-        while (meio != NULL) {
-            if (meio->codigo == aluguer.idMeio) {
-                break;
-            }
-            meio = meio->proximo;
-        }
-
-        // Encontra o cliente correspondente pelo NIF
-        Cliente* cliente = listaClientes;
-        while (cliente != NULL) {
-            if (cliente->nif == aluguer.idCliente) {
-                break;
-            }
-            cliente = cliente->proximo;
-        }
-
-        Aluguer* novoAluguer = criarAluguer(aluguer.idCliente, aluguer.geocodigoRecolha);
-        bool inserido;
-        filaAlugueres = inserirAluguer(filaAlugueres, novoAluguer, meio, cliente, &inserido);
-    }
-
-    fclose(file);
-    return filaAlugueres;
-}
-
-
-
-bool guardarAlugueres(const char* filename, Fila* filaAlugueres) {
-    FILE* file = fopen(filename, "wb");
-    if (file == NULL) {
-        return false;
-    }
-
-    Aluguer* aluguer = filaAlugueres->inicio;
-    while (aluguer != NULL) {
-        fwrite(aluguer, sizeof(Aluguer), 1, file);
-        aluguer = aluguer->proximo;
-    }
-
-    fclose(file);
-    return true;
-}
-
-Meio* devolverMeio(int idCliente, Fila* filaAlugueres, Meio* listaMeios) {
-    Aluguer* aluguer = filaAlugueres->inicio;
-    
-    while (aluguer != NULL) {
-        if (aluguer->idCliente == idCliente) {
-            aluguer->dataEntrega = getDate();
-            
-            Meio* meio = listaMeios;
-            while (meio != NULL) {
-                if (meio->codigo == aluguer->idMeio) {
-                    meio->alugado = false;
-                    meio->autonomia = 100;
-                    break;
-                }
-                meio = meio->proximo;
-            }
-            
-            break;
-        }
-        aluguer = aluguer->proximo;
-    }
-    
-    return listaMeios;
-}

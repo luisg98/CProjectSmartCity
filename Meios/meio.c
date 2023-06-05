@@ -1,7 +1,7 @@
 /**
  * @file meio.c
  * @author lugon (a18851@alunos.ipca.pt)
- * @brief 
+ * @brief Ficheiro para tudo relacionado com os meios de mobilidade
  * @version 0.1
  * @date 2023-05-24
  * 
@@ -25,14 +25,14 @@
  * @param geocodigo 
  * @return Meio* 
  */
-Meio* criarMeio(int codigo, const char tipo[], int autonomia, const char geocodigo[]) {
+Meio* criarMeio(int codigo, const char tipo[], const char geocodigo[]) {
     Meio* meio = (Meio*)malloc(sizeof(Meio));
     if (meio == NULL) {
         return NULL;
     }
     meio->codigo = codigo;
     strncpy(meio->tipo, tipo, TAMANHO);
-    meio->autonomia = autonomia;
+    meio->autonomia = 100;
     strncpy(meio->geocodigo, geocodigo, TAMANHO);
     meio->alugado = false;
     meio->proximo = NULL;
@@ -77,11 +77,10 @@ Meio* importarMeios(const char* filename) {
     Meio* lista = NULL;
     int codigo;
     char tipo[TAMANHO];
-    int autonomia;
     char geocodigo[TAMANHO];
     
-    while (fscanf(file, "%d,%[^,],%d,%[^,\n]", &codigo, tipo, &autonomia, geocodigo) == 4) {
-        Meio* novoMeio = criarMeio(codigo, tipo, autonomia, geocodigo);
+    while (fscanf(file, "%d,%[^,],%[^,\n]", &codigo, tipo, geocodigo) == 3) {
+        Meio* novoMeio = criarMeio(codigo, tipo, geocodigo);
         if (novoMeio != NULL) {
             lista = inserirMeio(&lista, novoMeio);
         } else {
@@ -177,7 +176,7 @@ Meio* carregarMeios(const char* filename) {
         fread(&autonomia, sizeof(int), 1, file);
         fread(geocodigo, sizeof(char), TAMANHO, file);
         
-        Meio* novoMeio = criarMeio(codigo, tipo, autonomia, geocodigo);
+        Meio* novoMeio = criarMeio(codigo, tipo, geocodigo);
         if (novoMeio != NULL) {
             lista = inserirMeio(&lista, novoMeio);
         } else {

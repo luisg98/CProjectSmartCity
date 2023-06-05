@@ -1,0 +1,466 @@
+\hypertarget{cliente_8c}{}\doxysection{C\+:/\+Users/luisg/\+Desktop/\+IPCA/1º Ano/2º Semestre/\+Estruturas de Dados Avançados/2023/\+Projeto/\+Clientes/cliente.c File Reference}
+\label{cliente_8c}\index{C:/Users/luisg/Desktop/IPCA/1º Ano/2º Semestre/Estruturas de Dados Avançados/2023/Projeto/Clientes/cliente.c@{C:/Users/luisg/Desktop/IPCA/1º Ano/2º Semestre/Estruturas de Dados Avançados/2023/Projeto/Clientes/cliente.c}}
+
+
+Funções para tudo relacionado com os clientes. Com este código será possível\+:  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}cliente.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} \mbox{\hyperlink{cliente_8c_aef8dac9eed98f88d77776a04f088f736}{criar\+Cliente}} (char nome\mbox{[}$\,$\mbox{]}, char morada\mbox{[}$\,$\mbox{]}, unsigned int nif, double saldo)
+\begin{DoxyCompactList}\small\item\em Função para criar um novo cliente. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} \mbox{\hyperlink{cliente_8c_aecee0ab5d97ce7f2d8dede83bbbc6f42}{insere\+Cliente}} (\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} clientes, char nome\mbox{[}$\,$\mbox{]}, char morada\mbox{[}$\,$\mbox{]}, unsigned int nif, double saldo)
+\begin{DoxyCompactList}\small\item\em Insere no início de uma lista ligada simples uma nova estrutura que se encarregará de criar com outra função. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} \mbox{\hyperlink{cliente_8c_ad04e591f539ddbe092b704f2169bb00e}{remover\+Cliente}} (\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} clientes, unsigned int nif, bool $\ast$res)
+\begin{DoxyCompactList}\small\item\em Remove um cliente de uma lista e liberta a respetiva memória alocada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} \mbox{\hyperlink{cliente_8c_aa426661fda24fca59648fbe65dca6fc3}{alterar\+Morada\+Cliente}} (\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} clientes, unsigned int nif, char nova\+Morada\mbox{[}$\,$\mbox{]}, bool $\ast$res)
+\begin{DoxyCompactList}\small\item\em Altera a morada de um cliente cujo nif será inserido como parâmetro e devolve a lista atualizada. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cliente_8c_abe805cb66d87a77d9f55e06d1408760b}{imprimir\+Clientes}} (\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} clientes)
+\begin{DoxyCompactList}\small\item\em Imprime no terminal a lista de clientes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} \mbox{\hyperlink{cliente_8c_a2e14e36f4f1098d4a22269ccc9bdc608}{carregar\+Saldo\+Cliente}} (\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} clientes, unsigned int nif, double carregamento)
+\begin{DoxyCompactList}\small\item\em Soma o valor do parâmetro carregamento ao saldo de um determinado cliente. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} \mbox{\hyperlink{cliente_8c_a081315c02ca30db88cd795879d592320}{importar\+Clientes}} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Importa de um file .txt dados de clientes, será este o input para testes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{cliente_8c_aea63a693385ba4105479138198d0ffce}{libertar\+Clientes}} (\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} clientes)
+\begin{DoxyCompactList}\small\item\em Liberta a memória alocada para a vertente clientes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{cliente_8c_a385d89c9e69b4dc8daa7b13f904c1311}{guardar\+Clientes}} (const char $\ast$filename, \mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} clientes)
+\begin{DoxyCompactList}\small\item\em Guarda num file binário a lista de clientes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} \mbox{\hyperlink{cliente_8c_a7fb5ff5bcd5186f9a7838b7e4d96b9c0}{carregar\+Clientes}} (const char $\ast$filename, bool $\ast$res)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Funções para tudo relacionado com os clientes. Com este código será possível\+: 
+
+\begin{DoxyAuthor}{Author}
+lugon (\href{mailto:a18851@alunos.ipca.pt}{\texttt{ a18851@alunos.\+ipca.\+pt}})
+\begin{DoxyItemize}
+\item criar, eliminar e alterar dados sobre os clientes
+\item importar dados de um file .txt
+\item guardar e ler dados num file binário
+\item alocar e libertar memória necessária para o programa 
+\end{DoxyItemize}
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/05-\/24 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{cliente_8c_aa426661fda24fca59648fbe65dca6fc3}\label{cliente_8c_aa426661fda24fca59648fbe65dca6fc3}} 
+\index{cliente.c@{cliente.c}!alterarMoradaCliente@{alterarMoradaCliente}}
+\index{alterarMoradaCliente@{alterarMoradaCliente}!cliente.c@{cliente.c}}
+\doxysubsubsection{\texorpdfstring{alterarMoradaCliente()}{alterarMoradaCliente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} alterar\+Morada\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}}}]{clientes,  }\item[{unsigned int}]{nif,  }\item[{char}]{nova\+Morada\mbox{[}$\,$\mbox{]},  }\item[{bool $\ast$}]{res }\end{DoxyParamCaption})}
+
+
+
+Altera a morada de um cliente cujo nif será inserido como parâmetro e devolve a lista atualizada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clientes} & \\
+\hline
+{\em nif} & \\
+\hline
+{\em nova\+Morada} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ptr\+Cliente 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ }
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{struct_cliente}{Cliente}}\ *aux\ =\ clientes;}
+\DoxyCodeLine{00110\ \ \ \ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)\ \{}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux-\/>nif\ ==\ nif)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(aux-\/>morada,\ novaMorada);}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ *res\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ clientes;}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>proximo;}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{return}\ clientes;\ }
+\DoxyCodeLine{00125\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{cliente_8c_a7fb5ff5bcd5186f9a7838b7e4d96b9c0}\label{cliente_8c_a7fb5ff5bcd5186f9a7838b7e4d96b9c0}} 
+\index{cliente.c@{cliente.c}!carregarClientes@{carregarClientes}}
+\index{carregarClientes@{carregarClientes}!cliente.c@{cliente.c}}
+\doxysubsubsection{\texorpdfstring{carregarClientes()}{carregarClientes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} carregar\+Clientes (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{bool $\ast$}]{res }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+{\em res} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ptr\+Cliente 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00251\ \ \ \ \ FILE*\ file\ =\ fopen(filename,\ \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ *res\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00255\ \ \ \ \ \}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ \mbox{\hyperlink{struct_cliente}{PtrCliente}}\ clientes\ =\ NULL;}
+\DoxyCodeLine{00258\ \ \ \ \ \mbox{\hyperlink{struct_cliente}{Cliente}}\ cliente;}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordflow}{while}\ (fread(\&cliente,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_cliente}{Cliente}}),\ 1,\ file)\ ==\ 1)\ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ clientes\ =\ \mbox{\hyperlink{cliente_8c_aecee0ab5d97ce7f2d8dede83bbbc6f42}{insereCliente}}(clientes,\ cliente.nome,\ cliente.morada,\ cliente.nif,\ cliente.saldo);}
+\DoxyCodeLine{00262\ \ \ \ \ \}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00265\ \ \ \ \ *res\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//\ Define\ res\ como\ true\ para\ indicar\ que\ a\ leitura\ foi\ bem-\/sucedida}}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordflow}{return}\ clientes;}
+\DoxyCodeLine{00267\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{cliente_8c_a2e14e36f4f1098d4a22269ccc9bdc608}\label{cliente_8c_a2e14e36f4f1098d4a22269ccc9bdc608}} 
+\index{cliente.c@{cliente.c}!carregarSaldoCliente@{carregarSaldoCliente}}
+\index{carregarSaldoCliente@{carregarSaldoCliente}!cliente.c@{cliente.c}}
+\doxysubsubsection{\texorpdfstring{carregarSaldoCliente()}{carregarSaldoCliente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} carregar\+Saldo\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}}}]{clientes,  }\item[{unsigned int}]{nif,  }\item[{double}]{carregamento }\end{DoxyParamCaption})}
+
+
+
+Soma o valor do parâmetro carregamento ao saldo de um determinado cliente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clientes} & \\
+\hline
+{\em nif} & \\
+\hline
+{\em carregamento} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ptr\+Cliente 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_cliente}{Cliente}}\ *aux\ =\ clientes;}
+\DoxyCodeLine{00158\ \ \ \ \ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)\ \{}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux-\/>nif\ ==\ nif)\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ aux-\/>saldo\ +=\ carregamento;}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ clientes;}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>proximo;}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ \ \ \ \ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{return}\ clientes;}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{cliente_8c_aef8dac9eed98f88d77776a04f088f736}\label{cliente_8c_aef8dac9eed98f88d77776a04f088f736}} 
+\index{cliente.c@{cliente.c}!criarCliente@{criarCliente}}
+\index{criarCliente@{criarCliente}!cliente.c@{cliente.c}}
+\doxysubsubsection{\texorpdfstring{criarCliente()}{criarCliente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} criar\+Cliente (\begin{DoxyParamCaption}\item[{char}]{nome\mbox{[}$\,$\mbox{]},  }\item[{char}]{morada\mbox{[}$\,$\mbox{]},  }\item[{unsigned int}]{nif,  }\item[{double}]{saldo }\end{DoxyParamCaption})}
+
+
+
+Função para criar um novo cliente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & \\
+\hline
+{\em morada} & \\
+\hline
+{\em nif} & \\
+\hline
+{\em saldo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ptr\+Cliente 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{struct_cliente}{PtrCliente}}\ novoCliente\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_cliente}{Cliente}}));}
+\DoxyCodeLine{00031\ \ \ \ \ strcpy(novoCliente-\/>nome,\ nome);\ }
+\DoxyCodeLine{00032\ \ \ \ \ strcpy(novoCliente-\/>morada,\ morada);}
+\DoxyCodeLine{00033\ \ \ \ \ novoCliente-\/>nif\ =\ nif;}
+\DoxyCodeLine{00034\ \ \ \ \ novoCliente-\/>saldo\ =\ saldo;}
+\DoxyCodeLine{00035\ \ \ \ \ novoCliente-\/>proximo\ =\ NULL;}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ novoCliente;}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{cliente_8c_a385d89c9e69b4dc8daa7b13f904c1311}\label{cliente_8c_a385d89c9e69b4dc8daa7b13f904c1311}} 
+\index{cliente.c@{cliente.c}!guardarClientes@{guardarClientes}}
+\index{guardarClientes@{guardarClientes}!cliente.c@{cliente.c}}
+\doxysubsubsection{\texorpdfstring{guardarClientes()}{guardarClientes()}}
+{\footnotesize\ttfamily bool guardar\+Clientes (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename,  }\item[{\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}}}]{clientes }\end{DoxyParamCaption})}
+
+
+
+Guarda num file binário a lista de clientes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+{\em clientes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00228\ \ \ \ \ FILE*\ file\ =\ fopen(filename,\ \textcolor{stringliteral}{"{}wb"{}});}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00231\ \ \ \ \ \}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \mbox{\hyperlink{struct_cliente}{PtrCliente}}\ cliente\ =\ clientes;}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordflow}{while}\ (cliente\ !=\ NULL)\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ fwrite(cliente,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_cliente}{Cliente}}),\ 1,\ file);}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ cliente\ =\ cliente-\/>proximo;}
+\DoxyCodeLine{00237\ \ \ \ \ \}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00241\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{cliente_8c_a081315c02ca30db88cd795879d592320}\label{cliente_8c_a081315c02ca30db88cd795879d592320}} 
+\index{cliente.c@{cliente.c}!importarClientes@{importarClientes}}
+\index{importarClientes@{importarClientes}!cliente.c@{cliente.c}}
+\doxysubsubsection{\texorpdfstring{importarClientes()}{importarClientes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} importar\+Clientes (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Importa de um file .txt dados de clientes, será este o input para testes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ptr\+Cliente 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00180\ \ \ \ \ }
+\DoxyCodeLine{00181\ \ \ \ \ \mbox{\hyperlink{struct_cliente}{PtrCliente}}\ listaClientes\ =\ NULL;}
+\DoxyCodeLine{00182\ \ \ \ \ FILE\ *file\ =\ fopen(filename,\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ nome[SIZE],\ morada[SIZE];}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nif;}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ saldo;}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordflow}{if}\ (file\ ==\ NULL)\ \{}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00189\ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{char}\ linha[3*SIZE];\ \textcolor{comment}{//\ definir\ um\ buffer\ grande\ para\ armazenar\ a\ linha\ completa}}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordflow}{while}\ (fgets(linha,\ \textcolor{keyword}{sizeof}(linha),\ file))\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ sscanf(linha,\ \textcolor{stringliteral}{"{}\%[\string^,],\%[\string^,],\%u,\%lf"{}},\ nome,\ morada,\ \&nif,\ \&saldo);}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ listaClientes\ =\ \mbox{\hyperlink{cliente_8c_aecee0ab5d97ce7f2d8dede83bbbc6f42}{insereCliente}}(listaClientes,\ nome,\ morada,\ nif,\ saldo);}
+\DoxyCodeLine{00196\ \ \ \ \ \}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ fclose(file);}
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keywordflow}{return}\ listaClientes;}
+\DoxyCodeLine{00200\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{cliente_8c_abe805cb66d87a77d9f55e06d1408760b}\label{cliente_8c_abe805cb66d87a77d9f55e06d1408760b}} 
+\index{cliente.c@{cliente.c}!imprimirClientes@{imprimirClientes}}
+\index{imprimirClientes@{imprimirClientes}!cliente.c@{cliente.c}}
+\doxysubsubsection{\texorpdfstring{imprimirClientes()}{imprimirClientes()}}
+{\footnotesize\ttfamily void imprimir\+Clientes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}}}]{clientes }\end{DoxyParamCaption})}
+
+
+
+Imprime no terminal a lista de clientes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clientes} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ptr\+Cliente 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{struct_cliente}{Cliente}}\ *aux\ =\ clientes;}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Nome:\ \%s\(\backslash\)n"{}},\ aux-\/>nome);}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Morada:\ \%s\(\backslash\)n"{}},\ aux-\/>morada);}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}NIF:\ \%u\(\backslash\)n"{}},\ aux-\/>nif);}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Saldo:\ \%.2f\(\backslash\)n"{}},\ aux-\/>saldo);}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>proximo;}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{cliente_8c_aecee0ab5d97ce7f2d8dede83bbbc6f42}\label{cliente_8c_aecee0ab5d97ce7f2d8dede83bbbc6f42}} 
+\index{cliente.c@{cliente.c}!insereCliente@{insereCliente}}
+\index{insereCliente@{insereCliente}!cliente.c@{cliente.c}}
+\doxysubsubsection{\texorpdfstring{insereCliente()}{insereCliente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} insere\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}}}]{clientes,  }\item[{char}]{nome\mbox{[}$\,$\mbox{]},  }\item[{char}]{morada\mbox{[}$\,$\mbox{]},  }\item[{unsigned int}]{nif,  }\item[{double}]{saldo }\end{DoxyParamCaption})}
+
+
+
+Insere no início de uma lista ligada simples uma nova estrutura que se encarregará de criar com outra função. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clientes} & \\
+\hline
+{\em nome} & \\
+\hline
+{\em morada} & \\
+\hline
+{\em nif} & \\
+\hline
+{\em saldo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ptr\+Cliente 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{struct_cliente}{PtrCliente}}\ novoCliente\ =\ \mbox{\hyperlink{cliente_8c_aef8dac9eed98f88d77776a04f088f736}{criarCliente}}(nome,\ morada,\ nif,\ saldo);\ \textcolor{comment}{//\ cria\ o\ novo\ cliente}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{if}\ (clientes\ ==\ NULL)\ \textcolor{comment}{//\ Se\ a\ lista\ estiver\ vazia,\ o\ novo\ cliente\ será\ o\ primeiro\ elemento\ da\ lista}}
+\DoxyCodeLine{00054\ \ \ \ \ \{\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ novoCliente;}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{else}\ \{\ \textcolor{comment}{//\ Caso\ contrário,\ adiciona\ o\ novo\ cliente\ ao\ início\ da\ lista}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ novoCliente-\/>\ proximo\ =\ clientes;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ novoCliente;\ \textcolor{comment}{//\ devolve\ o\ novo\ cliente\ como\ o\ primeiro\ elemento\ da\ lista}}
+\DoxyCodeLine{00060\ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{00061\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{cliente_8c_aea63a693385ba4105479138198d0ffce}\label{cliente_8c_aea63a693385ba4105479138198d0ffce}} 
+\index{cliente.c@{cliente.c}!libertarClientes@{libertarClientes}}
+\index{libertarClientes@{libertarClientes}!cliente.c@{cliente.c}}
+\doxysubsubsection{\texorpdfstring{libertarClientes()}{libertarClientes()}}
+{\footnotesize\ttfamily bool libertar\+Clientes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}}}]{clientes }\end{DoxyParamCaption})}
+
+
+
+Liberta a memória alocada para a vertente clientes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clientes} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ }
+\DoxyCodeLine{00209\ \ \ \ \ \mbox{\hyperlink{struct_cliente}{Cliente}}\ *aux;}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordflow}{while}\ (clientes\ !=\ NULL)\ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ aux\ =\ clientes;}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ clientes\ =\ clientes-\/>proximo;}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ free(aux);}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00216\ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{cliente_8c_ad04e591f539ddbe092b704f2169bb00e}\label{cliente_8c_ad04e591f539ddbe092b704f2169bb00e}} 
+\index{cliente.c@{cliente.c}!removerCliente@{removerCliente}}
+\index{removerCliente@{removerCliente}!cliente.c@{cliente.c}}
+\doxysubsubsection{\texorpdfstring{removerCliente()}{removerCliente()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}} remover\+Cliente (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_cliente}{Ptr\+Cliente}}}]{clientes,  }\item[{unsigned int}]{nif,  }\item[{bool $\ast$}]{res }\end{DoxyParamCaption})}
+
+
+
+Remove um cliente de uma lista e liberta a respetiva memória alocada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clientes} & \\
+\hline
+{\em nif} & \\
+\hline
+{\em res} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Ptr\+Cliente 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{struct_cliente}{Cliente}}*\ aux\ =\ clientes;}
+\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{struct_cliente}{Cliente}}*\ anterior\ =\ NULL;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux-\/>nif\ ==\ nif)\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (anterior\ ==\ NULL)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ O\ cliente\ a\ remover\ é\ o\ primeiro\ da\ lista}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clientes\ =\ aux-\/>proximo;}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ anterior-\/>proximo\ =\ aux-\/>proximo;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ free(aux);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ *res\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ clientes;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ anterior\ =\ aux;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>proximo;}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ *res\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return}\ clientes;}
+\DoxyCodeLine{00096\ \}}
+
+\end{DoxyCode}

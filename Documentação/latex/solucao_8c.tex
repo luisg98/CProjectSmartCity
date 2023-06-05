@@ -1,0 +1,122 @@
+\hypertarget{solucao_8c}{}\doxysection{C\+:/\+Users/luisg/\+Desktop/\+IPCA/1º Ano/2º Semestre/\+Estruturas de Dados Avançados/2023/\+Projeto/solucao.c File Reference}
+\label{solucao_8c}\index{C:/Users/luisg/Desktop/IPCA/1º Ano/2º Semestre/Estruturas de Dados Avançados/2023/Projeto/solucao.c@{C:/Users/luisg/Desktop/IPCA/1º Ano/2º Semestre/Estruturas de Dados Avançados/2023/Projeto/solucao.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Clientes/cliente.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Meios/meio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Gestores/gestor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Alugueres/aluguer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Pontos/pontos.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}solucao.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structa_recolher}{a\+Recolher}} $\ast$ \mbox{\hyperlink{solucao_8c_a4e0f80274d867b6ad872e9380d85e2c5}{procurar\+Meios\+Recolher}} (\mbox{\hyperlink{struct_meio}{Meio}} $\ast$lista\+Meios)
+\item 
+void \mbox{\hyperlink{solucao_8c_a706370277f31e61f59360b4f61abedb8}{imprimir\+Lista\+Meios}} (\mbox{\hyperlink{structa_recolher}{a\+Recolher}} $\ast$lista\+Meios)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+lugon (\href{mailto:a18851@alunos.ipca.pt}{\texttt{ a18851@alunos.\+ipca.\+pt}}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/05-\/24
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{solucao_8c_a706370277f31e61f59360b4f61abedb8}\label{solucao_8c_a706370277f31e61f59360b4f61abedb8}} 
+\index{solucao.c@{solucao.c}!imprimirListaMeios@{imprimirListaMeios}}
+\index{imprimirListaMeios@{imprimirListaMeios}!solucao.c@{solucao.c}}
+\doxysubsubsection{\texorpdfstring{imprimirListaMeios()}{imprimirListaMeios()}}
+{\footnotesize\ttfamily void imprimir\+Lista\+Meios (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structa_recolher}{a\+Recolher}} $\ast$}]{lista\+Meios }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{structa_recolher}{aRecolher}}*\ atual\ =\ listaMeios;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Meios\ a\ recolher:\(\backslash\)n"{}});}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{while}\ (atual\ !=\ NULL)\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Geocódigo:\ \%s\(\backslash\)n"{}},\ atual-\/>geocodigo);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Bicicletas:\ \%d\(\backslash\)n"{}},\ atual-\/>bicicletas);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Trotinetes:\ \%d\(\backslash\)n"{}},\ atual-\/>trotinetes);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)n"{}});}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ atual\ =\ atual-\/>proximo;}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{solucao_8c_a4e0f80274d867b6ad872e9380d85e2c5}\label{solucao_8c_a4e0f80274d867b6ad872e9380d85e2c5}} 
+\index{solucao.c@{solucao.c}!procurarMeiosRecolher@{procurarMeiosRecolher}}
+\index{procurarMeiosRecolher@{procurarMeiosRecolher}!solucao.c@{solucao.c}}
+\doxysubsubsection{\texorpdfstring{procurarMeiosRecolher()}{procurarMeiosRecolher()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structa_recolher}{a\+Recolher}} $\ast$ procurar\+Meios\+Recolher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_meio}{Meio}} $\ast$}]{lista\+Meios }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{structa_recolher}{aRecolher}}*\ novaLista\ =\ NULL;}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{structa_recolher}{aRecolher}}*\ fimLista\ =\ NULL;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{struct_meio}{Meio}}*\ meioAtual\ =\ listaMeios;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{while}\ (meioAtual\ !=\ NULL)\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (meioAtual-\/>autonomia\ <\ 50\ \&\&\ !meioAtual-\/>alugado)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structa_recolher}{aRecolher}}*\ atual\ =\ novaLista;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (atual\ !=\ NULL)\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(atual-\/>geocodigo,\ meioAtual-\/>geocodigo)\ ==\ 0)\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(meioAtual-\/>tipo,\ \textcolor{stringliteral}{"{}Trotinete"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ atual-\/>trotinetes++;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(meioAtual-\/>tipo,\ \textcolor{stringliteral}{"{}Bicicleta"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ atual-\/>bicicletas++;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ atual\ =\ atual-\/>proximo;}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (atual\ ==\ NULL)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (novaLista\ ==\ NULL)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ novaLista\ =\ (\mbox{\hyperlink{structa_recolher}{aRecolher}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structa_recolher}{aRecolher}}));}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(novaLista-\/>geocodigo,\ meioAtual-\/>geocodigo);}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ novaLista-\/>bicicletas\ =\ 0;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ novaLista-\/>trotinetes\ =\ 0;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ novaLista-\/>proximo\ =\ NULL;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fimLista\ =\ novaLista;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fimLista-\/>proximo\ =\ (\mbox{\hyperlink{structa_recolher}{aRecolher}}*)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structa_recolher}{aRecolher}}));}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fimLista\ =\ fimLista-\/>proximo;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(fimLista-\/>geocodigo,\ meioAtual-\/>geocodigo);}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fimLista-\/>bicicletas\ =\ 0;}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fimLista-\/>trotinetes\ =\ 0;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fimLista-\/>proximo\ =\ NULL;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(meioAtual-\/>tipo,\ \textcolor{stringliteral}{"{}Trotinete"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fimLista-\/>trotinetes++;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp(meioAtual-\/>tipo,\ \textcolor{stringliteral}{"{}Bicicleta"{}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fimLista-\/>bicicletas++;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ meioAtual\ =\ meioAtual-\/>proximo;}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{return}\ novaLista;}
+\DoxyCodeLine{00073\ \}}
+
+\end{DoxyCode}

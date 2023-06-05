@@ -1,3 +1,14 @@
+/**
+ * @file gestor.h
+ * @author lugon (a18851@alunos.ipca.pt)
+ * @brief Ficheiro de cabeçalho do ficheiro .c correspondente
+ * @version 0.1
+ * @date 2023-06-05
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #ifndef GESTOR_H
 #define GESTOR_H
 #define SIZE 50

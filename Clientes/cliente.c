@@ -25,39 +25,39 @@
  * @param saldo 
  * @return PtrCliente 
  */
-PtrCliente criarCliente(char nome[], char morada[], unsigned int nif, double saldo)
+PtrCliente criarCliente(char nome[], char morada[], unsigned int nif)
 {
     PtrCliente novoCliente = malloc(sizeof(Cliente));
     strcpy(novoCliente->nome, nome); 
     strcpy(novoCliente->morada, morada);
     novoCliente->nif = nif;
-    novoCliente->saldo = saldo;
+    novoCliente->saldo = 0;
     novoCliente->proximo = NULL;
     return novoCliente;
 }
 
-
 /**
- * @brief Insere no início de uma lista ligada simples uma nova estrutura que se encarregará de criar com outra função
+ * @brief insere um cliente que entra como parametro e devolve a lista de clientes(também entra como parametro)
+ * 
  * @param clientes 
- * @param nome 
- * @param morada 
- * @param nif 
- * @param saldo 
+ * @param novoCliente 
  * @return PtrCliente 
  */
-PtrCliente insereCliente(PtrCliente clientes, char nome[], char morada[], unsigned int nif, double saldo)
+PtrCliente insereCliente(PtrCliente clientes, Cliente *novoCliente)
 {
-    PtrCliente novoCliente = criarCliente(nome, morada, nif, saldo); // cria o novo cliente
-
-    if (clientes == NULL) // Se a lista estiver vazia, o novo cliente será o primeiro elemento da lista
-    { 
+    if (clientes == NULL) {
+        // Se a lista estiver vazia, o novo cliente será o primeiro elemento da lista
         return novoCliente;
+    } else {
+        // Caso contrário, percorre a lista até o último elemento
+        PtrCliente aux = clientes;
+        while (aux->proximo != NULL) {
+            aux = aux->proximo;
+        }
+        // Conecta o novo cliente ao último elemento da lista
+        aux->proximo = novoCliente;
+        return clientes;
     }
-    else { // Caso contrário, adiciona o novo cliente ao início da lista
-        novoCliente-> proximo = clientes;
-        return novoCliente; // devolve o novo cliente como o primeiro elemento da lista
-    }   
 }
 
 
@@ -125,6 +125,36 @@ PtrCliente alterarMoradaCliente(PtrCliente clientes, unsigned int nif, char nova
 }
 
 /**
+ * @brief Importa de um txt os clientes- funciona como o input do programa
+ * 
+ * @param filename 
+ * @return PtrCliente 
+ */
+PtrCliente importarClientes(char *filename) {
+    PtrCliente listaClientes = NULL;
+    FILE *file = fopen(filename, "r");
+    char nome[SIZE], morada[SIZE];
+    unsigned int nif;
+
+    if (file == NULL) {
+        return NULL;
+    }
+
+    char linha[3*SIZE]; // definir um buffer grande para armazenar a linha completa
+    while (fgets(linha, sizeof(linha), file)) {
+        sscanf(linha, "%[^,],%[^,],%u", nome, morada, &nif);
+        
+        PtrCliente novoCliente = criarCliente(nome, morada, nif);
+        listaClientes = insereCliente(listaClientes, novoCliente);
+    }
+
+    fclose(file);
+    return listaClientes;
+}
+
+
+
+/**
  * @brief Imprime no terminal a lista de clientes
  * 
  * @param clientes 
@@ -170,34 +200,6 @@ PtrCliente carregarSaldoCliente(PtrCliente clientes, unsigned int nif, double ca
 
 }
 
-/**
- * @brief Importa de um file .txt dados de clientes, será este o input para testes
- * 
- * @param filename 
- * @return PtrCliente 
- */
-PtrCliente importarClientes(char *filename) {
-    
-    PtrCliente listaClientes = NULL;
-    FILE *file = fopen(filename, "r");
-            char nome[SIZE], morada[SIZE];
-        unsigned int nif;
-        double saldo;
-
-    if (file == NULL) {
-        return NULL;
-    }
-
-    char linha[3*SIZE]; // definir um buffer grande para armazenar a linha completa
-    while (fgets(linha, sizeof(linha), file)) {
-        sscanf(linha, "%[^,],%[^,],%u,%lf", nome, morada, &nif, &saldo);
-        
-        listaClientes = insereCliente(listaClientes, nome, morada, nif, saldo);
-    }
-
-    fclose(file);
-    return listaClientes;
-}
 
 /**
  * @brief Liberta a memória alocada para a vertente clientes
@@ -217,23 +219,24 @@ bool libertarClientes(PtrCliente clientes) {
 }
 
 /**
- * @brief Guarda num file binário a lista de clientes
+ * @brief guarda a lista de clientes num ficheiro binário
  * 
  * @param filename 
  * @param clientes 
  * @return true 
  * @return false 
  */
-bool guardarClientes(const char* filename, PtrCliente clientes) {
-    FILE* file = fopen(filename, "wb");
+bool guardarClientes(char *filename, PtrCliente clientes) {
+    FILE *file = fopen(filename, "wb");
     if (file == NULL) {
         return false;
     }
 
-    PtrCliente cliente = clientes;
-    while (cliente != NULL) {
-        fwrite(cliente, sizeof(Cliente), 1, file);
-        cliente = cliente->proximo;
+    // Percorre a lista de clientes e escreve cada cliente no arquivo binário
+    Cliente *aux = clientes;
+    while (aux != NULL) {
+        fwrite(aux, sizeof(Cliente), 1, file);
+        aux = aux->proximo;
     }
 
     fclose(file);
@@ -241,30 +244,27 @@ bool guardarClientes(const char* filename, PtrCliente clientes) {
 }
 
 /**
- * @brief 
+ * @brief carrega de um ficheiro binário os clientes
  * 
  * @param filename 
- * @param res 
  * @return PtrCliente 
  */
-PtrCliente carregarClientes(const char* filename, bool* res) {
-    FILE* file = fopen(filename, "rb");
+PtrCliente carregarClientes(char *filename) {
+    PtrCliente listaClientes = NULL;
+    FILE *file = fopen(filename, "rb");
     if (file == NULL) {
-        *res = false;
         return NULL;
     }
 
-    PtrCliente clientes = NULL;
+    // Lê cada cliente do arquivo binário e insere na lista de clientes
     Cliente cliente;
-
-    while (fread(&cliente, sizeof(Cliente), 1, file) == 1) {
-        clientes = insereCliente(clientes, cliente.nome, cliente.morada, cliente.nif, cliente.saldo);
+    while (fread(&cliente, sizeof(Cliente), 1, file)) {
+        PtrCliente novoCliente = criarCliente(cliente.nome, cliente.morada, cliente.nif);
+        novoCliente->saldo = cliente.saldo;
+        listaClientes = insereCliente(listaClientes, novoCliente);
     }
 
     fclose(file);
-    *res = true; // Define res como true para indicar que a leitura foi bem-sucedida
-    return clientes;
+    return listaClientes;
 }
-
-
 
