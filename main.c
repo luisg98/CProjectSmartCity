@@ -3,10 +3,8 @@
  * @author lugon (a18851@alunos.ipca.pt)
  * @brief O main dispensa apresentações, é uma função especial e a primeira a ser executada
  * @version 0.1
- * @date 2023-05-24
- * 
+ * @date 2023-05-24 
  * @copyright Copyright (c) 2023
- * 
  */
 
 #include <stdio.h>
@@ -19,8 +17,6 @@
 #include "Alugueres/aluguer.h"
 #include "Pontos/pontos.h"
 #include "solucao.h"
-
-
 
 int main(){
 

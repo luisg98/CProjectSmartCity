@@ -239,7 +239,11 @@ void imprimirGrafo(Grafo* grafo) {
     }
 }
 
-
+/**
+ * @brief Imprime no terminal a matriz de adjacencias
+ * 
+ * @param grafo 
+ */
 void imprimirMatrizAdjacencias(Grafo* grafo) {
     PontoRecolha* pontoAtual = grafo->pontosRecolha;
 
@@ -323,7 +327,13 @@ void imprimirMatrizAdjacencias(Grafo* grafo) {
 }
 
 
-
+/**
+ * @brief Converte uma string de um geocodigo para um vértice do grafo
+ * 
+ * @param grafo 
+ * @param geocodigo 
+ * @return PontoRecolha* 
+ */
 PontoRecolha* converteGeocodigoPontoRecolha(Grafo* grafo, const char* geocodigo) {
     PontoRecolha* pontoAtual = grafo->pontosRecolha;
 
@@ -338,7 +348,14 @@ PontoRecolha* converteGeocodigoPontoRecolha(Grafo* grafo, const char* geocodigo)
 }
 
 
-// Função para calcular a distância entre dois geocódigos
+/**
+ * @brief Calcula a distancia entre dois geocodigos
+ * 
+ * @param grafo 
+ * @param geocodigo1 
+ * @param geocodigo2 
+ * @return int 
+ */
 int calcularDistancia(Grafo* grafo, char geocodigo1[], char geocodigo2[]) {
     PontoRecolha* ponto1 = NULL;
     PontoRecolha* ponto2 = NULL;

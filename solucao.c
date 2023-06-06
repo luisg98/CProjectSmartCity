@@ -23,9 +23,10 @@
 #include "solucao.h"
 
 
-void adicionarPontoRota(Rota* rota, PontoRecolha* ponto) {
+Rota* adicionarPontoRota(Rota* rota, PontoRecolha* ponto) {
     rota->pontos[rota->numPontos] = ponto;
     rota->numPontos++;
+    return rota;
 }
 
 
@@ -53,7 +54,7 @@ Rota* encontrarMelhorRota(Meio* meios, PontoRecolha* pontoInicial, Grafo * grafo
     rota->numPontos = 0;
 
     PontoRecolha* pontoAtual = pontoInicial;
-    adicionarPontoRota(rota, pontoAtual);
+    rota = adicionarPontoRota(rota, pontoAtual);
 
     while (meios != NULL) {
         if (meios->autonomia < 50 && !meios->alugado) {
@@ -66,7 +67,7 @@ Rota* encontrarMelhorRota(Meio* meios, PontoRecolha* pontoInicial, Grafo * grafo
     }
 
     // Adiciona o ponto inicial novamente para completar o ciclo da rota
-    adicionarPontoRota(rota, pontoInicial);
+    rota = adicionarPontoRota(rota, pontoInicial);
 
     return rota;
 }
