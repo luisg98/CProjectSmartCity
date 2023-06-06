@@ -18,6 +18,7 @@
 #include "Pontos/pontos.h"
 #include "solucao.h"
 
+
 int main(){
 
     bool result;
