@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['pontorecolha_0',['PontoRecolha',['../struct_ponto_recolha.html',1,'']]],
-  ['pontos_2ec_1',['pontos.c',['../pontos_8c.html',1,'']]]
+  ['novogestor_0',['novoGestor',['../gestor_8c.html#aeb21c3d538b7144c65571acd4d8d5f05',1,'novoGestor(char username[], char password[]):&#160;gestor.c'],['../gestor_8h.html#aeb21c3d538b7144c65571acd4d8d5f05',1,'novoGestor(char username[], char password[]):&#160;gestor.c']]]
 ];

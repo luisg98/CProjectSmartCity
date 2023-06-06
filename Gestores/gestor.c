@@ -51,14 +51,14 @@ Gestor* novoGestor(char username[], char password[])
 Gestor* inserirGestor(Gestor* inicioListaGestores, Gestor* gestor) {
     Gestor* atual = inicioListaGestores; 
 
-    if (atual == NULL) { // Verifica se a lista está vazia
-        inicioListaGestores = gestor; // Se estiver vazia, define o novo gestor como início da lista
+    if (atual == NULL) { 
+        inicioListaGestores = gestor; 
     } else {
-        while (atual -> seguinte != NULL) { // Percorre a lista
+        while (atual -> seguinte != NULL) { 
             atual = atual -> seguinte;
         }
-        atual -> seguinte = gestor; // Define o próximo gestor como o novo gestor inserido
-        gestor -> anterior = atual; // Define o gestor atual como o gestor anterior do novo gestor
+        atual -> seguinte = gestor; 
+        gestor -> anterior = atual; 
     }
     return inicioListaGestores; 
 }

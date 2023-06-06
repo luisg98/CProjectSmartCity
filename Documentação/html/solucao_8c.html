@@ -75,6 +75,9 @@ $(function() {
   <div class="headertitle"><div class="title">C:/Users/luisg/Desktop/IPCA/1º Ano/2º Semestre/Estruturas de Dados Avançados/2023/Projeto/solucao.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Neste ficheiro vamos tentar implementar a solução do enunciado.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
@@ -82,123 +85,195 @@ $(function() {
 <code>#include &lt;limits.h&gt;</code><br />
 <code>#include &lt;stddef.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="cliente_8h_source.html">Clientes/cliente.h</a>&quot;</code><br />
-<code>#include &quot;Meios/meio.h&quot;</code><br />
-<code>#include &quot;Gestores/gestor.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="meio_8h_source.html">Meios/meio.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gestor_8h_source.html">Gestores/gestor.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="aluguer_8h_source.html">Alugueres/aluguer.h</a>&quot;</code><br />
-<code>#include &quot;Pontos/pontos.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="pontos_8h_source.html">Pontos/pontos.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="solucao_8h_source.html">solucao.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4e0f80274d867b6ad872e9380d85e2c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structa_recolher.html">aRecolher</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solucao_8c.html#a4e0f80274d867b6ad872e9380d85e2c5">procurarMeiosRecolher</a> (<a class="el" href="struct_meio.html">Meio</a> *listaMeios)</td></tr>
-<tr class="separator:a4e0f80274d867b6ad872e9380d85e2c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a706370277f31e61f59360b4f61abedb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solucao_8c.html#a706370277f31e61f59360b4f61abedb8">imprimirListaMeios</a> (<a class="el" href="structa_recolher.html">aRecolher</a> *listaMeios)</td></tr>
-<tr class="separator:a706370277f31e61f59360b4f61abedb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57f2cba098b9e4c9acfd21294d9cabd7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solucao_8c.html#a57f2cba098b9e4c9acfd21294d9cabd7">adicionarPontoRota</a> (<a class="el" href="struct_rota.html">Rota</a> *rota, <a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *ponto)</td></tr>
+<tr class="separator:a57f2cba098b9e4c9acfd21294d9cabd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ad280aef6471bff8831cb64c5215e7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solucao_8c.html#a0ad280aef6471bff8831cb64c5215e7e">encontrarPontoMaisProximo</a> (<a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *pontoAtual, <a class="el" href="struct_meio.html">Meio</a> *meios, <a class="el" href="struct_grafo.html">Grafo</a> *grafo)</td></tr>
+<tr class="separator:a0ad280aef6471bff8831cb64c5215e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bbdb123e3c8c3cf64af95e45760f4ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_rota.html">Rota</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solucao_8c.html#a7bbdb123e3c8c3cf64af95e45760f4ca">encontrarMelhorRota</a> (<a class="el" href="struct_meio.html">Meio</a> *meios, <a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *pontoInicial, <a class="el" href="struct_grafo.html">Grafo</a> *grafo)</td></tr>
+<tr class="separator:a7bbdb123e3c8c3cf64af95e45760f4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44b59272b307b87f55b5ce8e712cc954"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="solucao_8c.html#a44b59272b307b87f55b5ce8e712cc954">imprimirRota</a> (<a class="el" href="struct_rota.html">Rota</a> *rota)</td></tr>
+<tr class="separator:a44b59272b307b87f55b5ce8e712cc954"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>lugon (<a href="#" onclick="location.href='mai'+'lto:'+'a18'+'85'+'1@a'+'lu'+'nos'+'.i'+'pca'+'.p'+'t'; return false;">a1885<span class="obfuscator">.nosp@m.</span>1@al<span class="obfuscator">.nosp@m.</span>unos.<span class="obfuscator">.nosp@m.</span>ipca<span class="obfuscator">.nosp@m.</span>.pt</a>) </dd></dl>
+<div class="textblock"><p>Neste ficheiro vamos tentar implementar a solução do enunciado. </p>
+<dl class="section author"><dt>Author</dt><dd>lugon (<a href="#" onclick="location.href='mai'+'lto:'+'a18'+'85'+'1@a'+'lu'+'nos'+'.i'+'pca'+'.p'+'t'; return false;">a1885<span class="obfuscator">.nosp@m.</span>1@al<span class="obfuscator">.nosp@m.</span>unos.<span class="obfuscator">.nosp@m.</span>ipca<span class="obfuscator">.nosp@m.</span>.pt</a>) </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-05-24</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a706370277f31e61f59360b4f61abedb8" name="a706370277f31e61f59360b4f61abedb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a706370277f31e61f59360b4f61abedb8">&#9670;&#160;</a></span>imprimirListaMeios()</h2>
+<a id="a57f2cba098b9e4c9acfd21294d9cabd7" name="a57f2cba098b9e4c9acfd21294d9cabd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57f2cba098b9e4c9acfd21294d9cabd7">&#9670;&#160;</a></span>adicionarPontoRota()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void imprimirListaMeios </td>
+          <td class="memname">void adicionarPontoRota </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structa_recolher.html">aRecolher</a> *&#160;</td>
-          <td class="paramname"><em>listaMeios</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_rota.html">Rota</a> *&#160;</td>
+          <td class="paramname"><em>rota</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *&#160;</td>
+          <td class="paramname"><em>ponto</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   77</span>                                               {</div>
-<div class="line"><span class="lineno">   78</span>    <a class="code hl_struct" href="structa_recolher.html">aRecolher</a>* atual = listaMeios;</div>
-<div class="line"><span class="lineno">   79</span> </div>
-<div class="line"><span class="lineno">   80</span>    printf(<span class="stringliteral">&quot;Meios a recolher:\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">while</span> (atual != NULL) {</div>
-<div class="line"><span class="lineno">   82</span>        printf(<span class="stringliteral">&quot;Geocódigo: %s\n&quot;</span>, atual-&gt;geocodigo);</div>
-<div class="line"><span class="lineno">   83</span>        printf(<span class="stringliteral">&quot;Bicicletas: %d\n&quot;</span>, atual-&gt;bicicletas);</div>
-<div class="line"><span class="lineno">   84</span>        printf(<span class="stringliteral">&quot;Trotinetes: %d\n&quot;</span>, atual-&gt;trotinetes);</div>
-<div class="line"><span class="lineno">   85</span>        printf(<span class="stringliteral">&quot;----------------------\n&quot;</span>);</div>
-<div class="line"><span class="lineno">   86</span> </div>
-<div class="line"><span class="lineno">   87</span> </div>
-<div class="line"><span class="lineno">   88</span>        atual = atual-&gt;proximo;</div>
-<div class="line"><span class="lineno">   89</span>    }</div>
-<div class="line"><span class="lineno">   90</span>}</div>
-<div class="ttc" id="astructa_recolher_html"><div class="ttname"><a href="structa_recolher.html">aRecolher</a></div><div class="ttdef"><b>Definition:</b> solucao.h:19</div></div>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>                                                         {</div>
+<div class="line"><span class="lineno">   27</span>    rota-&gt;pontos[rota-&gt;numPontos] = ponto;</div>
+<div class="line"><span class="lineno">   28</span>    rota-&gt;numPontos++;</div>
+<div class="line"><span class="lineno">   29</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a4e0f80274d867b6ad872e9380d85e2c5" name="a4e0f80274d867b6ad872e9380d85e2c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e0f80274d867b6ad872e9380d85e2c5">&#9670;&#160;</a></span>procurarMeiosRecolher()</h2>
+<a id="a7bbdb123e3c8c3cf64af95e45760f4ca" name="a7bbdb123e3c8c3cf64af95e45760f4ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bbdb123e3c8c3cf64af95e45760f4ca">&#9670;&#160;</a></span>encontrarMelhorRota()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structa_recolher.html">aRecolher</a> * procurarMeiosRecolher </td>
+          <td class="memname"><a class="el" href="struct_rota.html">Rota</a> * encontrarMelhorRota </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_meio.html">Meio</a> *&#160;</td>
-          <td class="paramname"><em>listaMeios</em></td><td>)</td>
+          <td class="paramname"><em>meios</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *&#160;</td>
+          <td class="paramname"><em>pontoInicial</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_grafo.html">Grafo</a> *&#160;</td>
+          <td class="paramname"><em>grafo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   51</span>                                                                                  {</div>
+<div class="line"><span class="lineno">   52</span>    <a class="code hl_struct" href="struct_rota.html">Rota</a>* rota = (<a class="code hl_struct" href="struct_rota.html">Rota</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_rota.html">Rota</a>));</div>
+<div class="line"><span class="lineno">   53</span>    rota-&gt;numPontos = 0;</div>
+<div class="line"><span class="lineno">   54</span> </div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_struct" href="struct_ponto_recolha.html">PontoRecolha</a>* pontoAtual = pontoInicial;</div>
+<div class="line"><span class="lineno">   56</span>    adicionarPontoRota(rota, pontoAtual);</div>
+<div class="line"><span class="lineno">   57</span> </div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">while</span> (meios != NULL) {</div>
+<div class="line"><span class="lineno">   59</span>        <span class="keywordflow">if</span> (meios-&gt;autonomia &lt; 50 &amp;&amp; !meios-&gt;alugado) {</div>
+<div class="line"><span class="lineno">   60</span>            <a class="code hl_struct" href="struct_ponto_recolha.html">PontoRecolha</a>* proximoPonto = encontrarPontoMaisProximo(pontoAtual, meios, grafo);</div>
+<div class="line"><span class="lineno">   61</span>            adicionarPontoRota(rota, proximoPonto);</div>
+<div class="line"><span class="lineno">   62</span>            pontoAtual = proximoPonto;</div>
+<div class="line"><span class="lineno">   63</span>            meios-&gt;alugado = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   64</span>        }</div>
+<div class="line"><span class="lineno">   65</span>        meios = meios-&gt;proximo;</div>
+<div class="line"><span class="lineno">   66</span>    }</div>
+<div class="line"><span class="lineno">   67</span> </div>
+<div class="line"><span class="lineno">   68</span>    <span class="comment">// Adiciona o ponto inicial novamente para completar o ciclo da rota</span></div>
+<div class="line"><span class="lineno">   69</span>    adicionarPontoRota(rota, pontoInicial);</div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">return</span> rota;</div>
+<div class="line"><span class="lineno">   72</span>}</div>
+<div class="ttc" id="astruct_ponto_recolha_html"><div class="ttname"><a href="struct_ponto_recolha.html">PontoRecolha</a></div><div class="ttdef"><b>Definition:</b> pontos.h:23</div></div>
+<div class="ttc" id="astruct_rota_html"><div class="ttname"><a href="struct_rota.html">Rota</a></div><div class="ttdef"><b>Definition:</b> solucao.h:17</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0ad280aef6471bff8831cb64c5215e7e" name="a0ad280aef6471bff8831cb64c5215e7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ad280aef6471bff8831cb64c5215e7e">&#9670;&#160;</a></span>encontrarPontoMaisProximo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> * encontrarPontoMaisProximo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *&#160;</td>
+          <td class="paramname"><em>pontoAtual</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_meio.html">Meio</a> *&#160;</td>
+          <td class="paramname"><em>meios</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_grafo.html">Grafo</a> *&#160;</td>
+          <td class="paramname"><em>grafo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   32</span>                                                                                              {</div>
+<div class="line"><span class="lineno">   33</span>    <span class="keywordtype">double</span> menorDistancia = -1.0;</div>
+<div class="line"><span class="lineno">   34</span>    <a class="code hl_struct" href="struct_ponto_recolha.html">PontoRecolha</a>* pontoMaisProximo = NULL;</div>
+<div class="line"><span class="lineno">   35</span> </div>
+<div class="line"><span class="lineno">   36</span>    <span class="comment">// Percorre a lista de pontos de recolha e encontra o mais próximo do ponto atual</span></div>
+<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">while</span> (meios != NULL) {</div>
+<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">if</span> (meios-&gt;autonomia &lt; 50 &amp;&amp; !meios-&gt;alugado) {</div>
+<div class="line"><span class="lineno">   39</span>            <span class="keywordtype">double</span> distancia = calcularDistancia(grafo, pontoAtual-&gt;geocodigo, meios-&gt;geocodigo);</div>
+<div class="line"><span class="lineno">   40</span>            <span class="keywordflow">if</span> (menorDistancia == -1.0 || distancia &lt; menorDistancia) {</div>
+<div class="line"><span class="lineno">   41</span>                menorDistancia = distancia;</div>
+<div class="line"><span class="lineno">   42</span>                pontoMaisProximo = <a class="code hl_function" href="pontos_8c.html#ace4b71e3831598d51844d351386d5337">encontrarPontoRecolha</a>(grafo, meios-&gt;geocodigo);</div>
+<div class="line"><span class="lineno">   43</span>            }</div>
+<div class="line"><span class="lineno">   44</span>        }</div>
+<div class="line"><span class="lineno">   45</span>        meios = meios-&gt;proximo;</div>
+<div class="line"><span class="lineno">   46</span>    }</div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">return</span> pontoMaisProximo;</div>
+<div class="line"><span class="lineno">   49</span>}</div>
+<div class="ttc" id="apontos_8c_html_ace4b71e3831598d51844d351386d5337"><div class="ttname"><a href="pontos_8c.html#ace4b71e3831598d51844d351386d5337">encontrarPontoRecolha</a></div><div class="ttdeci">PontoRecolha * encontrarPontoRecolha(Grafo *grafo, const char *geocodigo)</div><div class="ttdoc">Função para encontrar um ponto de recolha pelo geocódigo.</div><div class="ttdef"><b>Definition:</b> pontos.c:146</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a44b59272b307b87f55b5ce8e712cc954" name="a44b59272b307b87f55b5ce8e712cc954"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44b59272b307b87f55b5ce8e712cc954">&#9670;&#160;</a></span>imprimirRota()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void imprimirRota </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_rota.html">Rota</a> *&#160;</td>
+          <td class="paramname"><em>rota</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   25</span>                                                   {</div>
-<div class="line"><span class="lineno">   26</span>    <a class="code hl_struct" href="structa_recolher.html">aRecolher</a>* novaLista = NULL;</div>
-<div class="line"><span class="lineno">   27</span>    <a class="code hl_struct" href="structa_recolher.html">aRecolher</a>* fimLista = NULL;</div>
-<div class="line"><span class="lineno">   28</span> </div>
-<div class="line"><span class="lineno">   29</span>    <a class="code hl_struct" href="struct_meio.html">Meio</a>* meioAtual = listaMeios;</div>
-<div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">while</span> (meioAtual != NULL) {</div>
-<div class="line"><span class="lineno">   32</span>        <span class="keywordflow">if</span> (meioAtual-&gt;autonomia &lt; 50 &amp;&amp; !meioAtual-&gt;alugado) {</div>
-<div class="line"><span class="lineno">   33</span>            <a class="code hl_struct" href="structa_recolher.html">aRecolher</a>* atual = novaLista;</div>
-<div class="line"><span class="lineno">   34</span>            <span class="keywordflow">while</span> (atual != NULL) {</div>
-<div class="line"><span class="lineno">   35</span>                <span class="keywordflow">if</span> (strcmp(atual-&gt;geocodigo, meioAtual-&gt;geocodigo) == 0) {</div>
-<div class="line"><span class="lineno">   36</span>                    <span class="keywordflow">if</span> (strcmp(meioAtual-&gt;tipo, <span class="stringliteral">&quot;Trotinete&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">   37</span>                        atual-&gt;trotinetes++;</div>
-<div class="line"><span class="lineno">   38</span>                    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(meioAtual-&gt;tipo, <span class="stringliteral">&quot;Bicicleta&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">   39</span>                        atual-&gt;bicicletas++;</div>
-<div class="line"><span class="lineno">   40</span>                    }</div>
-<div class="line"><span class="lineno">   41</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   42</span>                }</div>
-<div class="line"><span class="lineno">   43</span>                atual = atual-&gt;proximo;</div>
-<div class="line"><span class="lineno">   44</span>            }</div>
-<div class="line"><span class="lineno">   45</span>            <span class="keywordflow">if</span> (atual == NULL) {</div>
-<div class="line"><span class="lineno">   46</span>                <span class="keywordflow">if</span> (novaLista == NULL) {</div>
-<div class="line"><span class="lineno">   47</span>                    novaLista = (<a class="code hl_struct" href="structa_recolher.html">aRecolher</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="structa_recolher.html">aRecolher</a>));</div>
-<div class="line"><span class="lineno">   48</span>                    strcpy(novaLista-&gt;geocodigo, meioAtual-&gt;geocodigo);</div>
-<div class="line"><span class="lineno">   49</span>                    novaLista-&gt;bicicletas = 0;</div>
-<div class="line"><span class="lineno">   50</span>                    novaLista-&gt;trotinetes = 0;</div>
-<div class="line"><span class="lineno">   51</span>                    novaLista-&gt;proximo = NULL;</div>
-<div class="line"><span class="lineno">   52</span>                    fimLista = novaLista;</div>
-<div class="line"><span class="lineno">   53</span>                } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   54</span>                    fimLista-&gt;proximo = (<a class="code hl_struct" href="structa_recolher.html">aRecolher</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="structa_recolher.html">aRecolher</a>));</div>
-<div class="line"><span class="lineno">   55</span>                    fimLista = fimLista-&gt;proximo;</div>
-<div class="line"><span class="lineno">   56</span>                    strcpy(fimLista-&gt;geocodigo, meioAtual-&gt;geocodigo);</div>
-<div class="line"><span class="lineno">   57</span>                    fimLista-&gt;bicicletas = 0;</div>
-<div class="line"><span class="lineno">   58</span>                    fimLista-&gt;trotinetes = 0;</div>
-<div class="line"><span class="lineno">   59</span>                    fimLista-&gt;proximo = NULL;</div>
-<div class="line"><span class="lineno">   60</span>                    <span class="keywordflow">if</span> (strcmp(meioAtual-&gt;tipo, <span class="stringliteral">&quot;Trotinete&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">   61</span>                        fimLista-&gt;trotinetes++;</div>
-<div class="line"><span class="lineno">   62</span>                    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp(meioAtual-&gt;tipo, <span class="stringliteral">&quot;Bicicleta&quot;</span>) == 0) {</div>
-<div class="line"><span class="lineno">   63</span>                        fimLista-&gt;bicicletas++;</div>
-<div class="line"><span class="lineno">   64</span>                    }</div>
-<div class="line"><span class="lineno">   65</span>                }</div>
-<div class="line"><span class="lineno">   66</span>            }</div>
-<div class="line"><span class="lineno">   67</span>        }</div>
-<div class="line"><span class="lineno">   68</span> </div>
-<div class="line"><span class="lineno">   69</span>        meioAtual = meioAtual-&gt;proximo;</div>
-<div class="line"><span class="lineno">   70</span>    }</div>
-<div class="line"><span class="lineno">   71</span> </div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">return</span> novaLista;</div>
-<div class="line"><span class="lineno">   73</span>}</div>
-<div class="ttc" id="astruct_meio_html"><div class="ttname"><a href="struct_meio.html">Meio</a></div><div class="ttdef"><b>Definition:</b> meio.h:6</div></div>
+<div class="fragment"><div class="line"><span class="lineno">   74</span>                              {</div>
+<div class="line"><span class="lineno">   75</span>    printf(<span class="stringliteral">&quot;Rota: Início&quot;</span>);</div>
+<div class="line"><span class="lineno">   76</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; rota-&gt;numPontos; i++) {</div>
+<div class="line"><span class="lineno">   77</span>        printf(<span class="stringliteral">&quot; &gt;&gt;&gt; %s&quot;</span>, rota-&gt;pontos[i]-&gt;geocodigo);</div>
+<div class="line"><span class="lineno">   78</span>    }</div>
+<div class="line"><span class="lineno">   79</span>    printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">   80</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

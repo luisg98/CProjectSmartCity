@@ -1,16 +1,14 @@
 var searchData=
 [
-  ['importaralugueres_0',['importarAlugueres',['../aluguer_8c.html#ae306e1428bd242d9f14712cf677e68c5',1,'importarAlugueres(const char *filename, Meio *listaMeios, Cliente *listaClientes):&#160;aluguer.c'],['../aluguer_8h.html#ae306e1428bd242d9f14712cf677e68c5',1,'importarAlugueres(const char *filename, Meio *listaMeios, Cliente *listaClientes):&#160;aluguer.c']]],
-  ['importarclientes_1',['importarClientes',['../cliente_8c.html#a081315c02ca30db88cd795879d592320',1,'importarClientes(char *filename):&#160;cliente.c'],['../cliente_8h.html#a081315c02ca30db88cd795879d592320',1,'importarClientes(char *filename):&#160;cliente.c']]],
-  ['importargestores_2',['importarGestores',['../gestor_8c.html#a103c7569bef7440e7d40a9587ba47d72',1,'gestor.c']]],
-  ['importargrafo_3',['importarGrafo',['../pontos_8c.html#aa7b9191728ca0db1831b9381ab6d542c',1,'pontos.c']]],
-  ['importarmeios_4',['importarMeios',['../meio_8c.html#a20d0809dae547f7b1680783699b81b5d',1,'meio.c']]],
-  ['imprimiralugueres_5',['imprimirAlugueres',['../aluguer_8c.html#a19a9b117fecbe6e2ffa15d94ed46c9c3',1,'imprimirAlugueres(Fila *filaAlugueres):&#160;aluguer.c'],['../aluguer_8h.html#a19a9b117fecbe6e2ffa15d94ed46c9c3',1,'imprimirAlugueres(Fila *filaAlugueres):&#160;aluguer.c']]],
-  ['imprimirclientes_6',['imprimirClientes',['../cliente_8c.html#abe805cb66d87a77d9f55e06d1408760b',1,'imprimirClientes(PtrCliente clientes):&#160;cliente.c'],['../cliente_8h.html#abe805cb66d87a77d9f55e06d1408760b',1,'imprimirClientes(PtrCliente clientes):&#160;cliente.c']]],
-  ['imprimirgestores_7',['imprimirGestores',['../gestor_8c.html#af101e212426a3730eeecc295f4345bc3',1,'gestor.c']]],
-  ['imprimirmeios_8',['imprimirMeios',['../meio_8c.html#a9f05b92efde9e26dfb6feb7b226a1116',1,'meio.c']]],
-  ['inserecliente_9',['insereCliente',['../cliente_8c.html#aecee0ab5d97ce7f2d8dede83bbbc6f42',1,'insereCliente(PtrCliente clientes, char nome[], char morada[], unsigned int nif, double saldo):&#160;cliente.c'],['../cliente_8h.html#aecee0ab5d97ce7f2d8dede83bbbc6f42',1,'insereCliente(PtrCliente clientes, char nome[], char morada[], unsigned int nif, double saldo):&#160;cliente.c']]],
-  ['inseriraluguer_10',['inserirAluguer',['../aluguer_8c.html#a1d9a36df5773615c46e34518d8f99c86',1,'inserirAluguer(Fila *filaAlugueres, Aluguer *aluguer, Meio *listaMeios, Cliente *listaClientes, bool *inserido):&#160;aluguer.c'],['../aluguer_8h.html#a1d9a36df5773615c46e34518d8f99c86',1,'inserirAluguer(Fila *filaAlugueres, Aluguer *aluguer, Meio *listaMeios, Cliente *listaClientes, bool *inserido):&#160;aluguer.c']]],
-  ['inserirgestor_11',['inserirGestor',['../gestor_8c.html#a1930710280f5091b4a4b73213fde9f3e',1,'gestor.c']]],
-  ['inserirmeio_12',['inserirMeio',['../meio_8c.html#aeaa3ad6165e2c541a33d23478a11729d',1,'meio.c']]]
+  ['gestor_0',['Gestor',['../struct_gestor.html',1,'']]],
+  ['gestor_2ec_1',['gestor.c',['../gestor_8c.html',1,'']]],
+  ['gestor_2eh_2',['gestor.h',['../gestor_8h.html',1,'']]],
+  ['getdate_3',['getDate',['../aluguer_8c.html#a20b82cd42712d797e03d8c0f3205deac',1,'getDate():&#160;aluguer.c'],['../aluguer_8h.html#a20b82cd42712d797e03d8c0f3205deac',1,'getDate():&#160;aluguer.c']]],
+  ['grafo_4',['Grafo',['../struct_grafo.html',1,'']]],
+  ['guardaralugueres_5',['guardarAlugueres',['../aluguer_8c.html#a41480afea5ba9395b1d81d31339b4436',1,'guardarAlugueres(const char *filename, Fila *filaAlugueres):&#160;aluguer.c'],['../aluguer_8h.html#a41480afea5ba9395b1d81d31339b4436',1,'guardarAlugueres(const char *filename, Fila *filaAlugueres):&#160;aluguer.c']]],
+  ['guardararestas_6',['guardarArestas',['../pontos_8c.html#a4abbbe5b8834147d7d6f8e72176a151b',1,'guardarArestas(Grafo *grafo, const char *nomeArquivo):&#160;pontos.c'],['../pontos_8h.html#a4abbbe5b8834147d7d6f8e72176a151b',1,'guardarArestas(Grafo *grafo, const char *nomeArquivo):&#160;pontos.c']]],
+  ['guardarclientes_7',['guardarClientes',['../cliente_8c.html#abb3f422d7440da4557162ee7cdfc4839',1,'guardarClientes(char *filename, PtrCliente clientes):&#160;cliente.c'],['../cliente_8h.html#abb3f422d7440da4557162ee7cdfc4839',1,'guardarClientes(char *filename, PtrCliente clientes):&#160;cliente.c']]],
+  ['guardargestores_8',['guardarGestores',['../gestor_8c.html#a326cb247e41ab47fec9c94f4570a441d',1,'guardarGestores(const char *fileName, Gestor *listaGestores):&#160;gestor.c'],['../gestor_8h.html#ab225e0822858ad9d2458bfd32722fd61',1,'guardarGestores(const char *fileName, Gestor *inicioListaGestores):&#160;gestor.c']]],
+  ['guardarmeios_9',['guardarMeios',['../meio_8c.html#a4f8efb04431092097a1d3471fc53f6a3',1,'guardarMeios(const char *filename, Meio *lista):&#160;meio.c'],['../meio_8h.html#a4f8efb04431092097a1d3471fc53f6a3',1,'guardarMeios(const char *filename, Meio *lista):&#160;meio.c']]],
+  ['guardarpontosrecolha_10',['guardarPontosRecolha',['../pontos_8c.html#af95902a84a83bd944cbe9e3dee611125',1,'guardarPontosRecolha(Grafo *grafo, const char *nomeArquivo):&#160;pontos.c'],['../pontos_8h.html#af95902a84a83bd944cbe9e3dee611125',1,'guardarPontosRecolha(Grafo *grafo, const char *nomeArquivo):&#160;pontos.c']]]
 ];

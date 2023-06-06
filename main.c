@@ -25,6 +25,7 @@
 int main(){
 
     bool result;
+
     /*INPUT A PARTIR DE FICHEIROS TXT*/
     Meio* listaMeios = importarMeios("Meios/meios.txt");
     //PtrCliente listaClientes = importarClientes("Clientes/clientes.txt");
@@ -33,6 +34,7 @@ int main(){
     //result = importarPontosRecolha(grafo, "Pontos/pontos.txt");
     //result = importarArestas(grafo, "Pontos/arestas.txt");
     
+    /*Carrega os Dados atualizados de ficheiros binários*/
     //Meio* listaMeios = carregarMeios("Meios/meios.bin");
     PtrCliente listaClientes = carregarClientes("Clientes/clientes.bin");
     Gestor* listaGestores = carregarGestores("Gestores/gestores.bin");
@@ -40,8 +42,8 @@ int main(){
     result = carregarPontosRecolha(grafo, "Pontos/pontos.bin");
     result = carregarArestas(grafo, "Pontos/arestas.bin");
 
-    Fila* filaAlugueres = importarAlugueres("Alugueres/aluguer.txt", listaMeios, listaClientes);
-    //Fila* filaAlugueres = carregarAlugueres("Alugueres/aluguer.bin", listaMeios, listaClientes);
+    //Fila* filaAlugueres = importarAlugueres("Alugueres/aluguer.txt", listaMeios, listaClientes);
+    Fila* filaAlugueres = carregarAlugueres("Alugueres/aluguer.bin");
    
     //imprimirMeios(listaMeios);
     //imprimirClientes(listaClientes);
@@ -67,8 +69,8 @@ int main(){
     v = guardarPontosRecolha(grafo, "Pontos/pontos.bin");
     v = guardarArestas(grafo, "Pontos/arestas.bin");
     printf("Pontos de Recolha guardados com sucesso: %d\n", v);
-    //v = guardarAlugueres("Alugueres/aluguer.bin", filaAlugueres);
-    //printf("Alugueres guardados com sucesso: %d\n", v);
+    v = guardarAlugueres("Alugueres/aluguer.bin", filaAlugueres);
+    printf("Alugueres guardados com sucesso: %d\n", v);
 
 
     return 0;

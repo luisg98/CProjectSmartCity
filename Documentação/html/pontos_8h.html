@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SmartCity - Mobilidade: C:/Users/luisg/Desktop/IPCA/1º Ano/2º Semestre/Estruturas de Dados Avançados/2023/Projeto/Pontos/pontos.c File Reference</title>
+<title>SmartCity - Mobilidade: C:/Users/luisg/Desktop/IPCA/1º Ano/2º Semestre/Estruturas de Dados Avançados/2023/Projeto/Pontos/pontos.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -75,73 +75,104 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">pontos.c File Reference</div></div>
+  <div class="headertitle"><div class="title">pontos.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Ficheiro para tudo relacionado com os pontos de recolha.  
+<p>Ficheiro de cabeçalho do ficheiro .c correspondente.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="pontos_8h_source.html">pontos.h</a>&quot;</code><br />
-</div><table class="memberdecls">
+</div>
+<p><a href="pontos_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ponto_recolha.html">PontoRecolha</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_aresta.html">Aresta</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_grafo.html">Grafo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a70ed59adcb4159ac551058053e649640"><td class="memItemLeft" align="right" valign="top"><a id="a70ed59adcb4159ac551058053e649640" name="a70ed59adcb4159ac551058053e649640"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SIZE</b>&#160;&#160;&#160;50</td></tr>
+<tr class="separator:a70ed59adcb4159ac551058053e649640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aa8923046bf803d4d6bc5b766f89baab4"><td class="memItemLeft" align="right" valign="top"><a id="aa8923046bf803d4d6bc5b766f89baab4" name="aa8923046bf803d4d6bc5b766f89baab4"></a>
+typedef struct <a class="el" href="struct_ponto_recolha.html">PontoRecolha</a>&#160;</td><td class="memItemRight" valign="bottom"><b>PontoRecolha</b></td></tr>
+<tr class="separator:aa8923046bf803d4d6bc5b766f89baab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dfeea32aaaf68604a93805ab84f33e1"><td class="memItemLeft" align="right" valign="top"><a id="a4dfeea32aaaf68604a93805ab84f33e1" name="a4dfeea32aaaf68604a93805ab84f33e1"></a>
+typedef struct <a class="el" href="struct_aresta.html">Aresta</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Aresta</b></td></tr>
+<tr class="separator:a4dfeea32aaaf68604a93805ab84f33e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adab04f64457aac52a13e71e40915bd43"><td class="memItemLeft" align="right" valign="top"><a id="adab04f64457aac52a13e71e40915bd43" name="adab04f64457aac52a13e71e40915bd43"></a>
+typedef struct <a class="el" href="struct_grafo.html">Grafo</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Grafo</b></td></tr>
+<tr class="separator:adab04f64457aac52a13e71e40915bd43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a798b949f078ad28488a9977688702d16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#a798b949f078ad28488a9977688702d16">criarPontoRecolha</a> (char geocodigo[])</td></tr>
+<tr class="memitem:a798b949f078ad28488a9977688702d16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#a798b949f078ad28488a9977688702d16">criarPontoRecolha</a> (char geocodigo[])</td></tr>
 <tr class="separator:a798b949f078ad28488a9977688702d16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03242b0b912da2b2310edae3b5fe2084"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#a03242b0b912da2b2310edae3b5fe2084">adicionarPontoRecolha</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, char geocodigo[])</td></tr>
+<tr class="memitem:a03242b0b912da2b2310edae3b5fe2084"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#a03242b0b912da2b2310edae3b5fe2084">adicionarPontoRecolha</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, char geocodigo[])</td></tr>
 <tr class="separator:a03242b0b912da2b2310edae3b5fe2084"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abefbff1dcca14185719297cb386bfb1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_aresta.html">Aresta</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#abefbff1dcca14185719297cb386bfb1b">criarAresta</a> (<a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *inicio, <a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *fim, int distancia)</td></tr>
+<tr class="memitem:abefbff1dcca14185719297cb386bfb1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_aresta.html">Aresta</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#abefbff1dcca14185719297cb386bfb1b">criarAresta</a> (<a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *inicio, <a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *fim, int distancia)</td></tr>
 <tr class="memdesc:abefbff1dcca14185719297cb386bfb1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para criar uma nova aresta.  <br /></td></tr>
 <tr class="separator:abefbff1dcca14185719297cb386bfb1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fdb941168b7725ab64abd02c5c3da4f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#a4fdb941168b7725ab64abd02c5c3da4f">adicionarAresta</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, <a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *inicio, <a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *fim, int distancia)</td></tr>
+<tr class="memitem:a4fdb941168b7725ab64abd02c5c3da4f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#a4fdb941168b7725ab64abd02c5c3da4f">adicionarAresta</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, <a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *inicio, <a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *fim, int distancia)</td></tr>
 <tr class="memdesc:a4fdb941168b7725ab64abd02c5c3da4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para adicionar uma aresta ao grafo.  <br /></td></tr>
 <tr class="separator:a4fdb941168b7725ab64abd02c5c3da4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bdb95bb8a917e1fd3fdcf5378986168"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#a3bdb95bb8a917e1fd3fdcf5378986168">libertarGrafo</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo)</td></tr>
+<tr class="memitem:a3bdb95bb8a917e1fd3fdcf5378986168"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#a3bdb95bb8a917e1fd3fdcf5378986168">libertarGrafo</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo)</td></tr>
 <tr class="memdesc:a3bdb95bb8a917e1fd3fdcf5378986168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para libertar a memória alocada para o grafo.  <br /></td></tr>
 <tr class="separator:a3bdb95bb8a917e1fd3fdcf5378986168"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5cf618621b693d94215a263da3ba5ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_grafo.html">Grafo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#af5cf618621b693d94215a263da3ba5ff">criarGrafo</a> ()</td></tr>
+<tr class="memitem:af5cf618621b693d94215a263da3ba5ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_grafo.html">Grafo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#af5cf618621b693d94215a263da3ba5ff">criarGrafo</a> ()</td></tr>
 <tr class="memdesc:af5cf618621b693d94215a263da3ba5ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um grafo.  <br /></td></tr>
 <tr class="separator:af5cf618621b693d94215a263da3ba5ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace4b71e3831598d51844d351386d5337"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#ace4b71e3831598d51844d351386d5337">encontrarPontoRecolha</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *geocodigo)</td></tr>
-<tr class="memdesc:ace4b71e3831598d51844d351386d5337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para encontrar um ponto de recolha pelo geocódigo.  <br /></td></tr>
-<tr class="separator:ace4b71e3831598d51844d351386d5337"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0252eb60a106052ef9ee0547ed943581"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#a0252eb60a106052ef9ee0547ed943581">importarPontosRecolha</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *nomeArquivo)</td></tr>
+<tr class="memitem:a0252eb60a106052ef9ee0547ed943581"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#a0252eb60a106052ef9ee0547ed943581">importarPontosRecolha</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *nomeArquivo)</td></tr>
 <tr class="memdesc:a0252eb60a106052ef9ee0547ed943581"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para importar os pontos de recolha de um arquivo de texto.  <br /></td></tr>
 <tr class="separator:a0252eb60a106052ef9ee0547ed943581"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e2e670f0dca1117854f415e9df99861"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#a8e2e670f0dca1117854f415e9df99861">importarArestas</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *nomeArquivo)</td></tr>
+<tr class="memitem:a8e2e670f0dca1117854f415e9df99861"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#a8e2e670f0dca1117854f415e9df99861">importarArestas</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *nomeArquivo)</td></tr>
 <tr class="memdesc:a8e2e670f0dca1117854f415e9df99861"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para importar as arestas de um arquivo de texto.  <br /></td></tr>
 <tr class="separator:a8e2e670f0dca1117854f415e9df99861"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a087e8cb7a74f4dde922cc2b8f91f370b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#a087e8cb7a74f4dde922cc2b8f91f370b">imprimirGrafo</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo)</td></tr>
+<tr class="memitem:a087e8cb7a74f4dde922cc2b8f91f370b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#a087e8cb7a74f4dde922cc2b8f91f370b">imprimirGrafo</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo)</td></tr>
 <tr class="memdesc:a087e8cb7a74f4dde922cc2b8f91f370b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para imprimir o grafo.  <br /></td></tr>
 <tr class="separator:a087e8cb7a74f4dde922cc2b8f91f370b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a704201eddc9f1f27877b5cde04dcf13c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#a704201eddc9f1f27877b5cde04dcf13c">imprimirMatrizAdjacencias</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo)</td></tr>
+<tr class="memitem:a704201eddc9f1f27877b5cde04dcf13c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#a704201eddc9f1f27877b5cde04dcf13c">imprimirMatrizAdjacencias</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo)</td></tr>
 <tr class="separator:a704201eddc9f1f27877b5cde04dcf13c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78dbf137d0e31beee597ea067185adf8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#a78dbf137d0e31beee597ea067185adf8">converteGeocodigoPontoRecolha</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *geocodigo)</td></tr>
-<tr class="separator:a78dbf137d0e31beee597ea067185adf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb3a1b05652e48173de804b02b3112d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#adb3a1b05652e48173de804b02b3112d5">calcularDistancia</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, char geocodigo1[], char geocodigo2[])</td></tr>
-<tr class="separator:adb3a1b05652e48173de804b02b3112d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af95902a84a83bd944cbe9e3dee611125"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#af95902a84a83bd944cbe9e3dee611125">guardarPontosRecolha</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *nomeArquivo)</td></tr>
-<tr class="memdesc:af95902a84a83bd944cbe9e3dee611125"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para guardar os pontos de recolha em formato binário.  <br /></td></tr>
-<tr class="separator:af95902a84a83bd944cbe9e3dee611125"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d9c5d37b3a803273224a25901da6278"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#a4d9c5d37b3a803273224a25901da6278">carregarPontosRecolha</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *nomeArquivo)</td></tr>
-<tr class="memdesc:a4d9c5d37b3a803273224a25901da6278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para carregar os pontos de recolha a partir de um arquivo binário.  <br /></td></tr>
-<tr class="separator:a4d9c5d37b3a803273224a25901da6278"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4abbbe5b8834147d7d6f8e72176a151b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#a4abbbe5b8834147d7d6f8e72176a151b">guardarArestas</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *nomeArquivo)</td></tr>
-<tr class="memdesc:a4abbbe5b8834147d7d6f8e72176a151b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para guardar as arestas em um arquivo binário.  <br /></td></tr>
-<tr class="separator:a4abbbe5b8834147d7d6f8e72176a151b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebe5d5577e05fcb1344b6c403b4d8076"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8c.html#aebe5d5577e05fcb1344b6c403b4d8076">carregarArestas</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *nomeArquivo)</td></tr>
+<tr class="memitem:aebe5d5577e05fcb1344b6c403b4d8076"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#aebe5d5577e05fcb1344b6c403b4d8076">carregarArestas</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *nomeArquivo)</td></tr>
 <tr class="memdesc:aebe5d5577e05fcb1344b6c403b4d8076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para carregar as arestas de um arquivo binário.  <br /></td></tr>
 <tr class="separator:aebe5d5577e05fcb1344b6c403b4d8076"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af95902a84a83bd944cbe9e3dee611125"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#af95902a84a83bd944cbe9e3dee611125">guardarPontosRecolha</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *nomeArquivo)</td></tr>
+<tr class="memdesc:af95902a84a83bd944cbe9e3dee611125"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para guardar os pontos de recolha em formato binário.  <br /></td></tr>
+<tr class="separator:af95902a84a83bd944cbe9e3dee611125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78dbf137d0e31beee597ea067185adf8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#a78dbf137d0e31beee597ea067185adf8">converteGeocodigoPontoRecolha</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *geocodigo)</td></tr>
+<tr class="separator:a78dbf137d0e31beee597ea067185adf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d9c5d37b3a803273224a25901da6278"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#a4d9c5d37b3a803273224a25901da6278">carregarPontosRecolha</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *nomeArquivo)</td></tr>
+<tr class="memdesc:a4d9c5d37b3a803273224a25901da6278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para carregar os pontos de recolha a partir de um arquivo binário.  <br /></td></tr>
+<tr class="separator:a4d9c5d37b3a803273224a25901da6278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb3a1b05652e48173de804b02b3112d5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#adb3a1b05652e48173de804b02b3112d5">calcularDistancia</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, char geocodigo1[], char geocodigo2[])</td></tr>
+<tr class="separator:adb3a1b05652e48173de804b02b3112d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4abbbe5b8834147d7d6f8e72176a151b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#a4abbbe5b8834147d7d6f8e72176a151b">guardarArestas</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *nomeArquivo)</td></tr>
+<tr class="memdesc:a4abbbe5b8834147d7d6f8e72176a151b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para guardar as arestas em um arquivo binário.  <br /></td></tr>
+<tr class="separator:a4abbbe5b8834147d7d6f8e72176a151b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace4b71e3831598d51844d351386d5337"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_ponto_recolha.html">PontoRecolha</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pontos_8h.html#ace4b71e3831598d51844d351386d5337">encontrarPontoRecolha</a> (<a class="el" href="struct_grafo.html">Grafo</a> *grafo, const char *geocodigo)</td></tr>
+<tr class="memdesc:ace4b71e3831598d51844d351386d5337"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para encontrar um ponto de recolha pelo geocódigo.  <br /></td></tr>
+<tr class="separator:ace4b71e3831598d51844d351386d5337"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Ficheiro para tudo relacionado com os pontos de recolha. </p>
+<div class="textblock"><p>Ficheiro de cabeçalho do ficheiro .c correspondente. </p>
 <dl class="section author"><dt>Author</dt><dd>lugon (<a href="#" onclick="location.href='mai'+'lto:'+'a18'+'85'+'1@a'+'lu'+'nos'+'.i'+'pca'+'.p'+'t'; return false;">a1885<span class="obfuscator">.nosp@m.</span>1@al<span class="obfuscator">.nosp@m.</span>unos.<span class="obfuscator">.nosp@m.</span>ipca<span class="obfuscator">.nosp@m.</span>.pt</a>) </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2023-05-24</dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2023-06-05</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a4fdb941168b7725ab64abd02c5c3da4f" name="a4fdb941168b7725ab64abd02c5c3da4f"></a>

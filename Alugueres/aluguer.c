@@ -24,8 +24,8 @@
 Data getDate() {
     
     Data dataAtual;
-    time_t timestamp = time(NULL); // Obtém o timestamp atual
-    struct tm *local_time = localtime(&timestamp); // Converte o timestamp para uma estrutura tm local
+    time_t timestamp = time(NULL); 
+    struct tm *local_time = localtime(&timestamp);
     dataAtual.ano = local_time->tm_year + 1900;
     dataAtual.mes = local_time->tm_mon + 1;
     dataAtual.dia = local_time->tm_mday;
@@ -44,7 +44,7 @@ Aluguer* criarAluguer(int nifCliente, const char geocodigoRecolha[], const char 
     Data dataAtual = getDate();
     Aluguer* novoAluguer = (Aluguer*)malloc(sizeof(Aluguer));
     novoAluguer->idCliente = nifCliente;
-    novoAluguer->idMeio = -1;  // Valor inicial indicando que o meio não foi encontrado
+    novoAluguer->idMeio = -1;
     novoAluguer->dataRecolha = dataAtual;
     strncpy(novoAluguer->tipoMeio, tipo, TAMANHO);
     strncpy(novoAluguer->geocodigoRecolha, geocodigoRecolha, TAMANHO);
@@ -145,8 +145,7 @@ int devolverMeio(int idCliente, Grafo* grafo, char geocodigoEntrega[TAMANHO], Fi
     while (aluguer != NULL) {
         if (aluguer->idCliente == idCliente) {
             aluguer->dataEntrega = getDate();
-            strncpy(aluguer->geocodigoEntrega, geocodigoEntrega, TAMANHO - 1);
-            aluguer->geocodigoEntrega[TAMANHO - 1] = '\0';
+            strncpy(aluguer->geocodigoEntrega, geocodigoEntrega, TAMANHO);
             aluguer->custo = (diferencaEntreDatas(aluguer->dataEntrega, aluguer->dataRecolha)+ TAXA_DIARIA * 1 +
                               calcularDistancia(grafo, geocodigoEntrega, aluguer->geocodigoRecolha) * TAXA_KM);
 
@@ -203,6 +202,14 @@ int diferencaEntreDatas(Data data1, Data data2) {
     return diffDays;
 }
 
+/**
+ * @brief Importa os alugueres de um arquivo e os adiciona a uma fila de alugueres.
+ * 
+ * @param filename 
+ * @param listaMeios 
+ * @param listaClientes 
+ * @return Fila* 
+ */
 Fila* importarAlugueres(const char* filename, Meio* listaMeios, Cliente* listaClientes) {
     Fila* filaAlugueres = (Fila*)malloc(sizeof(Fila));
     filaAlugueres->inicio = NULL;
@@ -236,4 +243,64 @@ Fila* importarAlugueres(const char* filename, Meio* listaMeios, Cliente* listaCl
     return filaAlugueres;
 }
 
+/**
+ * @brief Guarda os alugueres num ficheiro binário
+ * 
+ * @param filename Nome do ficheiro
+ * @param filaAlugueres Fila de alugueres a serem guardados
+ * @return bool
+ */
+bool guardarAlugueres(const char* filename, Fila* filaAlugueres) {
+    FILE* file = fopen(filename, "wb");
+    if (file == NULL) {
+        return false; 
+    }
 
+    Aluguer* aluguer = filaAlugueres->inicio;
+    while (aluguer != NULL) {
+        if (fwrite(aluguer, sizeof(Aluguer), 1, file) != 1) {
+            fclose(file);
+            return false; 
+        }
+        aluguer = aluguer->proximo;
+    }
+
+    fclose(file);
+    return true;
+}
+
+/**
+ * @brief Carrega os alugueres de um ficheiro binário para uma fila
+ * 
+ * @param filename Nome do ficheiro
+ * @return Fila* Retorna a fila de alugueres carregada ou NULL em caso de erro
+ */
+Fila* carregarAlugueres(const char* filename) {
+    FILE* file = fopen(filename, "rb");
+    if (file == NULL) {
+        return NULL; 
+    }
+
+    Fila* filaAlugueres = (Fila*)malloc(sizeof(Fila));
+    filaAlugueres->inicio = NULL;
+    filaAlugueres->fim = NULL;
+
+    Aluguer aluguer;
+    while (fread(&aluguer, sizeof(Aluguer), 1, file) == 1) {
+        Aluguer* novoAluguer = (Aluguer*)malloc(sizeof(Aluguer));
+        memcpy(novoAluguer, &aluguer, sizeof(Aluguer));
+        novoAluguer->proximo = NULL;
+        novoAluguer->anterior = filaAlugueres->fim;
+
+        if (filaAlugueres->inicio == NULL) {
+            filaAlugueres->inicio = novoAluguer;
+            filaAlugueres->fim = novoAluguer;
+        } else {
+            filaAlugueres->fim->proximo = novoAluguer;
+            filaAlugueres->fim = novoAluguer;
+        }
+    }
+
+    fclose(file);
+    return filaAlugueres;
+}

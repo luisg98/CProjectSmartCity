@@ -90,35 +90,36 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aef8dac9eed98f88d77776a04f088f736"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_cliente.html">PtrCliente</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#aef8dac9eed98f88d77776a04f088f736">criarCliente</a> (char nome[], char morada[], unsigned int nif, double saldo)</td></tr>
-<tr class="memdesc:aef8dac9eed98f88d77776a04f088f736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para criar um novo cliente.  <br /></td></tr>
-<tr class="separator:aef8dac9eed98f88d77776a04f088f736"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecee0ab5d97ce7f2d8dede83bbbc6f42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_cliente.html">PtrCliente</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#aecee0ab5d97ce7f2d8dede83bbbc6f42">insereCliente</a> (<a class="el" href="struct_cliente.html">PtrCliente</a> clientes, char nome[], char morada[], unsigned int nif, double saldo)</td></tr>
-<tr class="memdesc:aecee0ab5d97ce7f2d8dede83bbbc6f42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere no início de uma lista ligada simples uma nova estrutura que se encarregará de criar com outra função.  <br /></td></tr>
-<tr class="separator:aecee0ab5d97ce7f2d8dede83bbbc6f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0038367c03c489589313642bb8aabc21"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_cliente.html">PtrCliente</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#a0038367c03c489589313642bb8aabc21">criarCliente</a> (char nome[], char morada[], unsigned int nif)</td></tr>
+<tr class="memdesc:a0038367c03c489589313642bb8aabc21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função para criar um novo cliente.  <br /></td></tr>
+<tr class="separator:a0038367c03c489589313642bb8aabc21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae85ab8014aa7242778bfa57d4bdd606a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_cliente.html">PtrCliente</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#ae85ab8014aa7242778bfa57d4bdd606a">insereCliente</a> (<a class="el" href="struct_cliente.html">PtrCliente</a> clientes, <a class="el" href="struct_cliente.html">Cliente</a> *novoCliente)</td></tr>
+<tr class="memdesc:ae85ab8014aa7242778bfa57d4bdd606a"><td class="mdescLeft">&#160;</td><td class="mdescRight">insere um cliente que entra como parametro e devolve a lista de clientes(também entra como parametro)  <br /></td></tr>
+<tr class="separator:ae85ab8014aa7242778bfa57d4bdd606a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad04e591f539ddbe092b704f2169bb00e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_cliente.html">PtrCliente</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#ad04e591f539ddbe092b704f2169bb00e">removerCliente</a> (<a class="el" href="struct_cliente.html">PtrCliente</a> clientes, unsigned int nif, bool *res)</td></tr>
 <tr class="memdesc:ad04e591f539ddbe092b704f2169bb00e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um cliente de uma lista e liberta a respetiva memória alocada.  <br /></td></tr>
 <tr class="separator:ad04e591f539ddbe092b704f2169bb00e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa426661fda24fca59648fbe65dca6fc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_cliente.html">PtrCliente</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#aa426661fda24fca59648fbe65dca6fc3">alterarMoradaCliente</a> (<a class="el" href="struct_cliente.html">PtrCliente</a> clientes, unsigned int nif, char novaMorada[], bool *res)</td></tr>
 <tr class="memdesc:aa426661fda24fca59648fbe65dca6fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Altera a morada de um cliente cujo nif será inserido como parâmetro e devolve a lista atualizada.  <br /></td></tr>
 <tr class="separator:aa426661fda24fca59648fbe65dca6fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a081315c02ca30db88cd795879d592320"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_cliente.html">PtrCliente</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#a081315c02ca30db88cd795879d592320">importarClientes</a> (char *filename)</td></tr>
+<tr class="memdesc:a081315c02ca30db88cd795879d592320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Importa de um txt os clientes- funciona como o input do programa.  <br /></td></tr>
+<tr class="separator:a081315c02ca30db88cd795879d592320"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe805cb66d87a77d9f55e06d1408760b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#abe805cb66d87a77d9f55e06d1408760b">imprimirClientes</a> (<a class="el" href="struct_cliente.html">PtrCliente</a> clientes)</td></tr>
 <tr class="memdesc:abe805cb66d87a77d9f55e06d1408760b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime no terminal a lista de clientes.  <br /></td></tr>
 <tr class="separator:abe805cb66d87a77d9f55e06d1408760b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e14e36f4f1098d4a22269ccc9bdc608"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_cliente.html">PtrCliente</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#a2e14e36f4f1098d4a22269ccc9bdc608">carregarSaldoCliente</a> (<a class="el" href="struct_cliente.html">PtrCliente</a> clientes, unsigned int nif, double carregamento)</td></tr>
 <tr class="memdesc:a2e14e36f4f1098d4a22269ccc9bdc608"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soma o valor do parâmetro carregamento ao saldo de um determinado cliente.  <br /></td></tr>
 <tr class="separator:a2e14e36f4f1098d4a22269ccc9bdc608"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a081315c02ca30db88cd795879d592320"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_cliente.html">PtrCliente</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#a081315c02ca30db88cd795879d592320">importarClientes</a> (char *filename)</td></tr>
-<tr class="memdesc:a081315c02ca30db88cd795879d592320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Importa de um file .txt dados de clientes, será este o input para testes.  <br /></td></tr>
-<tr class="separator:a081315c02ca30db88cd795879d592320"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea63a693385ba4105479138198d0ffce"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#aea63a693385ba4105479138198d0ffce">libertarClientes</a> (<a class="el" href="struct_cliente.html">PtrCliente</a> clientes)</td></tr>
 <tr class="memdesc:aea63a693385ba4105479138198d0ffce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liberta a memória alocada para a vertente clientes.  <br /></td></tr>
 <tr class="separator:aea63a693385ba4105479138198d0ffce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a385d89c9e69b4dc8daa7b13f904c1311"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#a385d89c9e69b4dc8daa7b13f904c1311">guardarClientes</a> (const char *filename, <a class="el" href="struct_cliente.html">PtrCliente</a> clientes)</td></tr>
-<tr class="memdesc:a385d89c9e69b4dc8daa7b13f904c1311"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda num file binário a lista de clientes.  <br /></td></tr>
-<tr class="separator:a385d89c9e69b4dc8daa7b13f904c1311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fb5ff5bcd5186f9a7838b7e4d96b9c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_cliente.html">PtrCliente</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#a7fb5ff5bcd5186f9a7838b7e4d96b9c0">carregarClientes</a> (const char *filename, bool *res)</td></tr>
-<tr class="separator:a7fb5ff5bcd5186f9a7838b7e4d96b9c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb3f422d7440da4557162ee7cdfc4839"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#abb3f422d7440da4557162ee7cdfc4839">guardarClientes</a> (char *filename, <a class="el" href="struct_cliente.html">PtrCliente</a> clientes)</td></tr>
+<tr class="memdesc:abb3f422d7440da4557162ee7cdfc4839"><td class="mdescLeft">&#160;</td><td class="mdescRight">guarda a lista de clientes num ficheiro binário  <br /></td></tr>
+<tr class="separator:abb3f422d7440da4557162ee7cdfc4839"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a653ccc4d8595ca320055304c0688f4a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_cliente.html">PtrCliente</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cliente_8c.html#a653ccc4d8595ca320055304c0688f4a4">carregarClientes</a> (char *filename)</td></tr>
+<tr class="memdesc:a653ccc4d8595ca320055304c0688f4a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">carrega de um ficheiro binário os clientes  <br /></td></tr>
+<tr class="separator:a653ccc4d8595ca320055304c0688f4a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Funções para tudo relacionado com os clientes. Com este código será possível: </p>
@@ -204,8 +205,8 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a7fb5ff5bcd5186f9a7838b7e4d96b9c0" name="a7fb5ff5bcd5186f9a7838b7e4d96b9c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fb5ff5bcd5186f9a7838b7e4d96b9c0">&#9670;&#160;</a></span>carregarClientes()</h2>
+<a id="a653ccc4d8595ca320055304c0688f4a4" name="a653ccc4d8595ca320055304c0688f4a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a653ccc4d8595ca320055304c0688f4a4">&#9670;&#160;</a></span>carregarClientes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -213,49 +214,41 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname"><a class="el" href="struct_cliente.html">PtrCliente</a> carregarClientes </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">bool *&#160;</td>
-          <td class="paramname"><em>res</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>carrega de um ficheiro binário os clientes </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td></td></tr>
-    <tr><td class="paramname">res</td><td></td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>PtrCliente </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  250</span>                                                             {</div>
-<div class="line"><span class="lineno">  251</span>    FILE* file = fopen(filename, <span class="stringliteral">&quot;rb&quot;</span>);</div>
-<div class="line"><span class="lineno">  252</span>    <span class="keywordflow">if</span> (file == NULL) {</div>
-<div class="line"><span class="lineno">  253</span>        *res = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  254</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">  255</span>    }</div>
-<div class="line"><span class="lineno">  256</span> </div>
-<div class="line"><span class="lineno">  257</span>    <a class="code hl_struct" href="struct_cliente.html">PtrCliente</a> clientes = NULL;</div>
-<div class="line"><span class="lineno">  258</span>    <a class="code hl_struct" href="struct_cliente.html">Cliente</a> cliente;</div>
-<div class="line"><span class="lineno">  259</span> </div>
-<div class="line"><span class="lineno">  260</span>    <span class="keywordflow">while</span> (fread(&amp;cliente, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_cliente.html">Cliente</a>), 1, file) == 1) {</div>
-<div class="line"><span class="lineno">  261</span>        clientes = <a class="code hl_function" href="cliente_8c.html#aecee0ab5d97ce7f2d8dede83bbbc6f42">insereCliente</a>(clientes, cliente.nome, cliente.morada, cliente.nif, cliente.saldo);</div>
-<div class="line"><span class="lineno">  262</span>    }</div>
-<div class="line"><span class="lineno">  263</span> </div>
-<div class="line"><span class="lineno">  264</span>    fclose(file);</div>
-<div class="line"><span class="lineno">  265</span>    *res = <span class="keyword">true</span>; <span class="comment">// Define res como true para indicar que a leitura foi bem-sucedida</span></div>
-<div class="line"><span class="lineno">  266</span>    <span class="keywordflow">return</span> clientes;</div>
-<div class="line"><span class="lineno">  267</span>}</div>
-<div class="ttc" id="acliente_8c_html_aecee0ab5d97ce7f2d8dede83bbbc6f42"><div class="ttname"><a href="cliente_8c.html#aecee0ab5d97ce7f2d8dede83bbbc6f42">insereCliente</a></div><div class="ttdeci">PtrCliente insereCliente(PtrCliente clientes, char nome[], char morada[], unsigned int nif, double saldo)</div><div class="ttdoc">Insere no início de uma lista ligada simples uma nova estrutura que se encarregará de criar com outra...</div><div class="ttdef"><b>Definition:</b> cliente.c:49</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  252</span>                                            {</div>
+<div class="line"><span class="lineno">  253</span>    <a class="code hl_struct" href="struct_cliente.html">PtrCliente</a> listaClientes = NULL;</div>
+<div class="line"><span class="lineno">  254</span>    FILE *file = fopen(filename, <span class="stringliteral">&quot;rb&quot;</span>);</div>
+<div class="line"><span class="lineno">  255</span>    <span class="keywordflow">if</span> (file == NULL) {</div>
+<div class="line"><span class="lineno">  256</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  257</span>    }</div>
+<div class="line"><span class="lineno">  258</span> </div>
+<div class="line"><span class="lineno">  259</span>    <span class="comment">// Lê cada cliente do arquivo binário e insere na lista de clientes</span></div>
+<div class="line"><span class="lineno">  260</span>    <a class="code hl_struct" href="struct_cliente.html">Cliente</a> cliente;</div>
+<div class="line"><span class="lineno">  261</span>    <span class="keywordflow">while</span> (fread(&amp;cliente, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_cliente.html">Cliente</a>), 1, file)) {</div>
+<div class="line"><span class="lineno">  262</span>        <a class="code hl_struct" href="struct_cliente.html">PtrCliente</a> novoCliente = <a class="code hl_function" href="cliente_8c.html#a0038367c03c489589313642bb8aabc21">criarCliente</a>(cliente.nome, cliente.morada, cliente.nif);</div>
+<div class="line"><span class="lineno">  263</span>        novoCliente-&gt;saldo = cliente.saldo;</div>
+<div class="line"><span class="lineno">  264</span>        listaClientes = <a class="code hl_function" href="cliente_8c.html#ae85ab8014aa7242778bfa57d4bdd606a">insereCliente</a>(listaClientes, novoCliente);</div>
+<div class="line"><span class="lineno">  265</span>    }</div>
+<div class="line"><span class="lineno">  266</span> </div>
+<div class="line"><span class="lineno">  267</span>    fclose(file);</div>
+<div class="line"><span class="lineno">  268</span>    <span class="keywordflow">return</span> listaClientes;</div>
+<div class="line"><span class="lineno">  269</span>}</div>
+<div class="ttc" id="acliente_8c_html_a0038367c03c489589313642bb8aabc21"><div class="ttname"><a href="cliente_8c.html#a0038367c03c489589313642bb8aabc21">criarCliente</a></div><div class="ttdeci">PtrCliente criarCliente(char nome[], char morada[], unsigned int nif)</div><div class="ttdoc">Função para criar um novo cliente.</div><div class="ttdef"><b>Definition:</b> cliente.c:28</div></div>
+<div class="ttc" id="acliente_8c_html_ae85ab8014aa7242778bfa57d4bdd606a"><div class="ttname"><a href="cliente_8c.html#ae85ab8014aa7242778bfa57d4bdd606a">insereCliente</a></div><div class="ttdeci">PtrCliente insereCliente(PtrCliente clientes, Cliente *novoCliente)</div><div class="ttdoc">insere um cliente que entra como parametro e devolve a lista de clientes(também entra como parametro)</div><div class="ttdef"><b>Definition:</b> cliente.c:46</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -301,28 +294,28 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>PtrCliente </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  155</span>                                                                                           {</div>
-<div class="line"><span class="lineno">  156</span> </div>
-<div class="line"><span class="lineno">  157</span>        <a class="code hl_struct" href="struct_cliente.html">Cliente</a> *aux = clientes;</div>
-<div class="line"><span class="lineno">  158</span>    </div>
-<div class="line"><span class="lineno">  159</span>    <span class="keywordflow">while</span> (aux != NULL) {</div>
-<div class="line"><span class="lineno">  160</span> </div>
-<div class="line"><span class="lineno">  161</span>        <span class="keywordflow">if</span> (aux-&gt;nif == nif) {</div>
-<div class="line"><span class="lineno">  162</span>            aux-&gt;saldo += carregamento;</div>
-<div class="line"><span class="lineno">  163</span>            <span class="keywordflow">return</span> clientes;</div>
-<div class="line"><span class="lineno">  164</span>        }</div>
-<div class="line"><span class="lineno">  165</span> </div>
-<div class="line"><span class="lineno">  166</span>        aux = aux-&gt;proximo;</div>
-<div class="line"><span class="lineno">  167</span>    }</div>
-<div class="line"><span class="lineno">  168</span>    </div>
-<div class="line"><span class="lineno">  169</span>    <span class="keywordflow">return</span> clientes;</div>
-<div class="line"><span class="lineno">  170</span> </div>
-<div class="line"><span class="lineno">  171</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  185</span>                                                                                           {</div>
+<div class="line"><span class="lineno">  186</span> </div>
+<div class="line"><span class="lineno">  187</span>        <a class="code hl_struct" href="struct_cliente.html">Cliente</a> *aux = clientes;</div>
+<div class="line"><span class="lineno">  188</span>    </div>
+<div class="line"><span class="lineno">  189</span>    <span class="keywordflow">while</span> (aux != NULL) {</div>
+<div class="line"><span class="lineno">  190</span> </div>
+<div class="line"><span class="lineno">  191</span>        <span class="keywordflow">if</span> (aux-&gt;nif == nif) {</div>
+<div class="line"><span class="lineno">  192</span>            aux-&gt;saldo += carregamento;</div>
+<div class="line"><span class="lineno">  193</span>            <span class="keywordflow">return</span> clientes;</div>
+<div class="line"><span class="lineno">  194</span>        }</div>
+<div class="line"><span class="lineno">  195</span> </div>
+<div class="line"><span class="lineno">  196</span>        aux = aux-&gt;proximo;</div>
+<div class="line"><span class="lineno">  197</span>    }</div>
+<div class="line"><span class="lineno">  198</span>    </div>
+<div class="line"><span class="lineno">  199</span>    <span class="keywordflow">return</span> clientes;</div>
+<div class="line"><span class="lineno">  200</span> </div>
+<div class="line"><span class="lineno">  201</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="aef8dac9eed98f88d77776a04f088f736" name="aef8dac9eed98f88d77776a04f088f736"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef8dac9eed98f88d77776a04f088f736">&#9670;&#160;</a></span>criarCliente()</h2>
+<a id="a0038367c03c489589313642bb8aabc21" name="a0038367c03c489589313642bb8aabc21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0038367c03c489589313642bb8aabc21">&#9670;&#160;</a></span>criarCliente()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -343,13 +336,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>nif</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>saldo</em>&#160;</td>
+          <td class="paramname"><em>nif</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -375,15 +362,15 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   31</span>    strcpy(novoCliente-&gt;nome, nome); </div>
 <div class="line"><span class="lineno">   32</span>    strcpy(novoCliente-&gt;morada, morada);</div>
 <div class="line"><span class="lineno">   33</span>    novoCliente-&gt;nif = nif;</div>
-<div class="line"><span class="lineno">   34</span>    novoCliente-&gt;saldo = saldo;</div>
+<div class="line"><span class="lineno">   34</span>    novoCliente-&gt;saldo = 0;</div>
 <div class="line"><span class="lineno">   35</span>    novoCliente-&gt;proximo = NULL;</div>
 <div class="line"><span class="lineno">   36</span>    <span class="keywordflow">return</span> novoCliente;</div>
 <div class="line"><span class="lineno">   37</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a385d89c9e69b4dc8daa7b13f904c1311" name="a385d89c9e69b4dc8daa7b13f904c1311"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a385d89c9e69b4dc8daa7b13f904c1311">&#9670;&#160;</a></span>guardarClientes()</h2>
+<a id="abb3f422d7440da4557162ee7cdfc4839" name="abb3f422d7440da4557162ee7cdfc4839"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb3f422d7440da4557162ee7cdfc4839">&#9670;&#160;</a></span>guardarClientes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -391,7 +378,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool guardarClientes </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
+          <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>filename</em>, </td>
         </tr>
         <tr>
@@ -408,7 +395,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Guarda num file binário a lista de clientes. </p>
+<p>guarda a lista de clientes num ficheiro binário </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td></td></tr>
@@ -419,21 +406,22 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>true </dd>
 <dd>
 false </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  227</span>                                                                {</div>
-<div class="line"><span class="lineno">  228</span>    FILE* file = fopen(filename, <span class="stringliteral">&quot;wb&quot;</span>);</div>
-<div class="line"><span class="lineno">  229</span>    <span class="keywordflow">if</span> (file == NULL) {</div>
-<div class="line"><span class="lineno">  230</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  231</span>    }</div>
-<div class="line"><span class="lineno">  232</span> </div>
-<div class="line"><span class="lineno">  233</span>    <a class="code hl_struct" href="struct_cliente.html">PtrCliente</a> cliente = clientes;</div>
-<div class="line"><span class="lineno">  234</span>    <span class="keywordflow">while</span> (cliente != NULL) {</div>
-<div class="line"><span class="lineno">  235</span>        fwrite(cliente, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_cliente.html">Cliente</a>), 1, file);</div>
-<div class="line"><span class="lineno">  236</span>        cliente = cliente-&gt;proximo;</div>
-<div class="line"><span class="lineno">  237</span>    }</div>
-<div class="line"><span class="lineno">  238</span> </div>
-<div class="line"><span class="lineno">  239</span>    fclose(file);</div>
-<div class="line"><span class="lineno">  240</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  241</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  229</span>                                                          {</div>
+<div class="line"><span class="lineno">  230</span>    FILE *file = fopen(filename, <span class="stringliteral">&quot;wb&quot;</span>);</div>
+<div class="line"><span class="lineno">  231</span>    <span class="keywordflow">if</span> (file == NULL) {</div>
+<div class="line"><span class="lineno">  232</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  233</span>    }</div>
+<div class="line"><span class="lineno">  234</span> </div>
+<div class="line"><span class="lineno">  235</span>    <span class="comment">// Percorre a lista de clientes e escreve cada cliente no arquivo binário</span></div>
+<div class="line"><span class="lineno">  236</span>    <a class="code hl_struct" href="struct_cliente.html">Cliente</a> *aux = clientes;</div>
+<div class="line"><span class="lineno">  237</span>    <span class="keywordflow">while</span> (aux != NULL) {</div>
+<div class="line"><span class="lineno">  238</span>        fwrite(aux, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_cliente.html">Cliente</a>), 1, file);</div>
+<div class="line"><span class="lineno">  239</span>        aux = aux-&gt;proximo;</div>
+<div class="line"><span class="lineno">  240</span>    }</div>
+<div class="line"><span class="lineno">  241</span> </div>
+<div class="line"><span class="lineno">  242</span>    fclose(file);</div>
+<div class="line"><span class="lineno">  243</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  244</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -453,7 +441,7 @@ false </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Importa de um file .txt dados de clientes, será este o input para testes. </p>
+<p>Importa de um txt os clientes- funciona como o input do programa. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td></td></tr>
@@ -461,28 +449,27 @@ false </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>PtrCliente </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  179</span>                                            {</div>
-<div class="line"><span class="lineno">  180</span>    </div>
-<div class="line"><span class="lineno">  181</span>    <a class="code hl_struct" href="struct_cliente.html">PtrCliente</a> listaClientes = NULL;</div>
-<div class="line"><span class="lineno">  182</span>    FILE *file = fopen(filename, <span class="stringliteral">&quot;r&quot;</span>);</div>
-<div class="line"><span class="lineno">  183</span>            <span class="keywordtype">char</span> nome[SIZE], morada[SIZE];</div>
-<div class="line"><span class="lineno">  184</span>        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nif;</div>
-<div class="line"><span class="lineno">  185</span>        <span class="keywordtype">double</span> saldo;</div>
-<div class="line"><span class="lineno">  186</span> </div>
-<div class="line"><span class="lineno">  187</span>    <span class="keywordflow">if</span> (file == NULL) {</div>
-<div class="line"><span class="lineno">  188</span>        <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">  189</span>    }</div>
-<div class="line"><span class="lineno">  190</span> </div>
-<div class="line"><span class="lineno">  191</span>    <span class="keywordtype">char</span> linha[3*SIZE]; <span class="comment">// definir um buffer grande para armazenar a linha completa</span></div>
-<div class="line"><span class="lineno">  192</span>    <span class="keywordflow">while</span> (fgets(linha, <span class="keyword">sizeof</span>(linha), file)) {</div>
-<div class="line"><span class="lineno">  193</span>        sscanf(linha, <span class="stringliteral">&quot;%[^,],%[^,],%u,%lf&quot;</span>, nome, morada, &amp;nif, &amp;saldo);</div>
-<div class="line"><span class="lineno">  194</span>        </div>
-<div class="line"><span class="lineno">  195</span>        listaClientes = <a class="code hl_function" href="cliente_8c.html#aecee0ab5d97ce7f2d8dede83bbbc6f42">insereCliente</a>(listaClientes, nome, morada, nif, saldo);</div>
-<div class="line"><span class="lineno">  196</span>    }</div>
-<div class="line"><span class="lineno">  197</span> </div>
-<div class="line"><span class="lineno">  198</span>    fclose(file);</div>
-<div class="line"><span class="lineno">  199</span>    <span class="keywordflow">return</span> listaClientes;</div>
-<div class="line"><span class="lineno">  200</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  133</span>                                            {</div>
+<div class="line"><span class="lineno">  134</span>    <a class="code hl_struct" href="struct_cliente.html">PtrCliente</a> listaClientes = NULL;</div>
+<div class="line"><span class="lineno">  135</span>    FILE *file = fopen(filename, <span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><span class="lineno">  136</span>    <span class="keywordtype">char</span> nome[SIZE], morada[SIZE];</div>
+<div class="line"><span class="lineno">  137</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> nif;</div>
+<div class="line"><span class="lineno">  138</span> </div>
+<div class="line"><span class="lineno">  139</span>    <span class="keywordflow">if</span> (file == NULL) {</div>
+<div class="line"><span class="lineno">  140</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  141</span>    }</div>
+<div class="line"><span class="lineno">  142</span> </div>
+<div class="line"><span class="lineno">  143</span>    <span class="keywordtype">char</span> linha[3*SIZE]; <span class="comment">// definir um buffer grande para armazenar a linha completa</span></div>
+<div class="line"><span class="lineno">  144</span>    <span class="keywordflow">while</span> (fgets(linha, <span class="keyword">sizeof</span>(linha), file)) {</div>
+<div class="line"><span class="lineno">  145</span>        sscanf(linha, <span class="stringliteral">&quot;%[^,],%[^,],%u&quot;</span>, nome, morada, &amp;nif);</div>
+<div class="line"><span class="lineno">  146</span>        </div>
+<div class="line"><span class="lineno">  147</span>        <a class="code hl_struct" href="struct_cliente.html">PtrCliente</a> novoCliente = <a class="code hl_function" href="cliente_8c.html#a0038367c03c489589313642bb8aabc21">criarCliente</a>(nome, morada, nif);</div>
+<div class="line"><span class="lineno">  148</span>        listaClientes = <a class="code hl_function" href="cliente_8c.html#ae85ab8014aa7242778bfa57d4bdd606a">insereCliente</a>(listaClientes, novoCliente);</div>
+<div class="line"><span class="lineno">  149</span>    }</div>
+<div class="line"><span class="lineno">  150</span> </div>
+<div class="line"><span class="lineno">  151</span>    fclose(file);</div>
+<div class="line"><span class="lineno">  152</span>    <span class="keywordflow">return</span> listaClientes;</div>
+<div class="line"><span class="lineno">  153</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -510,23 +497,23 @@ false </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>PtrCliente </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  133</span>                                           {</div>
-<div class="line"><span class="lineno">  134</span>    <a class="code hl_struct" href="struct_cliente.html">Cliente</a> *aux = clientes;</div>
-<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">while</span> (aux != NULL) {</div>
-<div class="line"><span class="lineno">  136</span>        printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  137</span>        printf(<span class="stringliteral">&quot;Nome: %s\n&quot;</span>, aux-&gt;nome);</div>
-<div class="line"><span class="lineno">  138</span>        printf(<span class="stringliteral">&quot;Morada: %s\n&quot;</span>, aux-&gt;morada);</div>
-<div class="line"><span class="lineno">  139</span>        printf(<span class="stringliteral">&quot;NIF: %u\n&quot;</span>, aux-&gt;nif);</div>
-<div class="line"><span class="lineno">  140</span>        printf(<span class="stringliteral">&quot;Saldo: %.2f\n&quot;</span>, aux-&gt;saldo);</div>
-<div class="line"><span class="lineno">  141</span>        printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  142</span>        aux = aux-&gt;proximo;</div>
-<div class="line"><span class="lineno">  143</span>    }</div>
-<div class="line"><span class="lineno">  144</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  163</span>                                           {</div>
+<div class="line"><span class="lineno">  164</span>    <a class="code hl_struct" href="struct_cliente.html">Cliente</a> *aux = clientes;</div>
+<div class="line"><span class="lineno">  165</span>    <span class="keywordflow">while</span> (aux != NULL) {</div>
+<div class="line"><span class="lineno">  166</span>        printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  167</span>        printf(<span class="stringliteral">&quot;Nome: %s\n&quot;</span>, aux-&gt;nome);</div>
+<div class="line"><span class="lineno">  168</span>        printf(<span class="stringliteral">&quot;Morada: %s\n&quot;</span>, aux-&gt;morada);</div>
+<div class="line"><span class="lineno">  169</span>        printf(<span class="stringliteral">&quot;NIF: %u\n&quot;</span>, aux-&gt;nif);</div>
+<div class="line"><span class="lineno">  170</span>        printf(<span class="stringliteral">&quot;Saldo: %.2f\n&quot;</span>, aux-&gt;saldo);</div>
+<div class="line"><span class="lineno">  171</span>        printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  172</span>        aux = aux-&gt;proximo;</div>
+<div class="line"><span class="lineno">  173</span>    }</div>
+<div class="line"><span class="lineno">  174</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="aecee0ab5d97ce7f2d8dede83bbbc6f42" name="aecee0ab5d97ce7f2d8dede83bbbc6f42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecee0ab5d97ce7f2d8dede83bbbc6f42">&#9670;&#160;</a></span>insereCliente()</h2>
+<a id="ae85ab8014aa7242778bfa57d4bdd606a" name="ae85ab8014aa7242778bfa57d4bdd606a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae85ab8014aa7242778bfa57d4bdd606a">&#9670;&#160;</a></span>insereCliente()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -540,26 +527,8 @@ false </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>nome</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>morada</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>nif</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>saldo</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_cliente.html">Cliente</a> *&#160;</td>
+          <td class="paramname"><em>novoCliente</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -569,31 +538,30 @@ false </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Insere no início de uma lista ligada simples uma nova estrutura que se encarregará de criar com outra função. </p>
+<p>insere um cliente que entra como parametro e devolve a lista de clientes(também entra como parametro) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">clientes</td><td></td></tr>
-    <tr><td class="paramname">nome</td><td></td></tr>
-    <tr><td class="paramname">morada</td><td></td></tr>
-    <tr><td class="paramname">nif</td><td></td></tr>
-    <tr><td class="paramname">saldo</td><td></td></tr>
+    <tr><td class="paramname">novoCliente</td><td></td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>PtrCliente </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   50</span>{</div>
-<div class="line"><span class="lineno">   51</span>    <a class="code hl_struct" href="struct_cliente.html">PtrCliente</a> novoCliente = <a class="code hl_function" href="cliente_8c.html#aef8dac9eed98f88d77776a04f088f736">criarCliente</a>(nome, morada, nif, saldo); <span class="comment">// cria o novo cliente</span></div>
-<div class="line"><span class="lineno">   52</span> </div>
-<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">if</span> (clientes == NULL) <span class="comment">// Se a lista estiver vazia, o novo cliente será o primeiro elemento da lista</span></div>
-<div class="line"><span class="lineno">   54</span>    { </div>
-<div class="line"><span class="lineno">   55</span>        <span class="keywordflow">return</span> novoCliente;</div>
-<div class="line"><span class="lineno">   56</span>    }</div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">else</span> { <span class="comment">// Caso contrário, adiciona o novo cliente ao início da lista</span></div>
-<div class="line"><span class="lineno">   58</span>        novoCliente-&gt; proximo = clientes;</div>
-<div class="line"><span class="lineno">   59</span>        <span class="keywordflow">return</span> novoCliente; <span class="comment">// devolve o novo cliente como o primeiro elemento da lista</span></div>
-<div class="line"><span class="lineno">   60</span>    }   </div>
+<div class="fragment"><div class="line"><span class="lineno">   47</span>{</div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">if</span> (clientes == NULL) {</div>
+<div class="line"><span class="lineno">   49</span>        <span class="comment">// Se a lista estiver vazia, o novo cliente será o primeiro elemento da lista</span></div>
+<div class="line"><span class="lineno">   50</span>        <span class="keywordflow">return</span> novoCliente;</div>
+<div class="line"><span class="lineno">   51</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   52</span>        <span class="comment">// Caso contrário, percorre a lista até o último elemento</span></div>
+<div class="line"><span class="lineno">   53</span>        <a class="code hl_struct" href="struct_cliente.html">PtrCliente</a> aux = clientes;</div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">while</span> (aux-&gt;proximo != NULL) {</div>
+<div class="line"><span class="lineno">   55</span>            aux = aux-&gt;proximo;</div>
+<div class="line"><span class="lineno">   56</span>        }</div>
+<div class="line"><span class="lineno">   57</span>        <span class="comment">// Conecta o novo cliente ao último elemento da lista</span></div>
+<div class="line"><span class="lineno">   58</span>        aux-&gt;proximo = novoCliente;</div>
+<div class="line"><span class="lineno">   59</span>        <span class="keywordflow">return</span> clientes;</div>
+<div class="line"><span class="lineno">   60</span>    }</div>
 <div class="line"><span class="lineno">   61</span>}</div>
-<div class="ttc" id="acliente_8c_html_aef8dac9eed98f88d77776a04f088f736"><div class="ttname"><a href="cliente_8c.html#aef8dac9eed98f88d77776a04f088f736">criarCliente</a></div><div class="ttdeci">PtrCliente criarCliente(char nome[], char morada[], unsigned int nif, double saldo)</div><div class="ttdoc">Função para criar um novo cliente.</div><div class="ttdef"><b>Definition:</b> cliente.c:28</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -620,17 +588,17 @@ false </dd></dl>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  207</span>                                           {</div>
-<div class="line"><span class="lineno">  208</span>    </div>
-<div class="line"><span class="lineno">  209</span>    <a class="code hl_struct" href="struct_cliente.html">Cliente</a> *aux;</div>
-<div class="line"><span class="lineno">  210</span> </div>
-<div class="line"><span class="lineno">  211</span>    <span class="keywordflow">while</span> (clientes != NULL) {</div>
-<div class="line"><span class="lineno">  212</span>        aux = clientes;</div>
-<div class="line"><span class="lineno">  213</span>        clientes = clientes-&gt;proximo;</div>
-<div class="line"><span class="lineno">  214</span>        free(aux);</div>
-<div class="line"><span class="lineno">  215</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  216</span>    }</div>
-<div class="line"><span class="lineno">  217</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  209</span>                                           {</div>
+<div class="line"><span class="lineno">  210</span>    </div>
+<div class="line"><span class="lineno">  211</span>    <a class="code hl_struct" href="struct_cliente.html">Cliente</a> *aux;</div>
+<div class="line"><span class="lineno">  212</span> </div>
+<div class="line"><span class="lineno">  213</span>    <span class="keywordflow">while</span> (clientes != NULL) {</div>
+<div class="line"><span class="lineno">  214</span>        aux = clientes;</div>
+<div class="line"><span class="lineno">  215</span>        clientes = clientes-&gt;proximo;</div>
+<div class="line"><span class="lineno">  216</span>        free(aux);</div>
+<div class="line"><span class="lineno">  217</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  218</span>    }</div>
+<div class="line"><span class="lineno">  219</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

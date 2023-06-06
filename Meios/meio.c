@@ -187,6 +187,3 @@ Meio* carregarMeios(const char* filename) {
     fclose(file);
     return lista;
 }
-
-
-

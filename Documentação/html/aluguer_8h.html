@@ -82,9 +82,12 @@ $(function() {
   <div class="headertitle"><div class="title">aluguer.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;../Meios/meio.h&quot;</code><br />
+
+<p>Ficheiro de cabeçalho do ficheiro .c correspondente.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="meio_8h_source.html">../Meios/meio.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="cliente_8h_source.html">../Clientes/cliente.h</a>&quot;</code><br />
-<code>#include &quot;../Pontos/pontos.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="pontos_8h_source.html">../Pontos/pontos.h</a>&quot;</code><br />
 </div>
 <p><a href="aluguer_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -126,38 +129,40 @@ Functions</h2></td></tr>
 <tr class="memitem:a20b82cd42712d797e03d8c0f3205deac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_data.html">Data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aluguer_8h.html#a20b82cd42712d797e03d8c0f3205deac">getDate</a> ()</td></tr>
 <tr class="memdesc:a20b82cd42712d797e03d8c0f3205deac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Date object.  <br /></td></tr>
 <tr class="separator:a20b82cd42712d797e03d8c0f3205deac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a394756e1fc2da121cf9712aab9411737"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_aluguer.html">Aluguer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aluguer_8h.html#a394756e1fc2da121cf9712aab9411737">criarAluguer</a> (int idCliente, char geocodigoRecolha[TAMANHO])</td></tr>
-<tr class="memdesc:a394756e1fc2da121cf9712aab9411737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um novo aluguer.  <br /></td></tr>
-<tr class="separator:a394756e1fc2da121cf9712aab9411737"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f37c8526cc6cec5de9d57931e76b3aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_aluguer.html">Aluguer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aluguer_8h.html#a2f37c8526cc6cec5de9d57931e76b3aa">criarAluguer</a> (int nifCliente, const char geocodigoRecolha[], const char tipo[])</td></tr>
+<tr class="memdesc:a2f37c8526cc6cec5de9d57931e76b3aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um novo aluguer.  <br /></td></tr>
+<tr class="separator:a2f37c8526cc6cec5de9d57931e76b3aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d9a36df5773615c46e34518d8f99c86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_fila.html">Fila</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aluguer_8h.html#a1d9a36df5773615c46e34518d8f99c86">inserirAluguer</a> (<a class="el" href="struct_fila.html">Fila</a> *filaAlugueres, <a class="el" href="struct_aluguer.html">Aluguer</a> *aluguer, <a class="el" href="struct_meio.html">Meio</a> *listaMeios, <a class="el" href="struct_cliente.html">Cliente</a> *listaClientes, bool *inserido)</td></tr>
 <tr class="memdesc:a1d9a36df5773615c46e34518d8f99c86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insere um aluguer numa fila de alugueres.  <br /></td></tr>
 <tr class="separator:a1d9a36df5773615c46e34518d8f99c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae306e1428bd242d9f14712cf677e68c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_fila.html">Fila</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aluguer_8h.html#ae306e1428bd242d9f14712cf677e68c5">importarAlugueres</a> (const char *filename, <a class="el" href="struct_meio.html">Meio</a> *listaMeios, <a class="el" href="struct_cliente.html">Cliente</a> *listaClientes)</td></tr>
-<tr class="memdesc:ae306e1428bd242d9f14712cf677e68c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">importa de um ficheiro txt - que funciona como o input  <br /></td></tr>
+<tr class="memdesc:ae306e1428bd242d9f14712cf677e68c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Importa os alugueres de um arquivo e os adiciona a uma fila de alugueres.  <br /></td></tr>
 <tr class="separator:ae306e1428bd242d9f14712cf677e68c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19a9b117fecbe6e2ffa15d94ed46c9c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aluguer_8h.html#a19a9b117fecbe6e2ffa15d94ed46c9c3">imprimirAlugueres</a> (<a class="el" href="struct_fila.html">Fila</a> *filaAlugueres)</td></tr>
-<tr class="memdesc:a19a9b117fecbe6e2ffa15d94ed46c9c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imprime no terminal a fila de alugueres.  <br /></td></tr>
+<tr class="memdesc:a19a9b117fecbe6e2ffa15d94ed46c9c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">importa a fila de alugueres- input  <br /></td></tr>
 <tr class="separator:a19a9b117fecbe6e2ffa15d94ed46c9c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41480afea5ba9395b1d81d31339b4436"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aluguer_8h.html#a41480afea5ba9395b1d81d31339b4436">guardarAlugueres</a> (const char *filename, <a class="el" href="struct_fila.html">Fila</a> *filaAlugueres)</td></tr>
-<tr class="memdesc:a41480afea5ba9395b1d81d31339b4436"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda o alugueres em binário.  <br /></td></tr>
+<tr class="memdesc:a41480afea5ba9395b1d81d31339b4436"><td class="mdescLeft">&#160;</td><td class="mdescRight">Guarda os alugueres num ficheiro binário.  <br /></td></tr>
 <tr class="separator:a41480afea5ba9395b1d81d31339b4436"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad212e88ae765552e6f7c14ba306e41f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_fila.html">Fila</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aluguer_8h.html#ad212e88ae765552e6f7c14ba306e41f8">carregarAlugueres</a> (const char *filename, <a class="el" href="struct_meio.html">Meio</a> *listaMeios, <a class="el" href="struct_cliente.html">Cliente</a> *listaClientes)</td></tr>
-<tr class="memdesc:ad212e88ae765552e6f7c14ba306e41f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega os alugueres em binário.  <br /></td></tr>
-<tr class="separator:ad212e88ae765552e6f7c14ba306e41f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea29e48bab3b286e13219752647384a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_fila.html">Fila</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aluguer_8h.html#aea29e48bab3b286e13219752647384a7">carregarAlugueres</a> (const char *filename)</td></tr>
+<tr class="memdesc:aea29e48bab3b286e13219752647384a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Carrega os alugueres de um ficheiro binário para uma fila.  <br /></td></tr>
+<tr class="separator:aea29e48bab3b286e13219752647384a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26e1b4a6a7f90d7388f5365e176bcd4a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aluguer_8h.html#a26e1b4a6a7f90d7388f5365e176bcd4a">diferencaEntreDatas</a> (<a class="el" href="struct_data.html">Data</a> data1, <a class="el" href="struct_data.html">Data</a> data2)</td></tr>
+<tr class="memdesc:a26e1b4a6a7f90d7388f5365e176bcd4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">calcula os dias entre duas datas  <br /></td></tr>
 <tr class="separator:a26e1b4a6a7f90d7388f5365e176bcd4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46c28eed1654469115323d6dbc870417"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aluguer_8h.html#a46c28eed1654469115323d6dbc870417">devolverMeio</a> (int idCliente, <a class="el" href="struct_grafo.html">Grafo</a> *grafo, char geocodigoEntrega[TAMANHO], <a class="el" href="struct_fila.html">Fila</a> *filaAlugueres, <a class="el" href="struct_meio.html">Meio</a> *listaMeios)</td></tr>
-<tr class="memdesc:a46c28eed1654469115323d6dbc870417"><td class="mdescLeft">&#160;</td><td class="mdescRight">função que reprenta a devolução da trotinete no ponto de recolha e calcula o valor a pagar  <br /></td></tr>
-<tr class="separator:a46c28eed1654469115323d6dbc870417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a621f924751b83f33ca4c2fb1477b9bc6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aluguer_8h.html#a621f924751b83f33ca4c2fb1477b9bc6">devolverMeio</a> (int idCliente, <a class="el" href="struct_grafo.html">Grafo</a> *grafo, char geocodigoEntrega[TAMANHO], <a class="el" href="struct_fila.html">Fila</a> *filaAlugueres, <a class="el" href="struct_meio.html">Meio</a> *listaMeios, int autonomia)</td></tr>
+<tr class="memdesc:a621f924751b83f33ca4c2fb1477b9bc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">função que reprenta a devolução da trotinete no ponto de recolha e calcula o valor a pagar  <br /></td></tr>
+<tr class="separator:a621f924751b83f33ca4c2fb1477b9bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>lugon (<a href="#" onclick="location.href='mai'+'lto:'+'a18'+'85'+'1@a'+'lu'+'nos'+'.i'+'pca'+'.p'+'t'; return false;">a1885<span class="obfuscator">.nosp@m.</span>1@al<span class="obfuscator">.nosp@m.</span>unos.<span class="obfuscator">.nosp@m.</span>ipca<span class="obfuscator">.nosp@m.</span>.pt</a>) </dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<div class="textblock"><p>Ficheiro de cabeçalho do ficheiro .c correspondente. </p>
+<dl class="section author"><dt>Author</dt><dd>lugon (<a href="#" onclick="location.href='mai'+'lto:'+'a18'+'85'+'1@a'+'lu'+'nos'+'.i'+'pca'+'.p'+'t'; return false;">a1885<span class="obfuscator">.nosp@m.</span>1@al<span class="obfuscator">.nosp@m.</span>unos.<span class="obfuscator">.nosp@m.</span>ipca<span class="obfuscator">.nosp@m.</span>.pt</a>) </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2023-05-24 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="ad212e88ae765552e6f7c14ba306e41f8" name="ad212e88ae765552e6f7c14ba306e41f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad212e88ae765552e6f7c14ba306e41f8">&#9670;&#160;</a></span>carregarAlugueres()</h2>
+<a id="aea29e48bab3b286e13219752647384a7" name="aea29e48bab3b286e13219752647384a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea29e48bab3b286e13219752647384a7">&#9670;&#160;</a></span>carregarAlugueres()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -166,87 +171,56 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="struct_fila.html">Fila</a> * carregarAlugueres </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_meio.html">Meio</a> *&#160;</td>
-          <td class="paramname"><em>listaMeios</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_cliente.html">Cliente</a> *&#160;</td>
-          <td class="paramname"><em>listaClientes</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Carrega os alugueres em binário. </p>
+<p>Carrega os alugueres de um ficheiro binário para uma fila. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td></td></tr>
-    <tr><td class="paramname">listaMeios</td><td></td></tr>
-    <tr><td class="paramname">listaClientes</td><td></td></tr>
+    <tr><td class="paramname">filename</td><td>Nome do ficheiro </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Fila* </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  169</span>                                                                                        {</div>
-<div class="line"><span class="lineno">  170</span>    <a class="code hl_struct" href="struct_fila.html">Fila</a>* filaAlugueres = (<a class="code hl_struct" href="struct_fila.html">Fila</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_fila.html">Fila</a>));</div>
-<div class="line"><span class="lineno">  171</span>    filaAlugueres-&gt;inicio = NULL;</div>
-<div class="line"><span class="lineno">  172</span>    filaAlugueres-&gt;fim = NULL;</div>
-<div class="line"><span class="lineno">  173</span> </div>
-<div class="line"><span class="lineno">  174</span>    FILE* file = fopen(filename, <span class="stringliteral">&quot;rb&quot;</span>);</div>
-<div class="line"><span class="lineno">  175</span>    <span class="keywordflow">if</span> (file == NULL) {</div>
-<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">return</span> filaAlugueres;</div>
-<div class="line"><span class="lineno">  177</span>    }</div>
-<div class="line"><span class="lineno">  178</span> </div>
-<div class="line"><span class="lineno">  179</span>    <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a> aluguer;</div>
-<div class="line"><span class="lineno">  180</span>    <span class="keywordflow">while</span> (fread(&amp;aluguer, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>), 1, file) == 1) {</div>
-<div class="line"><span class="lineno">  181</span>        <span class="comment">// Encontra o meio correspondente pelo código</span></div>
-<div class="line"><span class="lineno">  182</span>        <a class="code hl_struct" href="struct_meio.html">Meio</a>* meio = listaMeios;</div>
-<div class="line"><span class="lineno">  183</span>        <span class="keywordflow">while</span> (meio != NULL) {</div>
-<div class="line"><span class="lineno">  184</span>            <span class="keywordflow">if</span> (meio-&gt;codigo == aluguer.idMeio) {</div>
-<div class="line"><span class="lineno">  185</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  186</span>            }</div>
-<div class="line"><span class="lineno">  187</span>            meio = meio-&gt;proximo;</div>
-<div class="line"><span class="lineno">  188</span>        }</div>
-<div class="line"><span class="lineno">  189</span> </div>
-<div class="line"><span class="lineno">  190</span>        <span class="comment">// Encontra o cliente correspondente pelo NIF</span></div>
-<div class="line"><span class="lineno">  191</span>        <a class="code hl_struct" href="struct_cliente.html">Cliente</a>* cliente = listaClientes;</div>
-<div class="line"><span class="lineno">  192</span>        <span class="keywordflow">while</span> (cliente != NULL) {</div>
-<div class="line"><span class="lineno">  193</span>            <span class="keywordflow">if</span> (cliente-&gt;nif == aluguer.idCliente) {</div>
-<div class="line"><span class="lineno">  194</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  195</span>            }</div>
-<div class="line"><span class="lineno">  196</span>            cliente = cliente-&gt;proximo;</div>
-<div class="line"><span class="lineno">  197</span>        }</div>
-<div class="line"><span class="lineno">  198</span> </div>
-<div class="line"><span class="lineno">  199</span>        <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>* novoAluguer = <a class="code hl_function" href="aluguer_8c.html#a8bb3719bd79e5b6f450181edd4edc1a0">criarAluguer</a>(aluguer.idCliente, aluguer.geocodigoRecolha);</div>
-<div class="line"><span class="lineno">  200</span>        <span class="keywordtype">bool</span> inserido;</div>
-<div class="line"><span class="lineno">  201</span>        filaAlugueres = <a class="code hl_function" href="aluguer_8c.html#a1d9a36df5773615c46e34518d8f99c86">inserirAluguer</a>(filaAlugueres, novoAluguer, meio, cliente, &amp;inserido);</div>
-<div class="line"><span class="lineno">  202</span>    }</div>
-<div class="line"><span class="lineno">  203</span> </div>
-<div class="line"><span class="lineno">  204</span>    fclose(file);</div>
-<div class="line"><span class="lineno">  205</span>    <span class="keywordflow">return</span> filaAlugueres;</div>
-<div class="line"><span class="lineno">  206</span>}</div>
-<div class="ttc" id="aaluguer_8c_html_a1d9a36df5773615c46e34518d8f99c86"><div class="ttname"><a href="aluguer_8c.html#a1d9a36df5773615c46e34518d8f99c86">inserirAluguer</a></div><div class="ttdeci">Fila * inserirAluguer(Fila *filaAlugueres, Aluguer *aluguer, Meio *listaMeios, Cliente *listaClientes, bool *inserido)</div><div class="ttdoc">Insere um aluguer numa fila de alugueres.</div><div class="ttdef"><b>Definition:</b> aluguer.c:66</div></div>
-<div class="ttc" id="aaluguer_8c_html_a8bb3719bd79e5b6f450181edd4edc1a0"><div class="ttname"><a href="aluguer_8c.html#a8bb3719bd79e5b6f450181edd4edc1a0">criarAluguer</a></div><div class="ttdeci">Aluguer * criarAluguer(int nifCliente, char geocodigoRecolha[TAMANHO])</div><div class="ttdoc">Cria um novo aluguer.</div><div class="ttdef"><b>Definition:</b> aluguer.c:42</div></div>
+<dl class="section return"><dt>Returns</dt><dd>Fila* Retorna a fila de alugueres carregada ou NULL em caso de erro </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  278</span>                                              {</div>
+<div class="line"><span class="lineno">  279</span>    FILE* file = fopen(filename, <span class="stringliteral">&quot;rb&quot;</span>);</div>
+<div class="line"><span class="lineno">  280</span>    <span class="keywordflow">if</span> (file == NULL) {</div>
+<div class="line"><span class="lineno">  281</span>        <span class="keywordflow">return</span> NULL; </div>
+<div class="line"><span class="lineno">  282</span>    }</div>
+<div class="line"><span class="lineno">  283</span> </div>
+<div class="line"><span class="lineno">  284</span>    <a class="code hl_struct" href="struct_fila.html">Fila</a>* filaAlugueres = (<a class="code hl_struct" href="struct_fila.html">Fila</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_fila.html">Fila</a>));</div>
+<div class="line"><span class="lineno">  285</span>    filaAlugueres-&gt;inicio = NULL;</div>
+<div class="line"><span class="lineno">  286</span>    filaAlugueres-&gt;fim = NULL;</div>
+<div class="line"><span class="lineno">  287</span> </div>
+<div class="line"><span class="lineno">  288</span>    <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a> aluguer;</div>
+<div class="line"><span class="lineno">  289</span>    <span class="keywordflow">while</span> (fread(&amp;aluguer, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>), 1, file) == 1) {</div>
+<div class="line"><span class="lineno">  290</span>        <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>* novoAluguer = (<a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>));</div>
+<div class="line"><span class="lineno">  291</span>        memcpy(novoAluguer, &amp;aluguer, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>));</div>
+<div class="line"><span class="lineno">  292</span>        novoAluguer-&gt;proximo = NULL;</div>
+<div class="line"><span class="lineno">  293</span>        novoAluguer-&gt;anterior = filaAlugueres-&gt;fim;</div>
+<div class="line"><span class="lineno">  294</span> </div>
+<div class="line"><span class="lineno">  295</span>        <span class="keywordflow">if</span> (filaAlugueres-&gt;inicio == NULL) {</div>
+<div class="line"><span class="lineno">  296</span>            filaAlugueres-&gt;inicio = novoAluguer;</div>
+<div class="line"><span class="lineno">  297</span>            filaAlugueres-&gt;fim = novoAluguer;</div>
+<div class="line"><span class="lineno">  298</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  299</span>            filaAlugueres-&gt;fim-&gt;proximo = novoAluguer;</div>
+<div class="line"><span class="lineno">  300</span>            filaAlugueres-&gt;fim = novoAluguer;</div>
+<div class="line"><span class="lineno">  301</span>        }</div>
+<div class="line"><span class="lineno">  302</span>    }</div>
+<div class="line"><span class="lineno">  303</span> </div>
+<div class="line"><span class="lineno">  304</span>    fclose(file);</div>
+<div class="line"><span class="lineno">  305</span>    <span class="keywordflow">return</span> filaAlugueres;</div>
+<div class="line"><span class="lineno">  306</span>}</div>
 <div class="ttc" id="astruct_aluguer_html"><div class="ttname"><a href="struct_aluguer.html">Aluguer</a></div><div class="ttdef"><b>Definition:</b> aluguer.h:25</div></div>
-<div class="ttc" id="astruct_cliente_html"><div class="ttname"><a href="struct_cliente.html">Cliente</a></div><div class="ttdef"><b>Definition:</b> cliente.h:17</div></div>
-<div class="ttc" id="astruct_fila_html"><div class="ttname"><a href="struct_fila.html">Fila</a></div><div class="ttdef"><b>Definition:</b> aluguer.h:37</div></div>
-<div class="ttc" id="astruct_meio_html"><div class="ttname"><a href="struct_meio.html">Meio</a></div><div class="ttdef"><b>Definition:</b> meio.h:6</div></div>
+<div class="ttc" id="astruct_fila_html"><div class="ttname"><a href="struct_fila.html">Fila</a></div><div class="ttdef"><b>Definition:</b> aluguer.h:38</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a394756e1fc2da121cf9712aab9411737" name="a394756e1fc2da121cf9712aab9411737"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a394756e1fc2da121cf9712aab9411737">&#9670;&#160;</a></span>criarAluguer()</h2>
+<a id="a2f37c8526cc6cec5de9d57931e76b3aa" name="a2f37c8526cc6cec5de9d57931e76b3aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f37c8526cc6cec5de9d57931e76b3aa">&#9670;&#160;</a></span>criarAluguer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -260,8 +234,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>geocodigoRecolha</em>[TAMANHO]&#160;</td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>geocodigoRecolha</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>tipo</em>[]&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -280,25 +260,26 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Aluguer* </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   42</span>                                                                      {</div>
+<div class="fragment"><div class="line"><span class="lineno">   42</span>                                                                                        {</div>
 <div class="line"><span class="lineno">   43</span>    </div>
 <div class="line"><span class="lineno">   44</span>    <a class="code hl_struct" href="struct_data.html">Data</a> dataAtual = <a class="code hl_function" href="aluguer_8c.html#a20b82cd42712d797e03d8c0f3205deac">getDate</a>();</div>
 <div class="line"><span class="lineno">   45</span>    <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>* novoAluguer = (<a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>));</div>
 <div class="line"><span class="lineno">   46</span>    novoAluguer-&gt;idCliente = nifCliente;</div>
-<div class="line"><span class="lineno">   47</span>    novoAluguer-&gt;idMeio = -1;  <span class="comment">// Valor inicial indicando que o meio não foi encontrado</span></div>
+<div class="line"><span class="lineno">   47</span>    novoAluguer-&gt;idMeio = -1;</div>
 <div class="line"><span class="lineno">   48</span>    novoAluguer-&gt;dataRecolha = dataAtual;</div>
-<div class="line"><span class="lineno">   49</span>    strncpy(novoAluguer-&gt;geocodigoRecolha, geocodigoRecolha, TAMANHO);</div>
-<div class="line"><span class="lineno">   50</span>    novoAluguer-&gt;proximo = NULL;</div>
-<div class="line"><span class="lineno">   51</span>    novoAluguer-&gt;anterior = NULL;</div>
-<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">return</span> novoAluguer;</div>
-<div class="line"><span class="lineno">   53</span>}</div>
+<div class="line"><span class="lineno">   49</span>    strncpy(novoAluguer-&gt;tipoMeio, tipo, TAMANHO);</div>
+<div class="line"><span class="lineno">   50</span>    strncpy(novoAluguer-&gt;geocodigoRecolha, geocodigoRecolha, TAMANHO);</div>
+<div class="line"><span class="lineno">   51</span>    novoAluguer-&gt;proximo = NULL;</div>
+<div class="line"><span class="lineno">   52</span>    novoAluguer-&gt;anterior = NULL;</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">return</span> novoAluguer;</div>
+<div class="line"><span class="lineno">   54</span>}</div>
 <div class="ttc" id="aaluguer_8c_html_a20b82cd42712d797e03d8c0f3205deac"><div class="ttname"><a href="aluguer_8c.html#a20b82cd42712d797e03d8c0f3205deac">getDate</a></div><div class="ttdeci">Data getDate()</div><div class="ttdoc">Get the Date object.</div><div class="ttdef"><b>Definition:</b> aluguer.c:24</div></div>
 <div class="ttc" id="astruct_data_html"><div class="ttname"><a href="struct_data.html">Data</a></div><div class="ttdef"><b>Definition:</b> aluguer.h:19</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a46c28eed1654469115323d6dbc870417" name="a46c28eed1654469115323d6dbc870417"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46c28eed1654469115323d6dbc870417">&#9670;&#160;</a></span>devolverMeio()</h2>
+<a id="a621f924751b83f33ca4c2fb1477b9bc6" name="a621f924751b83f33ca4c2fb1477b9bc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a621f924751b83f33ca4c2fb1477b9bc6">&#9670;&#160;</a></span>devolverMeio()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -331,7 +312,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="struct_meio.html">Meio</a> *&#160;</td>
-          <td class="paramname"><em>listaMeios</em>&#160;</td>
+          <td class="paramname"><em>listaMeios</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>autonomia</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -353,34 +340,36 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  243</span>                                                                                                                     {</div>
-<div class="line"><span class="lineno">  244</span>    <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>* aluguer = filaAlugueres-&gt;inicio;</div>
-<div class="line"><span class="lineno">  245</span> </div>
-<div class="line"><span class="lineno">  246</span>    <span class="keywordflow">while</span> (aluguer != NULL) {</div>
-<div class="line"><span class="lineno">  247</span>        <span class="keywordflow">if</span> (aluguer-&gt;idCliente == idCliente) {</div>
-<div class="line"><span class="lineno">  248</span>            aluguer-&gt;dataEntrega = <a class="code hl_function" href="aluguer_8c.html#a20b82cd42712d797e03d8c0f3205deac">getDate</a>();</div>
-<div class="line"><span class="lineno">  249</span>            strncpy(aluguer-&gt;geocodigoEntrega, geocodigoEntrega, TAMANHO - 1);</div>
-<div class="line"><span class="lineno">  250</span>            aluguer-&gt;geocodigoEntrega[TAMANHO - 1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"><span class="lineno">  251</span>            aluguer-&gt;custo = (diferencaEntreDatas(aluguer-&gt;dataEntrega, aluguer-&gt;dataRecolha)+ TAXA_DIARIA * 1 +</div>
-<div class="line"><span class="lineno">  252</span>                              calcularDistancia(grafo, geocodigoEntrega, aluguer-&gt;geocodigoRecolha) * TAXA_KM);</div>
-<div class="line"><span class="lineno">  253</span> </div>
-<div class="line"><span class="lineno">  254</span>            <a class="code hl_struct" href="struct_meio.html">Meio</a>* meio = listaMeios;</div>
-<div class="line"><span class="lineno">  255</span>            <span class="keywordflow">while</span> (meio != NULL) {</div>
-<div class="line"><span class="lineno">  256</span>                <span class="keywordflow">if</span> (meio-&gt;codigo == aluguer-&gt;idMeio) {</div>
-<div class="line"><span class="lineno">  257</span>                    meio-&gt;alugado = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  258</span>                    meio-&gt;autonomia = 100;</div>
-<div class="line"><span class="lineno">  259</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  260</span>                }</div>
-<div class="line"><span class="lineno">  261</span>                meio = meio-&gt;proximo;</div>
-<div class="line"><span class="lineno">  262</span>            }</div>
-<div class="line"><span class="lineno">  263</span> </div>
-<div class="line"><span class="lineno">  264</span>            <span class="keywordflow">return</span> aluguer-&gt;custo;</div>
-<div class="line"><span class="lineno">  265</span>        }</div>
-<div class="line"><span class="lineno">  266</span>        aluguer = aluguer-&gt;proximo;</div>
-<div class="line"><span class="lineno">  267</span>    }</div>
-<div class="line"><span class="lineno">  268</span> </div>
-<div class="line"><span class="lineno">  269</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  270</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  142</span>                                                                                                                                    {</div>
+<div class="line"><span class="lineno">  143</span>    <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>* aluguer = filaAlugueres-&gt;inicio;</div>
+<div class="line"><span class="lineno">  144</span> </div>
+<div class="line"><span class="lineno">  145</span>    <span class="keywordflow">while</span> (aluguer != NULL) {</div>
+<div class="line"><span class="lineno">  146</span>        <span class="keywordflow">if</span> (aluguer-&gt;idCliente == idCliente) {</div>
+<div class="line"><span class="lineno">  147</span>            aluguer-&gt;dataEntrega = <a class="code hl_function" href="aluguer_8c.html#a20b82cd42712d797e03d8c0f3205deac">getDate</a>();</div>
+<div class="line"><span class="lineno">  148</span>            strncpy(aluguer-&gt;geocodigoEntrega, geocodigoEntrega, TAMANHO);</div>
+<div class="line"><span class="lineno">  149</span>            aluguer-&gt;custo = (<a class="code hl_function" href="aluguer_8c.html#a26e1b4a6a7f90d7388f5365e176bcd4a">diferencaEntreDatas</a>(aluguer-&gt;dataEntrega, aluguer-&gt;dataRecolha)+ TAXA_DIARIA * 1 +</div>
+<div class="line"><span class="lineno">  150</span>                              calcularDistancia(grafo, geocodigoEntrega, aluguer-&gt;geocodigoRecolha) * TAXA_KM);</div>
+<div class="line"><span class="lineno">  151</span> </div>
+<div class="line"><span class="lineno">  152</span>            <a class="code hl_struct" href="struct_meio.html">Meio</a>* meio = listaMeios;</div>
+<div class="line"><span class="lineno">  153</span>            <span class="keywordflow">while</span> (meio != NULL) {</div>
+<div class="line"><span class="lineno">  154</span>                <span class="keywordflow">if</span> (meio-&gt;codigo == aluguer-&gt;idMeio) {</div>
+<div class="line"><span class="lineno">  155</span>                    meio-&gt;alugado = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  156</span>                    meio-&gt;autonomia = autonomia;</div>
+<div class="line"><span class="lineno">  157</span>                    strncpy(meio-&gt;geocodigo, geocodigoEntrega, TAMANHO);</div>
+<div class="line"><span class="lineno">  158</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  159</span>                }</div>
+<div class="line"><span class="lineno">  160</span>                meio = meio-&gt;proximo;</div>
+<div class="line"><span class="lineno">  161</span>            }</div>
+<div class="line"><span class="lineno">  162</span> </div>
+<div class="line"><span class="lineno">  163</span>            <span class="keywordflow">return</span> aluguer-&gt;custo;</div>
+<div class="line"><span class="lineno">  164</span>        }</div>
+<div class="line"><span class="lineno">  165</span>        aluguer = aluguer-&gt;proximo;</div>
+<div class="line"><span class="lineno">  166</span>    }</div>
+<div class="line"><span class="lineno">  167</span> </div>
+<div class="line"><span class="lineno">  168</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  169</span>}</div>
+<div class="ttc" id="aaluguer_8c_html_a26e1b4a6a7f90d7388f5365e176bcd4a"><div class="ttname"><a href="aluguer_8c.html#a26e1b4a6a7f90d7388f5365e176bcd4a">diferencaEntreDatas</a></div><div class="ttdeci">int diferencaEntreDatas(Data data1, Data data2)</div><div class="ttdoc">calcula os dias entre duas datas</div><div class="ttdef"><b>Definition:</b> aluguer.c:178</div></div>
+<div class="ttc" id="astruct_meio_html"><div class="ttname"><a href="struct_meio.html">Meio</a></div><div class="ttdef"><b>Definition:</b> meio.h:18</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -409,32 +398,42 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  273</span>                                                {</div>
-<div class="line"><span class="lineno">  274</span>    <span class="keyword">struct </span>tm tm1 = {0}; <span class="comment">// Estrutura tm para data1</span></div>
-<div class="line"><span class="lineno">  275</span>    <span class="keyword">struct </span>tm tm2 = {0}; <span class="comment">// Estrutura tm para data2</span></div>
-<div class="line"><span class="lineno">  276</span> </div>
-<div class="line"><span class="lineno">  277</span>    <span class="comment">// Preenche as informações da data1</span></div>
-<div class="line"><span class="lineno">  278</span>    tm1.tm_year = data1.ano - 1900; <span class="comment">// Ano - 1900</span></div>
-<div class="line"><span class="lineno">  279</span>    tm1.tm_mon = data1.mes - 1;     <span class="comment">// Mês (0 - 11, janeiro a dezembro)</span></div>
-<div class="line"><span class="lineno">  280</span>    tm1.tm_mday = data1.dia;         <span class="comment">// Dia do mês (1 - 31)</span></div>
-<div class="line"><span class="lineno">  281</span> </div>
-<div class="line"><span class="lineno">  282</span>    <span class="comment">// Preenche as informações da data2</span></div>
-<div class="line"><span class="lineno">  283</span>    tm2.tm_year = data2.ano - 1900; <span class="comment">// Ano - 1900</span></div>
-<div class="line"><span class="lineno">  284</span>    tm2.tm_mon = data2.mes - 1;     <span class="comment">// Mês (0 - 11, janeiro a dezembro)</span></div>
-<div class="line"><span class="lineno">  285</span>    tm2.tm_mday = data2.dia;         <span class="comment">// Dia do mês (1 - 31)</span></div>
-<div class="line"><span class="lineno">  286</span> </div>
-<div class="line"><span class="lineno">  287</span>    <span class="comment">// Converte as datas para o formato de tempo</span></div>
-<div class="line"><span class="lineno">  288</span>    time_t time1 = mktime(&amp;tm1);</div>
-<div class="line"><span class="lineno">  289</span>    time_t time2 = mktime(&amp;tm2);</div>
-<div class="line"><span class="lineno">  290</span> </div>
-<div class="line"><span class="lineno">  291</span>    <span class="comment">// Calcula a diferença em segundos entre as duas datas</span></div>
-<div class="line"><span class="lineno">  292</span>    <span class="keywordtype">double</span> diffSeconds = difftime(time2, time1);</div>
-<div class="line"><span class="lineno">  293</span> </div>
-<div class="line"><span class="lineno">  294</span>    <span class="comment">// Converte a diferença em segundos para dias</span></div>
-<div class="line"><span class="lineno">  295</span>    <span class="keywordtype">int</span> diffDays = diffSeconds / (60 * 60 * 24);</div>
-<div class="line"><span class="lineno">  296</span> </div>
-<div class="line"><span class="lineno">  297</span>    <span class="keywordflow">return</span> diffDays;</div>
-<div class="line"><span class="lineno">  298</span>}</div>
+
+<p>calcula os dias entre duas datas </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data1</td><td></td></tr>
+    <tr><td class="paramname">data2</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  178</span>                                                {</div>
+<div class="line"><span class="lineno">  179</span>    <span class="keyword">struct </span>tm tm1 = {0}; <span class="comment">// Estrutura tm para data1</span></div>
+<div class="line"><span class="lineno">  180</span>    <span class="keyword">struct </span>tm tm2 = {0}; <span class="comment">// Estrutura tm para data2</span></div>
+<div class="line"><span class="lineno">  181</span> </div>
+<div class="line"><span class="lineno">  182</span>    <span class="comment">// Preenche as informações da data1</span></div>
+<div class="line"><span class="lineno">  183</span>    tm1.tm_year = data1.ano - 1900; <span class="comment">// Ano - 1900</span></div>
+<div class="line"><span class="lineno">  184</span>    tm1.tm_mon = data1.mes - 1;     <span class="comment">// Mês (0 - 11, janeiro a dezembro)</span></div>
+<div class="line"><span class="lineno">  185</span>    tm1.tm_mday = data1.dia;         <span class="comment">// Dia do mês (1 - 31)</span></div>
+<div class="line"><span class="lineno">  186</span> </div>
+<div class="line"><span class="lineno">  187</span>    <span class="comment">// Preenche as informações da data2</span></div>
+<div class="line"><span class="lineno">  188</span>    tm2.tm_year = data2.ano - 1900; <span class="comment">// Ano - 1900</span></div>
+<div class="line"><span class="lineno">  189</span>    tm2.tm_mon = data2.mes - 1;     <span class="comment">// Mês (0 - 11, janeiro a dezembro)</span></div>
+<div class="line"><span class="lineno">  190</span>    tm2.tm_mday = data2.dia;         <span class="comment">// Dia do mês (1 - 31)</span></div>
+<div class="line"><span class="lineno">  191</span> </div>
+<div class="line"><span class="lineno">  192</span>    <span class="comment">// Converte as datas para o formato de tempo</span></div>
+<div class="line"><span class="lineno">  193</span>    time_t time1 = mktime(&amp;tm1);</div>
+<div class="line"><span class="lineno">  194</span>    time_t time2 = mktime(&amp;tm2);</div>
+<div class="line"><span class="lineno">  195</span> </div>
+<div class="line"><span class="lineno">  196</span>    <span class="comment">// Calcula a diferença em segundos entre as duas datas</span></div>
+<div class="line"><span class="lineno">  197</span>    <span class="keywordtype">double</span> diffSeconds = difftime(time2, time1);</div>
+<div class="line"><span class="lineno">  198</span> </div>
+<div class="line"><span class="lineno">  199</span>    <span class="comment">// Converte a diferença em segundos para dias</span></div>
+<div class="line"><span class="lineno">  200</span>    <span class="keywordtype">int</span> diffDays = diffSeconds / (60 * 60 * 24);</div>
+<div class="line"><span class="lineno">  201</span> </div>
+<div class="line"><span class="lineno">  202</span>    <span class="keywordflow">return</span> diffDays;</div>
+<div class="line"><span class="lineno">  203</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -458,8 +457,8 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">   24</span>               {</div>
 <div class="line"><span class="lineno">   25</span>    </div>
 <div class="line"><span class="lineno">   26</span>    <a class="code hl_struct" href="struct_data.html">Data</a> dataAtual;</div>
-<div class="line"><span class="lineno">   27</span>    time_t timestamp = time(NULL); <span class="comment">// Obtém o timestamp atual</span></div>
-<div class="line"><span class="lineno">   28</span>    <span class="keyword">struct </span>tm *local_time = localtime(&amp;timestamp); <span class="comment">// Converte o timestamp para uma estrutura tm local</span></div>
+<div class="line"><span class="lineno">   27</span>    time_t timestamp = time(NULL); </div>
+<div class="line"><span class="lineno">   28</span>    <span class="keyword">struct </span>tm *local_time = localtime(&amp;timestamp);</div>
 <div class="line"><span class="lineno">   29</span>    dataAtual.ano = local_time-&gt;tm_year + 1900;</div>
 <div class="line"><span class="lineno">   30</span>    dataAtual.mes = local_time-&gt;tm_mon + 1;</div>
 <div class="line"><span class="lineno">   31</span>    dataAtual.dia = local_time-&gt;tm_mday;</div>
@@ -494,32 +493,33 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Guarda o alugueres em binário. </p>
+<p>Guarda os alugueres num ficheiro binário. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td></td></tr>
-    <tr><td class="paramname">filaAlugueres</td><td></td></tr>
+    <tr><td class="paramname">filename</td><td>Nome do ficheiro </td></tr>
+    <tr><td class="paramname">filaAlugueres</td><td><a class="el" href="struct_fila.html">Fila</a> de alugueres a serem guardados </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true </dd>
-<dd>
-false </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  217</span>                                                                 {</div>
-<div class="line"><span class="lineno">  218</span>    FILE* file = fopen(filename, <span class="stringliteral">&quot;wb&quot;</span>);</div>
-<div class="line"><span class="lineno">  219</span>    <span class="keywordflow">if</span> (file == NULL) {</div>
-<div class="line"><span class="lineno">  220</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  221</span>    }</div>
-<div class="line"><span class="lineno">  222</span> </div>
-<div class="line"><span class="lineno">  223</span>    <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>* aluguer = filaAlugueres-&gt;inicio;</div>
-<div class="line"><span class="lineno">  224</span>    <span class="keywordflow">while</span> (aluguer != NULL) {</div>
-<div class="line"><span class="lineno">  225</span>        fwrite(aluguer, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>), 1, file);</div>
-<div class="line"><span class="lineno">  226</span>        aluguer = aluguer-&gt;proximo;</div>
-<div class="line"><span class="lineno">  227</span>    }</div>
-<div class="line"><span class="lineno">  228</span> </div>
-<div class="line"><span class="lineno">  229</span>    fclose(file);</div>
-<div class="line"><span class="lineno">  230</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  231</span>}</div>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+<div class="fragment"><div class="line"><span class="lineno">  253</span>                                                                 {</div>
+<div class="line"><span class="lineno">  254</span>    FILE* file = fopen(filename, <span class="stringliteral">&quot;wb&quot;</span>);</div>
+<div class="line"><span class="lineno">  255</span>    <span class="keywordflow">if</span> (file == NULL) {</div>
+<div class="line"><span class="lineno">  256</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>; </div>
+<div class="line"><span class="lineno">  257</span>    }</div>
+<div class="line"><span class="lineno">  258</span> </div>
+<div class="line"><span class="lineno">  259</span>    <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>* aluguer = filaAlugueres-&gt;inicio;</div>
+<div class="line"><span class="lineno">  260</span>    <span class="keywordflow">while</span> (aluguer != NULL) {</div>
+<div class="line"><span class="lineno">  261</span>        <span class="keywordflow">if</span> (fwrite(aluguer, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>), 1, file) != 1) {</div>
+<div class="line"><span class="lineno">  262</span>            fclose(file);</div>
+<div class="line"><span class="lineno">  263</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>; </div>
+<div class="line"><span class="lineno">  264</span>        }</div>
+<div class="line"><span class="lineno">  265</span>        aluguer = aluguer-&gt;proximo;</div>
+<div class="line"><span class="lineno">  266</span>    }</div>
+<div class="line"><span class="lineno">  267</span> </div>
+<div class="line"><span class="lineno">  268</span>    fclose(file);</div>
+<div class="line"><span class="lineno">  269</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  270</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -555,7 +555,7 @@ false </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>importa de um ficheiro txt - que funciona como o input </p>
+<p>Importa os alugueres de um arquivo e os adiciona a uma fila de alugueres. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td></td></tr>
@@ -565,37 +565,41 @@ false </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Fila* </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  108</span>                                                                                        {</div>
-<div class="line"><span class="lineno">  109</span>    <a class="code hl_struct" href="struct_fila.html">Fila</a>* filaAlugueres = (<a class="code hl_struct" href="struct_fila.html">Fila</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_fila.html">Fila</a>));</div>
-<div class="line"><span class="lineno">  110</span>    filaAlugueres-&gt;inicio = NULL;</div>
-<div class="line"><span class="lineno">  111</span>    filaAlugueres-&gt;fim = NULL;</div>
-<div class="line"><span class="lineno">  112</span> </div>
-<div class="line"><span class="lineno">  113</span>    FILE* file = fopen(filename, <span class="stringliteral">&quot;r&quot;</span>);</div>
-<div class="line"><span class="lineno">  114</span>    <span class="keywordflow">if</span> (file == NULL) {</div>
-<div class="line"><span class="lineno">  115</span>        <span class="keywordflow">return</span> filaAlugueres;</div>
-<div class="line"><span class="lineno">  116</span>    }</div>
-<div class="line"><span class="lineno">  117</span> </div>
-<div class="line"><span class="lineno">  118</span>    <span class="keywordtype">char</span> linha[100];</div>
-<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">while</span> (fgets(linha, <span class="keyword">sizeof</span>(linha), file) != NULL) {</div>
-<div class="line"><span class="lineno">  120</span>        <span class="keywordtype">int</span> idCliente;</div>
-<div class="line"><span class="lineno">  121</span>        <span class="keywordtype">char</span> geocodigoRecolha[TAMANHO];</div>
-<div class="line"><span class="lineno">  122</span>        sscanf(linha, <span class="stringliteral">&quot;%d %s&quot;</span>, &amp;idCliente, geocodigoRecolha);</div>
-<div class="line"><span class="lineno">  123</span> </div>
-<div class="line"><span class="lineno">  124</span>        <a class="code hl_struct" href="struct_cliente.html">Cliente</a>* cliente = listaClientes;</div>
-<div class="line"><span class="lineno">  125</span>        <span class="keywordflow">while</span> (cliente != NULL) {</div>
-<div class="line"><span class="lineno">  126</span>            <span class="keywordflow">if</span> (cliente-&gt;nif == idCliente) {</div>
-<div class="line"><span class="lineno">  127</span>                <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>* aluguer = <a class="code hl_function" href="aluguer_8c.html#a8bb3719bd79e5b6f450181edd4edc1a0">criarAluguer</a>(cliente-&gt;nif, geocodigoRecolha);</div>
-<div class="line"><span class="lineno">  128</span>                <span class="keywordtype">bool</span> inserido;</div>
-<div class="line"><span class="lineno">  129</span>                filaAlugueres = <a class="code hl_function" href="aluguer_8c.html#a1d9a36df5773615c46e34518d8f99c86">inserirAluguer</a>(filaAlugueres, aluguer, listaMeios, listaClientes, &amp;inserido);</div>
-<div class="line"><span class="lineno">  130</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  131</span>            }</div>
-<div class="line"><span class="lineno">  132</span>            cliente = cliente-&gt;proximo;</div>
-<div class="line"><span class="lineno">  133</span>        }</div>
-<div class="line"><span class="lineno">  134</span>    }</div>
-<div class="line"><span class="lineno">  135</span> </div>
-<div class="line"><span class="lineno">  136</span>    fclose(file);</div>
-<div class="line"><span class="lineno">  137</span>    <span class="keywordflow">return</span> filaAlugueres;</div>
-<div class="line"><span class="lineno">  138</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  213</span>                                                                                        {</div>
+<div class="line"><span class="lineno">  214</span>    <a class="code hl_struct" href="struct_fila.html">Fila</a>* filaAlugueres = (<a class="code hl_struct" href="struct_fila.html">Fila</a>*)malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_fila.html">Fila</a>));</div>
+<div class="line"><span class="lineno">  215</span>    filaAlugueres-&gt;inicio = NULL;</div>
+<div class="line"><span class="lineno">  216</span>    filaAlugueres-&gt;fim = NULL;</div>
+<div class="line"><span class="lineno">  217</span> </div>
+<div class="line"><span class="lineno">  218</span>    FILE* file = fopen(filename, <span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><span class="lineno">  219</span>    <span class="keywordflow">if</span> (file == NULL) {</div>
+<div class="line"><span class="lineno">  220</span>        <span class="keywordflow">return</span> filaAlugueres;</div>
+<div class="line"><span class="lineno">  221</span>    }</div>
+<div class="line"><span class="lineno">  222</span> </div>
+<div class="line"><span class="lineno">  223</span>    <span class="keywordtype">char</span> linha[100];</div>
+<div class="line"><span class="lineno">  224</span>    <span class="keywordflow">while</span> (fgets(linha, <span class="keyword">sizeof</span>(linha), file) != NULL) {</div>
+<div class="line"><span class="lineno">  225</span>        <span class="keywordtype">int</span> idCliente;</div>
+<div class="line"><span class="lineno">  226</span>        <span class="keywordtype">char</span> geocodigoRecolha[TAMANHO];</div>
+<div class="line"><span class="lineno">  227</span>        <span class="keywordtype">char</span> tipo[TAMANHO];</div>
+<div class="line"><span class="lineno">  228</span>        sscanf(linha, <span class="stringliteral">&quot;%d %s %s&quot;</span>, &amp;idCliente, geocodigoRecolha, tipo);</div>
+<div class="line"><span class="lineno">  229</span> </div>
+<div class="line"><span class="lineno">  230</span>        <a class="code hl_struct" href="struct_cliente.html">Cliente</a>* cliente = listaClientes;</div>
+<div class="line"><span class="lineno">  231</span>        <span class="keywordflow">while</span> (cliente != NULL) {</div>
+<div class="line"><span class="lineno">  232</span>            <span class="keywordflow">if</span> (cliente-&gt;nif == idCliente) {</div>
+<div class="line"><span class="lineno">  233</span>                <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>* aluguer = <a class="code hl_function" href="aluguer_8c.html#a2f37c8526cc6cec5de9d57931e76b3aa">criarAluguer</a>(idCliente, geocodigoRecolha, tipo);</div>
+<div class="line"><span class="lineno">  234</span>                <span class="keywordtype">bool</span> inserido = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  235</span>                filaAlugueres = <a class="code hl_function" href="aluguer_8c.html#a1d9a36df5773615c46e34518d8f99c86">inserirAluguer</a>(filaAlugueres, aluguer, listaMeios, listaClientes, &amp;inserido);</div>
+<div class="line"><span class="lineno">  236</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  237</span>            }</div>
+<div class="line"><span class="lineno">  238</span>            cliente = cliente-&gt;proximo;</div>
+<div class="line"><span class="lineno">  239</span>        }</div>
+<div class="line"><span class="lineno">  240</span>    }</div>
+<div class="line"><span class="lineno">  241</span> </div>
+<div class="line"><span class="lineno">  242</span>    fclose(file);</div>
+<div class="line"><span class="lineno">  243</span>    <span class="keywordflow">return</span> filaAlugueres;</div>
+<div class="line"><span class="lineno">  244</span>}</div>
+<div class="ttc" id="aaluguer_8c_html_a1d9a36df5773615c46e34518d8f99c86"><div class="ttname"><a href="aluguer_8c.html#a1d9a36df5773615c46e34518d8f99c86">inserirAluguer</a></div><div class="ttdeci">Fila * inserirAluguer(Fila *filaAlugueres, Aluguer *aluguer, Meio *listaMeios, Cliente *listaClientes, bool *inserido)</div><div class="ttdoc">Insere um aluguer numa fila de alugueres.</div><div class="ttdef"><b>Definition:</b> aluguer.c:67</div></div>
+<div class="ttc" id="aaluguer_8c_html_a2f37c8526cc6cec5de9d57931e76b3aa"><div class="ttname"><a href="aluguer_8c.html#a2f37c8526cc6cec5de9d57931e76b3aa">criarAluguer</a></div><div class="ttdeci">Aluguer * criarAluguer(int nifCliente, const char geocodigoRecolha[], const char tipo[])</div><div class="ttdoc">Cria um novo aluguer.</div><div class="ttdef"><b>Definition:</b> aluguer.c:42</div></div>
+<div class="ttc" id="astruct_cliente_html"><div class="ttname"><a href="struct_cliente.html">Cliente</a></div><div class="ttdef"><b>Definition:</b> cliente.h:17</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -615,28 +619,39 @@ false </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Imprime no terminal a fila de alugueres. </p>
+<p>importa a fila de alugueres- input </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td></td></tr>
+    <tr><td class="paramname">listaMeios</td><td></td></tr>
+    <tr><td class="paramname">listaClientes</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Fila*</dd></dl>
+<p>/**</p>
+<p>Imprime no terminal a fila de alugueres</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filaAlugueres</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  145</span>                                            {</div>
-<div class="line"><span class="lineno">  146</span>    <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>* aluguer = filaAlugueres-&gt;inicio;</div>
-<div class="line"><span class="lineno">  147</span> </div>
-<div class="line"><span class="lineno">  148</span>    <span class="keywordflow">while</span> (aluguer != NULL) {</div>
-<div class="line"><span class="lineno">  149</span>        printf(<span class="stringliteral">&quot;ID Cliente: %d\n&quot;</span>, aluguer-&gt;idCliente);</div>
-<div class="line"><span class="lineno">  150</span>        printf(<span class="stringliteral">&quot;ID Meio: %d\n&quot;</span>, aluguer-&gt;idMeio);</div>
-<div class="line"><span class="lineno">  151</span>        printf(<span class="stringliteral">&quot;dataRecolha: %d-%d-%d\n&quot;</span>, aluguer-&gt;dataRecolha.dia, aluguer-&gt;dataRecolha.mes, aluguer-&gt;dataRecolha.ano);</div>
-<div class="line"><span class="lineno">  152</span>        printf(<span class="stringliteral">&quot;dataEntrega: %d-%d-%d\n&quot;</span>, aluguer-&gt;dataEntrega.dia, aluguer-&gt;dataEntrega.mes, aluguer-&gt;dataEntrega.ano);</div>
-<div class="line"><span class="lineno">  153</span>        printf(<span class="stringliteral">&quot;Geocódigo de Recolha: %s\n&quot;</span>, aluguer-&gt;geocodigoRecolha);</div>
-<div class="line"><span class="lineno">  154</span>        printf(<span class="stringliteral">&quot;Geocódigo de Entrega: %s\n&quot;</span>, aluguer-&gt;geocodigoEntrega);</div>
-<div class="line"><span class="lineno">  155</span>        printf(<span class="stringliteral">&quot;A pagar: %.2f\n&quot;</span>, aluguer-&gt;custo);</div>
-<div class="line"><span class="lineno">  156</span> </div>
-<div class="line"><span class="lineno">  157</span>        aluguer = aluguer-&gt;proximo;</div>
-<div class="line"><span class="lineno">  158</span>    }</div>
-<div class="line"><span class="lineno">  159</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  115</span>                                            {</div>
+<div class="line"><span class="lineno">  116</span>    <a class="code hl_struct" href="struct_aluguer.html">Aluguer</a>* aluguer = filaAlugueres-&gt;inicio;</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">while</span> (aluguer != NULL) {</div>
+<div class="line"><span class="lineno">  119</span>        printf(<span class="stringliteral">&quot;ID Cliente: %d\n&quot;</span>, aluguer-&gt;idCliente);</div>
+<div class="line"><span class="lineno">  120</span>        printf(<span class="stringliteral">&quot;ID Meio: %d\n&quot;</span>, aluguer-&gt;idMeio);</div>
+<div class="line"><span class="lineno">  121</span>        printf(<span class="stringliteral">&quot;dataRecolha: %d-%d-%d\n&quot;</span>, aluguer-&gt;dataRecolha.dia, aluguer-&gt;dataRecolha.mes, aluguer-&gt;dataRecolha.ano);</div>
+<div class="line"><span class="lineno">  122</span>        printf(<span class="stringliteral">&quot;dataEntrega: %d-%d-%d\n&quot;</span>, aluguer-&gt;dataEntrega.dia, aluguer-&gt;dataEntrega.mes, aluguer-&gt;dataEntrega.ano);</div>
+<div class="line"><span class="lineno">  123</span>        printf(<span class="stringliteral">&quot;Geocódigo de Recolha: %s\n&quot;</span>, aluguer-&gt;geocodigoRecolha);</div>
+<div class="line"><span class="lineno">  124</span>        printf(<span class="stringliteral">&quot;Geocódigo de Entrega: %s\n&quot;</span>, aluguer-&gt;geocodigoEntrega);</div>
+<div class="line"><span class="lineno">  125</span>        printf(<span class="stringliteral">&quot;A pagar: %.2f\n&quot;</span>, aluguer-&gt;custo);</div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>        aluguer = aluguer-&gt;proximo;</div>
+<div class="line"><span class="lineno">  128</span>    }</div>
+<div class="line"><span class="lineno">  129</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -696,37 +711,37 @@ false </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="struct_fila.html">Fila</a> </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">   66</span>                                                                                                                      {</div>
-<div class="line"><span class="lineno">   67</span>    <a class="code hl_struct" href="struct_cliente.html">Cliente</a>* cliente = listaClientes;</div>
-<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">while</span> (cliente != NULL) {</div>
-<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">if</span> (cliente-&gt;nif == aluguer-&gt;idCliente) {</div>
-<div class="line"><span class="lineno">   70</span>            <a class="code hl_struct" href="struct_meio.html">Meio</a>* meio = listaMeios;</div>
-<div class="line"><span class="lineno">   71</span>            <span class="keywordflow">while</span> (meio != NULL) {</div>
-<div class="line"><span class="lineno">   72</span>                <span class="keywordflow">if</span> (strcmp(meio-&gt;geocodigo, aluguer-&gt;geocodigoRecolha) == 0 &amp;&amp; !(meio-&gt;alugado) &amp;&amp; meio-&gt;autonomia &gt;= 50) {</div>
-<div class="line"><span class="lineno">   73</span>                    aluguer-&gt;idMeio = meio-&gt;codigo;</div>
-<div class="line"><span class="lineno">   74</span>                    meio-&gt;alugado = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   75</span> </div>
-<div class="line"><span class="lineno">   76</span>                    <span class="keywordflow">if</span> (filaAlugueres-&gt;inicio == NULL) {</div>
-<div class="line"><span class="lineno">   77</span>                        filaAlugueres-&gt;inicio = aluguer;</div>
-<div class="line"><span class="lineno">   78</span>                        filaAlugueres-&gt;fim = aluguer;</div>
-<div class="line"><span class="lineno">   79</span>                    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   80</span>                        filaAlugueres-&gt;fim-&gt;proximo = aluguer;</div>
-<div class="line"><span class="lineno">   81</span>                        aluguer-&gt;anterior = filaAlugueres-&gt;fim;</div>
-<div class="line"><span class="lineno">   82</span>                        filaAlugueres-&gt;fim = aluguer;</div>
-<div class="line"><span class="lineno">   83</span>                    }</div>
-<div class="line"><span class="lineno">   84</span> </div>
-<div class="line"><span class="lineno">   85</span>                    *inserido = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   86</span>                    <span class="keywordflow">return</span> filaAlugueres;</div>
-<div class="line"><span class="lineno">   87</span>                }</div>
-<div class="line"><span class="lineno">   88</span>                meio = meio-&gt;proximo;</div>
-<div class="line"><span class="lineno">   89</span>            }</div>
-<div class="line"><span class="lineno">   90</span>        }</div>
-<div class="line"><span class="lineno">   91</span>        cliente = cliente-&gt;proximo;</div>
-<div class="line"><span class="lineno">   92</span>    }</div>
-<div class="line"><span class="lineno">   93</span> </div>
-<div class="line"><span class="lineno">   94</span>    *inserido = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   95</span>    <span class="keywordflow">return</span> filaAlugueres;</div>
-<div class="line"><span class="lineno">   96</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   67</span>                                                                                                                      {</div>
+<div class="line"><span class="lineno">   68</span>    <a class="code hl_struct" href="struct_cliente.html">Cliente</a>* cliente = listaClientes;</div>
+<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">while</span> (cliente != NULL) {</div>
+<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">if</span> (cliente-&gt;nif == aluguer-&gt;idCliente){</div>
+<div class="line"><span class="lineno">   71</span>            <a class="code hl_struct" href="struct_meio.html">Meio</a>* meio = listaMeios;</div>
+<div class="line"><span class="lineno">   72</span>            <span class="keywordflow">while</span> (meio != NULL) {</div>
+<div class="line"><span class="lineno">   73</span>                <span class="keywordflow">if</span> (strcmp(meio-&gt;geocodigo, aluguer-&gt;geocodigoRecolha) == 0 &amp;&amp; strcmp(meio-&gt;tipo, aluguer-&gt;tipoMeio) == 0 &amp;&amp; !(meio-&gt;alugado) &amp;&amp; meio-&gt;autonomia &gt;= 50) {</div>
+<div class="line"><span class="lineno">   74</span>                    aluguer-&gt;idMeio = meio-&gt;codigo;</div>
+<div class="line"><span class="lineno">   75</span>                    meio-&gt;alugado = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   76</span> </div>
+<div class="line"><span class="lineno">   77</span>                    <span class="keywordflow">if</span> (filaAlugueres-&gt;inicio == NULL) {</div>
+<div class="line"><span class="lineno">   78</span>                        filaAlugueres-&gt;inicio = aluguer;</div>
+<div class="line"><span class="lineno">   79</span>                        filaAlugueres-&gt;fim = aluguer;</div>
+<div class="line"><span class="lineno">   80</span>                    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">   81</span>                        filaAlugueres-&gt;fim-&gt;proximo = aluguer;</div>
+<div class="line"><span class="lineno">   82</span>                        aluguer-&gt;anterior = filaAlugueres-&gt;fim;</div>
+<div class="line"><span class="lineno">   83</span>                        filaAlugueres-&gt;fim = aluguer;</div>
+<div class="line"><span class="lineno">   84</span>                    }</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>                    *inserido = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   87</span>                    <span class="keywordflow">return</span> filaAlugueres;</div>
+<div class="line"><span class="lineno">   88</span>                }</div>
+<div class="line"><span class="lineno">   89</span>                meio = meio-&gt;proximo;</div>
+<div class="line"><span class="lineno">   90</span>            }</div>
+<div class="line"><span class="lineno">   91</span>        }</div>
+<div class="line"><span class="lineno">   92</span>        cliente = cliente-&gt;proximo;</div>
+<div class="line"><span class="lineno">   93</span>    }</div>
+<div class="line"><span class="lineno">   94</span> </div>
+<div class="line"><span class="lineno">   95</span>    *inserido = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">return</span> filaAlugueres;</div>
+<div class="line"><span class="lineno">   97</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
