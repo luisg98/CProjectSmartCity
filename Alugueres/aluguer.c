@@ -139,7 +139,7 @@ void imprimirAlugueres(Fila* filaAlugueres) {
  * @param listaMeios 
  * @return int 
  */
-int devolverMeio(int idCliente, Grafo* grafo, char geocodigoEntrega[TAMANHO], Fila* filaAlugueres, Meio* listaMeios) {
+int devolverMeio(int idCliente, Grafo* grafo, char geocodigoEntrega[TAMANHO], Fila* filaAlugueres, Meio* listaMeios, int autonomia) {
     Aluguer* aluguer = filaAlugueres->inicio;
 
     while (aluguer != NULL) {
@@ -154,7 +154,8 @@ int devolverMeio(int idCliente, Grafo* grafo, char geocodigoEntrega[TAMANHO], Fi
             while (meio != NULL) {
                 if (meio->codigo == aluguer->idMeio) {
                     meio->alugado = false;
-                    meio->autonomia = 100;
+                    meio->autonomia = autonomia;
+                    strncpy(meio->geocodigo, geocodigoEntrega, TAMANHO);
                     break;
                 }
                 meio = meio->proximo;

@@ -136,100 +136,109 @@ Grafo* criarGrafo() {
     
     return grafo;
 }
-
 /**
- * @brief Importa um grafo de um ficheiro txt
+ * @brief Função para encontrar um ponto de recolha pelo geocódigo
  * 
- * @param filename 
- * @return Grafo* 
+ * @param grafo O grafo onde o ponto de recolha será procurado
+ * @param geocodigo O geocódigo do ponto de recolha a ser encontrado
+ * @return O ponteiro para o ponto de recolha encontrado, ou NULL se não for encontrado
  */
-Grafo* importarGrafo(const char* filename) {
-    FILE* file = fopen(filename, "r");
-    if (file == NULL) {
-        return NULL;
-    }
-    
-    Grafo* grafo = criarGrafo();
-    
-    char linha[SIZE];
-    while (fgets(linha, sizeof(linha), file)) {
-        // Remover o caractere de quebra de linha ('\n')
-        linha[strcspn(linha, "\n")] = '\0';
-
-        char* token = strtok(linha, ",");
-        
-        if (strcmp(token, "P") == 0) {
-            token = strtok(NULL, ",");
-            adicionarPontoRecolha(grafo, token);
-        } else if (strcmp(token, "A") == 0) {
-            token = strtok(NULL, ",");
-            PontoRecolha* origem = NULL;
-            PontoRecolha* destino = NULL;
-            int distancia;
-            
-            // Procura o ponto de recolha de origem
-            PontoRecolha* atual = grafo->pontosRecolha;
-            while (atual != NULL) {
-                if (strcmp(atual->geocodigo, token) == 0) {
-                    origem = atual;
-                    break;
-                }
-                atual = atual->proximo;
-            }
-            
-            token = strtok(NULL, ",");
-            
-            // Procura o ponto de recolha de destino
-            atual = grafo->pontosRecolha;
-            while (atual != NULL) {
-                if (strcmp(atual->geocodigo, token) == 0) {
-                    destino = atual;
-                    break;
-                }
-                atual = atual->proximo;
-            }
-            
-            token = strtok(NULL, ",");
-            distancia = atoi(token);
-            
-            if (origem != NULL && destino != NULL) {
-                adicionarAresta(grafo, origem, destino, distancia);
-            }
+PontoRecolha* encontrarPontoRecolha(Grafo* grafo, const char* geocodigo) {
+    PontoRecolha* pontoAtual = grafo->pontosRecolha;
+    while (pontoAtual != NULL) {
+        if (strcmp(pontoAtual->geocodigo, geocodigo) == 0) {
+            return pontoAtual;
         }
+        pontoAtual = pontoAtual->proximo;
     }
-    
-    fclose(file);
-    
-    return grafo;
+    return NULL;
 }
 
 
 
+/**
+ * @brief Função para importar os pontos de recolha de um arquivo de texto
+ * 
+ * @param grafo O grafo onde os pontos de recolha serão adicionados
+ * @param nomeArquivo O nome do arquivo de texto
+ * @return true se os pontos de recolha foram importados com sucesso, false caso contrário
+ */
+bool importarPontosRecolha(Grafo* grafo, const char* nomeArquivo) {
+    FILE* arquivo = fopen(nomeArquivo, "r");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return false;
+    }
+
+    char geocodigo[SIZE];
+    while (fgets(geocodigo, SIZE, arquivo) != NULL) {
+        // Remove a quebra de linha do final da string
+        geocodigo[strcspn(geocodigo, "\n")] = '\0';
+
+        if (!adicionarPontoRecolha(grafo, geocodigo)) {
+            printf("Erro ao adicionar o ponto de recolha: %s\n", geocodigo);
+        }
+    }
+
+    fclose(arquivo);
+    return true;
+}
+
+/**
+ * @brief Função para importar as arestas de um arquivo de texto
+ * 
+ * @param grafo O grafo onde as arestas serão adicionadas
+ * @param nomeArquivo O nome do arquivo de texto
+ * @return true se as arestas foram importadas com sucesso, false caso contrário
+ */
+bool importarArestas(Grafo* grafo, const char* nomeArquivo) {
+    FILE* arquivo = fopen(nomeArquivo, "r");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return false;
+    }
+
+    char geocodigoInicio[SIZE];
+    char geocodigoFim[SIZE];
+    int distancia;
+    while (fscanf(arquivo, "%s %s %d", geocodigoInicio, geocodigoFim, &distancia) == 3) {
+        PontoRecolha* inicio = encontrarPontoRecolha(grafo, geocodigoInicio);
+        PontoRecolha* fim = encontrarPontoRecolha(grafo, geocodigoFim);
+
+        if (inicio == NULL || fim == NULL) {
+            printf("Erro ao encontrar os pontos de recolha: %s, %s\n", geocodigoInicio, geocodigoFim);
+        } else {
+            if (!adicionarAresta(grafo, inicio, fim, distancia)) {
+                printf("Erro ao adicionar a aresta: %s - %s\n", geocodigoInicio, geocodigoFim);
+            }
+        }
+    }
+
+    fclose(arquivo);
+    return true;
+}
+
+
+/**
+ * @brief Função para imprimir o grafo
+ * 
+ * @param grafo O grafo a ser impresso
+ */
 void imprimirGrafo(Grafo* grafo) {
     PontoRecolha* pontoAtual = grafo->pontosRecolha;
-
-    printf("Grafo:\n");
-    printf("------\n");
-
     while (pontoAtual != NULL) {
         printf("Ponto de Recolha: %s\n", pontoAtual->geocodigo);
-
+        
         Aresta* arestaAtual = pontoAtual->adjacencia;
-        if (arestaAtual != NULL) {
-            printf("Adjacências:\n");
-
-            while (arestaAtual != NULL) {
-                printf("%s --(%d km)--> %s\n", pontoAtual->geocodigo, arestaAtual->distancia, arestaAtual->destino->geocodigo);
-                arestaAtual = arestaAtual->proximo;
-            }
-        } else {
-            printf("Sem adjacências\n");
+        while (arestaAtual != NULL) {
+            printf("    Aresta: %s - %s, Distância: %d\n", pontoAtual->geocodigo, arestaAtual->destino->geocodigo, arestaAtual->distancia);
+            arestaAtual = arestaAtual->proximo;
         }
 
-        printf("\n");
         pontoAtual = pontoAtual->proximo;
     }
 }
+
 
 void imprimirMatrizAdjacencias(Grafo* grafo) {
     PontoRecolha* pontoAtual = grafo->pontosRecolha;
@@ -370,44 +379,135 @@ int calcularDistancia(Grafo* grafo, char geocodigo1[], char geocodigo2[]) {
 }
 
 
-
-bool guardarGrafo(const char* filename, Grafo* grafo) {
-    FILE* file = fopen(filename, "wb");
-    if (file == NULL) {
+/**
+ * @brief Função para guardar os pontos de recolha em formato binário
+ * 
+ * @param grafo O grafo contendo os pontos de recolha a serem salvos
+ * @param nomeArquivo O nome do arquivo binário para salvar os pontos de recolha
+ * @return true se os pontos de recolha foram salvos com sucesso, false caso contrário
+ */
+bool guardarPontosRecolha(Grafo* grafo, const char* nomeArquivo) {
+    FILE* arquivo = fopen(nomeArquivo, "wb");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
         return false;
     }
 
-    fwrite(&(grafo->numPontosRecolha), sizeof(int), 1, file);
-
     PontoRecolha* pontoAtual = grafo->pontosRecolha;
     while (pontoAtual != NULL) {
-        int tamanhoGeocodigo = strlen(pontoAtual->geocodigo);
-        fwrite(&tamanhoGeocodigo, sizeof(int), 1, file);
-        fwrite(pontoAtual->geocodigo, sizeof(char), tamanhoGeocodigo, file);
-
-        int numAdjacencias = 0;
-        Aresta* arestaAtual = pontoAtual->adjacencia;
-        while (arestaAtual != NULL) {
-            numAdjacencias++;
-            arestaAtual = arestaAtual->proximo;
+        if (fwrite(pontoAtual, sizeof(PontoRecolha), 1, arquivo) != 1) {
+            printf("Erro ao escrever os pontos de recolha no arquivo.\n");
+            fclose(arquivo);
+            return false;
         }
-        fwrite(&numAdjacencias, sizeof(int), 1, file);
-
-        arestaAtual = pontoAtual->adjacencia;
-        while (arestaAtual != NULL) {
-            int tamanhoGeocodigoDestino = strlen(arestaAtual->destino->geocodigo);
-            fwrite(&tamanhoGeocodigoDestino, sizeof(int), 1, file);
-            fwrite(arestaAtual->destino->geocodigo, sizeof(char), tamanhoGeocodigoDestino, file);
-
-            fwrite(&(arestaAtual->distancia), sizeof(int), 1, file);
-
-            arestaAtual = arestaAtual->proximo;
-        }
-
         pontoAtual = pontoAtual->proximo;
     }
 
-    fclose(file);
+    fclose(arquivo);
     return true;
 }
 
+/**
+ * @brief Função para carregar os pontos de recolha a partir de um arquivo binário
+ * 
+ * @param grafo O grafo onde os pontos de recolha serão carregados
+ * @param nomeArquivo O nome do arquivo binário contendo os pontos de recolha
+ * @return true se os pontos de recolha foram carregados com sucesso, false caso contrário
+ */
+bool carregarPontosRecolha(Grafo* grafo, const char* nomeArquivo) {
+    FILE* arquivo = fopen(nomeArquivo, "rb");
+    if (arquivo == NULL) {
+        return false;
+    }
+
+    PontoRecolha ponto;
+    while (fread(&ponto, sizeof(PontoRecolha), 1, arquivo) == 1) {
+        PontoRecolha* novoPonto = criarPontoRecolha(ponto.geocodigo);
+        if (novoPonto == NULL) {
+            fclose(arquivo);
+            return false;
+        }
+
+        if (grafo->pontosRecolha == NULL) {
+            grafo->pontosRecolha = novoPonto;
+        } else {
+            PontoRecolha* atual = grafo->pontosRecolha;
+            while (atual->proximo != NULL) {
+                atual = atual->proximo;
+            }
+            atual->proximo = novoPonto;
+        }
+
+        grafo->numPontosRecolha++;
+    }
+
+    fclose(arquivo);
+    return true;
+}
+
+/**
+ * @brief Função para guardar as arestas em um arquivo binário
+ * 
+ * @param grafo O grafo contendo as arestas a serem guardadas
+ * @param nomeArquivo O nome do arquivo binário onde as arestas serão guardadas
+ * @return true se as arestas foram guardadas com sucesso, false caso contrário
+ */
+bool guardarArestas(Grafo* grafo, const char* nomeArquivo) {
+    FILE* arquivo = fopen(nomeArquivo, "wb");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return false;
+    }
+
+    PontoRecolha* pontoAtual = grafo->pontosRecolha;
+    while (pontoAtual != NULL) {
+        Aresta* arestaAtual = pontoAtual->adjacencia;
+        while (arestaAtual != NULL) {
+            fwrite(pontoAtual->geocodigo, sizeof(char), SIZE, arquivo);
+            fwrite(arestaAtual->destino->geocodigo, sizeof(char), SIZE, arquivo);
+            fwrite(&arestaAtual->distancia, sizeof(int), 1, arquivo);
+            arestaAtual = arestaAtual->proximo;
+        }
+        pontoAtual = pontoAtual->proximo;
+    }
+
+    fclose(arquivo);
+    return true;
+}
+
+
+/**
+ * @brief Função para carregar as arestas de um arquivo binário
+ * 
+ * @param grafo O grafo onde as arestas serão carregadas
+ * @param nomeArquivo O nome do arquivo binário contendo as arestas
+ * @return true se as arestas foram carregadas com sucesso, false caso contrário
+ */
+bool carregarArestas(Grafo* grafo, const char* nomeArquivo) {
+    FILE* arquivo = fopen(nomeArquivo, "rb");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return false;
+    }
+
+    char geocodigoInicio[SIZE];
+    char geocodigoFim[SIZE];
+    int distancia;
+    while (fread(geocodigoInicio, sizeof(char), SIZE, arquivo) == SIZE &&
+           fread(geocodigoFim, sizeof(char), SIZE, arquivo) == SIZE &&
+           fread(&distancia, sizeof(int), 1, arquivo) == 1) {
+        PontoRecolha* inicio = encontrarPontoRecolha(grafo, geocodigoInicio);
+        PontoRecolha* fim = encontrarPontoRecolha(grafo, geocodigoFim);
+
+        if (inicio == NULL || fim == NULL) {
+            printf("Erro ao encontrar os pontos de recolha: %s, %s\n", geocodigoInicio, geocodigoFim);
+        } else {
+            if (!adicionarAresta(grafo, inicio, fim, distancia)) {
+                printf("Erro ao adicionar a aresta: %s - %s\n", geocodigoInicio, geocodigoFim);
+            }
+        }
+    }
+
+    fclose(arquivo);
+    return true;
+}

@@ -1,4 +1,4 @@
-1,Bicicleta,polo.de.braga
+1,Bicicleta, polo.de.braga
 2,Trotinete,polo.de.guimaraes
 4,Trotinete,polo.de.famalicao
 5,Bicicleta,polo.de.braga
@@ -9,3 +9,4 @@
 12,Trotinete,polo.de.famalicao
 13,Bicicleta,polo.de.braga
 14,Trotinete,polo.de.guimaraes
+15,Trotinete,polo.de.barcelos

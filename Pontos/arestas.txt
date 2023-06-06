@@ -1,0 +1,14 @@
+polo.de.braga polo.de.barcelos 20
+polo.de.braga polo.de.famalicao 30
+polo.de.braga polo.de.guimaraes 25
+polo.de.barcelos polo.de.esposende 10
+polo.de.barcelos polo.de.famalicao 20
+polo.de.barcelos polo.de.braga 20
+polo.de.famalicao polo.de.guimaraes 25
+polo.de.famalicao polo.de.barcelos 30
+polo.de.famalicao polo.de.braga 30
+polo.de.famalicao polo.de.esposende 35
+polo.de.esposende polo.de.famalicao 35
+polo.de.esposende polo.de.barcelos 10
+polo.de.guimaraes polo.de.braga 25
+polo.de.guimaraes polo.de.famalicao 25

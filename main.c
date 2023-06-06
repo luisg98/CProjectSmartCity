@@ -25,16 +25,21 @@
 int main(){
 
     bool result;
-
-    //Meio* listaMeios = importarMeios("Meios/meios.txt");
+    /*INPUT A PARTIR DE FICHEIROS TXT*/
+    Meio* listaMeios = importarMeios("Meios/meios.txt");
     //PtrCliente listaClientes = importarClientes("Clientes/clientes.txt");
     //Gestor * listaGestores = importarGestores("Gestores/gestores.txt");
     //Grafo* grafo = importarGrafo("Pontos/pontos.txt");
-    Meio* listaMeios = carregarMeios("Meios/meios.bin");
+    //result = importarPontosRecolha(grafo, "Pontos/pontos.txt");
+    //result = importarArestas(grafo, "Pontos/arestas.txt");
+    
+    //Meio* listaMeios = carregarMeios("Meios/meios.bin");
     PtrCliente listaClientes = carregarClientes("Clientes/clientes.bin");
-    //Gestor* listaGestores = carregarGestores("Gestores/gestores.bin");
-    //Grafo *grafo = carregarGrafo("Pontos/grafo.bin");
-    //grafo-> pontosRecolha = carregarPontosRecolha("Pontos/pontos.bin");
+    Gestor* listaGestores = carregarGestores("Gestores/gestores.bin");
+    Grafo* grafo = criarGrafo();
+    result = carregarPontosRecolha(grafo, "Pontos/pontos.bin");
+    result = carregarArestas(grafo, "Pontos/arestas.bin");
+
     Fila* filaAlugueres = importarAlugueres("Alugueres/aluguer.txt", listaMeios, listaClientes);
     //Fila* filaAlugueres = carregarAlugueres("Alugueres/aluguer.bin", listaMeios, listaClientes);
    
@@ -43,22 +48,25 @@ int main(){
     //imprimirGestores(listaGestores);
     //imprimirGrafo(grafo);
     //imprimirMatrizAdjacencias(grafo);
-     imprimirAlugueres(filaAlugueres);
-    //devolverMeio(123456789, grafo, "polo.de.barcelos", filaAlugueres, listaMeios);
-    //imprimirAlugueres(filaAlugueres);
+    imprimirAlugueres(filaAlugueres);
+    devolverMeio(123456789, grafo, "polo.de.barcelos", filaAlugueres, listaMeios, 0);
+    devolverMeio(987654321, grafo, "polo.de.guimaraes", filaAlugueres, listaMeios, 0);
+    imprimirAlugueres(filaAlugueres);
 
+    PontoRecolha * pontoInicial = encontrarPontoRecolha(grafo, "polo.de.braga");
+    Rota * melhorRota = encontrarMelhorRota(listaMeios, pontoInicial, grafo);
+    imprimirRota(melhorRota);
     
     bool v;
     v = guardarMeios("Meios/meios.bin", listaMeios);
     printf("Meios guardados com sucesso: %d\n", v);
     v = guardarClientes("Clientes/clientes.bin", listaClientes);
     printf("Clientes guardados com sucesso: %d\n", v);
-    //v = guardarGestores("Gestores/gestores.bin", listaGestores);
-    //printf("Gestores guardados com sucesso: %d\n", v);
-    //v = guardarGrafo("Pontos/grafo.bin", grafo);
-    //printf("Grafo guardado com sucesso: %d\n", v);
-    //v = guardarPontosRecolha("Pontos/pontos.bin", grafo->pontosRecolha);
-    //printf("Pontos de Recolha guardados com sucesso: %d\n", v);
+    v = guardarGestores("Gestores/gestores.bin", listaGestores);
+    printf("Gestores guardados com sucesso: %d\n", v);
+    v = guardarPontosRecolha(grafo, "Pontos/pontos.bin");
+    v = guardarArestas(grafo, "Pontos/arestas.bin");
+    printf("Pontos de Recolha guardados com sucesso: %d\n", v);
     //v = guardarAlugueres("Alugueres/aluguer.bin", filaAlugueres);
     //printf("Alugueres guardados com sucesso: %d\n", v);
 

@@ -45,18 +45,18 @@ bool adicionarPontoRecolha(Grafo* grafo, char geocodigo[]);
 Aresta* criarAresta(PontoRecolha* inicio, PontoRecolha* fim, int distancia);
 bool adicionarAresta(Grafo* grafo, PontoRecolha* inicio, PontoRecolha* fim, int distancia);
 bool libertarGrafo(Grafo* grafo);
-Grafo* importarGrafo(const char* filename);
 Grafo* criarGrafo();
+bool importarPontosRecolha(Grafo* grafo, const char* nomeArquivo);
+bool importarArestas(Grafo* grafo, const char* nomeArquivo);
 void imprimirGrafo(Grafo* grafo);
 void imprimirMatrizAdjacencias(Grafo* grafo);
-bool guardarGrafo(const char* filename, Grafo* grafo);
-Grafo* carregarGrafo(const char* filename);
-PontoRecolha* carregarPontosRecolha(const char* filename);
-bool guardarPontosRecolha(const char* filename, PontoRecolha* pontosRecolha);
+bool carregarArestas(Grafo* grafo, const char* nomeArquivo);
+bool guardarPontosRecolha(Grafo* grafo, const char* nomeArquivo);
 PontoRecolha* converteGeocodigoPontoRecolha(Grafo* grafo, const char* geocodigo);
-PontoRecolha* carregarPontosRecolha(const char* filename);
+bool carregarPontosRecolha(Grafo* grafo, const char* nomeArquivo);
 int calcularDistancia(Grafo* grafo, char geocodigo1[], char geocodigo2[]);
-
+bool guardarArestas(Grafo* grafo, const char* nomeArquivo);
+PontoRecolha* encontrarPontoRecolha(Grafo* grafo, const char* geocodigo);
 
 
 #endif
