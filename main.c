@@ -45,11 +45,11 @@ int main(){
     //imprimirMeios(listaMeios);
     //imprimirClientes(listaClientes);
     //imprimirGestores(listaGestores);
-    //imprimirGrafo(grafo);
-    //imprimirMatrizAdjacencias(grafo);
+    imprimirGrafo(grafo);
+    imprimirMatrizAdjacencias(grafo);
     imprimirAlugueres(filaAlugueres);
-    devolverMeio(123456789, grafo, "polo.de.barcelos", filaAlugueres, listaMeios, 0);
-    devolverMeio(987654321, grafo, "polo.de.guimaraes", filaAlugueres, listaMeios, 0);
+    devolverMeio(123456789, grafo, "polo.de.barcelos", filaAlugueres, listaMeios, listaClientes, 0);
+    devolverMeio(987654321, grafo, "polo.de.guimaraes", filaAlugueres, listaMeios, listaClientes, 0);
     imprimirAlugueres(filaAlugueres);
 
     PontoRecolha * pontoInicial = encontrarPontoRecolha(grafo, "polo.de.braga");
@@ -58,16 +58,17 @@ int main(){
     
     bool v;
     v = guardarMeios("Meios/meios.bin", listaMeios);
-    printf("Meios guardados com sucesso: %d\n", v);
+    //printf("Meios guardados com sucesso: %d\n", v);
     v = guardarClientes("Clientes/clientes.bin", listaClientes);
-    printf("Clientes guardados com sucesso: %d\n", v);
+    //printf("Clientes guardados com sucesso: %d\n", v);
     v = guardarGestores("Gestores/gestores.bin", listaGestores);
-    printf("Gestores guardados com sucesso: %d\n", v);
+    //printf("Gestores guardados com sucesso: %d\n", v);
     v = guardarPontosRecolha(grafo, "Pontos/pontos.bin");
     v = guardarArestas(grafo, "Pontos/arestas.bin");
-    printf("Pontos de Recolha guardados com sucesso: %d\n", v);
+    //printf("Pontos de Recolha guardados com sucesso: %d\n", v);
     v = guardarAlugueres("Alugueres/aluguer.bin", filaAlugueres);
-    printf("Alugueres guardados com sucesso: %d\n", v);
+    //printf("Alugueres guardados com sucesso: %d\n", v);
+
 
 
     return 0;

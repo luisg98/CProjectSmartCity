@@ -472,7 +472,6 @@ bool carregarPontosRecolha(Grafo* grafo, const char* nomeArquivo) {
 bool guardarArestas(Grafo* grafo, const char* nomeArquivo) {
     FILE* arquivo = fopen(nomeArquivo, "wb");
     if (arquivo == NULL) {
-        printf("Erro ao abrir o arquivo.\n");
         return false;
     }
 

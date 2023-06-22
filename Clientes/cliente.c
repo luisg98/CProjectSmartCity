@@ -268,3 +268,20 @@ PtrCliente carregarClientes(char *filename) {
     return listaClientes;
 }
 
+Cliente* getCliente(unsigned int idCliente, Cliente * clientes){
+    
+    Cliente * aux = clientes;
+
+    while (aux != NULL) {
+
+        if (aux->nif == idCliente) {
+            return aux;
+        }
+
+        aux = aux->proximo;
+    }
+    
+    return clientes;
+
+    
+} 

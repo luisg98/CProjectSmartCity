@@ -31,6 +31,7 @@ PtrCliente carregarSaldoCliente(PtrCliente clientes, unsigned int nif, double ca
 PtrCliente importarClientes(char *filename);
 PtrCliente carregarClientes(char *filename);
 bool guardarClientes(char *filename, PtrCliente clientes);
+Cliente* getCliente(unsigned int idCliente, Cliente * clientes);
 
 
 

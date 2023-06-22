@@ -70,7 +70,7 @@ Fila* inserirAluguer(Fila* filaAlugueres, Aluguer* aluguer, Meio* listaMeios, Cl
         if (cliente->nif == aluguer->idCliente){
             Meio* meio = listaMeios;
             while (meio != NULL) {
-                if (strcmp(meio->geocodigo, aluguer->geocodigoRecolha) == 0 && strcmp(meio->tipo, aluguer->tipoMeio) == 0 && !(meio->alugado) && meio->autonomia >= 50) {
+                if (strcmp(meio->geocodigo, aluguer->geocodigoRecolha) == 0 && strcmp(meio->tipo, aluguer->tipoMeio) == 0 && !(meio->alugado) && meio->autonomia >= 50 && cliente->saldo >= 0) {
                     aluguer->idMeio = meio->codigo;
                     meio->alugado = true;
 
@@ -139,16 +139,16 @@ void imprimirAlugueres(Fila* filaAlugueres) {
  * @param listaMeios 
  * @return int 
  */
-int devolverMeio(int idCliente, Grafo* grafo, char geocodigoEntrega[TAMANHO], Fila* filaAlugueres, Meio* listaMeios, int autonomia) {
+int devolverMeio(int idCliente, Grafo* grafo, char geocodigoEntrega[TAMANHO], Fila* filaAlugueres, Meio* listaMeios, Cliente * listaClientes, int autonomia) {
     Aluguer* aluguer = filaAlugueres->inicio;
-
     while (aluguer != NULL) {
         if (aluguer->idCliente == idCliente) {
             aluguer->dataEntrega = getDate();
             strncpy(aluguer->geocodigoEntrega, geocodigoEntrega, TAMANHO);
             aluguer->custo = (diferencaEntreDatas(aluguer->dataEntrega, aluguer->dataRecolha)+ TAXA_DIARIA * 1 +
                               calcularDistancia(grafo, geocodigoEntrega, aluguer->geocodigoRecolha) * TAXA_KM);
-
+            //Cliente * cliente = getCliente(idCliente, listaClientes);
+            //cliente->saldo -= aluguer->custo;
             Meio* meio = listaMeios;
             while (meio != NULL) {
                 if (meio->codigo == aluguer->idMeio) {

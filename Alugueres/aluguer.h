@@ -48,5 +48,5 @@ void imprimirAlugueres(Fila* filaAlugueres);
 bool guardarAlugueres(const char* filename, Fila* filaAlugueres);
 Fila* carregarAlugueres(const char* filename);
 int diferencaEntreDatas(Data data1, Data data2);
-int devolverMeio(int idCliente,Grafo * grafo, char geocodigoEntrega[TAMANHO],  Fila* filaAlugueres, Meio* listaMeios, int autonomia);
+int devolverMeio(int idCliente,Grafo * grafo, char geocodigoEntrega[TAMANHO],  Fila* filaAlugueres, Meio* listaMeios, Cliente* listaClientes, int autonomia);
 #endif
