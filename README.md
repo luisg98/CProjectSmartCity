@@ -1,5 +1,3 @@
-# CProjectSmartCity
-Repositório do projeto de software de gestão de meios de mobilidade numa smartcity
+# Smart City Mobility Management
 
-Por Luís Gonçalves 
-No âmbito da UC de Estruturas de Dados Avançados
+C implementation of a mobility fleet management system for a smart city context. Final project for the Advanced Data Structures course.
